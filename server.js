@@ -12,9 +12,20 @@ const morgan     = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
-const db = new Pool(dbParams);
-db.connect();
+//const dbParams = require('./lib/db.js');
+const db = new Pool(
+  {
+  user: "labber",
+  password: "labber",
+  host: "localhost",
+  database: "midterm",
+  }
+);
+db.connect().then(()=>{
+  console.log('connected')
+}).catch((err)=>{
+  console.log(err);
+});
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.

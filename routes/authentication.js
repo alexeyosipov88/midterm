@@ -23,40 +23,33 @@ module.exports = (db) =>  {
   //   });
   // }
   // exports.login = login;
-  //checking if user is already registered in our database
-const isUser = function (email, password) {
-  const vars = [email, password];
-  db.query('SELECT id FROM users WHERE name = $1 AND password = $2', vars).then((user)=>{
-    return user;
-  })
-};
 
-  router.get('/register', (res,req)=> {
-     res.render('register.ejs');
-        //res.send('Hello');
-  })
 
-  router.post('/register', (res,req)=>{
+  router.get("/register", (req, res) => {
+    res.render("register");
+    //res.send('Hello');
+  });
+
+  router.post("/register", (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-
-    isUser(email,password)
-    .then((user) => {
-      if(user){
-        console.log(user);
-        res.redirect('./login');
+    const vars = [name, email, password];
+    console.log(vars);
+    //checking if user exists
+    db.query(`SELECT id FROM users WHERE email = '${email}'`).then((user) => {
+      console.log(user.rows);
+      if (user) {
+        res.redirect("./login");
       }
-    })
-    const vars = [name, email, password]
-    db.query('INSERT INTO users(name, email, password) VALUES ($1, $2, $3) RETURNING', vars)
-    .then((user)=>{
-      console.log(user);
-    })
-
-
-
-  })
+    });
+    //add user if userid do not exists in our database
+    db.query(
+      `INSERT INTO users (name, email, password) VALUES( '${name}', '${email}', '${password}' ) RETURNING *`
+    ).then((user) => {
+      console.log(user.rows);
+    });
+  });
 
   return router;
 }
