@@ -32,8 +32,8 @@ const isUser = function (email, password) {
 };
 
   router.get('/register', (res,req)=> {
-    // res.render('register.ejs');
-        res.send('Hello');
+     res.render('register.ejs');
+        //res.send('Hello');
   })
 
   router.post('/register', (res,req)=>{
