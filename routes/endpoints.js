@@ -21,7 +21,7 @@
 // POST '/items/:userID'
 // GET '/items/:userID/favourites' /* GET for browsing favourite items of the user*/
 // GET '/items/:userID/post' /* GET and POST for putting and item for sale */
-// POST '/items/:userID/post'
+// POST '/items/:userID/post' REDIRECT to seller's listings
 // POST '/items/:userID/delete' /* POST for  deleting and item*/
 // GET '/messages' /* GET and POST for browsing and sending messages */
 // POST '/messages'
