@@ -1,4 +1,7 @@
-
+const express = require('express');
+const dbParams = require('../lib/db');
+const router  = express.Router();
+const database = require('./database');
 
 // /users routes
 
@@ -9,7 +12,6 @@
 // POST '/logout'
 
 // /widgets routes
-
 // GET '/' /* GET for browsing featured items */
 // GET '/items' /* GET for browsing all or filtered items*/
 // GET '/items/filter' /* GET and POST for filterting itemes, redirects to ''/
@@ -25,3 +27,11 @@
 // POST '/items/:userID/delete' /* POST for  deleting and item*/
 // GET '/messages' /* GET and POST for browsing and sending messages */
 // POST '/messages'
+module.exports = (db) => {
+
+  router.get('/', (req,res)=>{
+    res.render("landing");
+  })
+
+return router;
+}
