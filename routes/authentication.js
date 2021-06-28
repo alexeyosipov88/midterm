@@ -36,12 +36,12 @@ module.exports = (db) =>  {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-    const vars = [name, email, password];
-    console.log(vars);
+    // const vars = [name, email, password];
+    // console.log(vars);
     //checking if user exists
     db.query(`SELECT id FROM users WHERE email = '${email}'`).then((user) => {
       console.log("User exists", user.rows);
-      if (!user.rows) {
+      if (user.rows === false) {
         //add user if userid do not exists in our database
         db.query(
           `INSERT INTO users(name, email,password) VALUES ('${name}','${email}','${password}') RETURNING * `
@@ -59,7 +59,14 @@ module.exports = (db) =>  {
   })
 
   router.post("/login", (req,res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    //check if credentials match or not
+    db.query(`SELECT name FROM users WHERE email = '${email} AND password = '${password}'`)
+    .then((user)=>{
 
+    })
+    //if not give a html saying wrong credentials for now
   })
   return router;
 }
