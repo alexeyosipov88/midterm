@@ -1,9 +1,104 @@
 // See: https://sass-lang.com/
 
-body {
-  background-color: #EEE;
-
-  h1 {
-    color: #244751;
-  }
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+ html {
+  box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: #3D405B;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+
+/*Tablet styles */
+
+// @media only screen and (min-width: 328px) and (max-width: 1023px) {
+//   .topnav {
+//     background-color: #F2CC8F;
+//   }
+
+//   .container {
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: column;
+//     margin: auto;
+//     width: 100%;
+//   }
+
+//   .header {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 120px;
+//     height: 380px;
+//     width: 100%;
+//   }
+
+//   .header-container {
+//     width: 100%;
+//   }
+
+//   .new-tweet h2 {
+//     margin-bottom: 0px;
+//   }
+// }
+
+// /* Desktop styles */
+// @media only screen and (min-width: 1024px) {
+//   .body {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     width: 100%;
+//   }
+
+//   .topnav {
+//     background-color: #4056A1;
+//   }
+
+//   .container {
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: row;
+//     width: 100%;
+//     margin-top: 200px;
+//     /* margin-right: 5em;
+//     margin-left: 5em; */
+//   }
+
+//   .header {
+//     width: 50%;
+//     display: flex;
+//     justify-content: center;
+//   }
+
+//   .header-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     height: 380px;
+//     width: 80%;
+//   }
+
+//   .bottom_nav_bar {
+//     color: black;
+//   }
+// }
+
