@@ -1,28 +1,9 @@
-// const properties = require('./json/properties.json');
-// const users = require('./json/users.json');
-// const { Pool } = require('pg');
-//   const args = process.argv.slice(2);
-//   const pool = new Pool({
-//     user: 'vagrant',
-//     password: '123',
-//     host: 'localhost',
-//     database: 'lightbnb'
-//   });
 
-
-const { Pool } = require('pg');
-const dbParams = require('../lib/db');
-const pool = new Pool(
-  dbParams
-);
-
-
-const getAllusers = function () {
-  return pool
-    .query(`SELECT *
+const getAllusers = function (db) {
+  return db.query(`SELECT *
   FROM users`)
     .then((result) => {
-      return result.rows[0];
+      return result;
     })
     .catch(err => {
       res
@@ -30,15 +11,13 @@ const getAllusers = function () {
         .json({ error: err.message });
     });
 }
-exports.getAllusers = getAllusers;
 
-const getUserWithEmail = function (email) {
-  return pool
-    .query(`SELECT *
+const getUserWithEmail = function (db, email) {
+  return db.query(`SELECT *
   FROM users
   WHERE email = $1`, [email])
     .then((result) => {
-      return result.rows[0];
+      return result;
     })
     .catch(err => {
       res
@@ -46,22 +25,20 @@ const getUserWithEmail = function (email) {
         .json({ error: err.message });
     });
 }
-exports.getUserWithEmail = getUserWithEmail;
 
 
-const addUser = function (user) {
+const addUser = function (db, user) {
   const name = user.name;
   const email = user.email;
   const password = user.password;
   const phone_number = user.phone_number;
   const city = user.city;
   const province = user.province;
-  return pool
-    .query(`INSERT INTO users (name, email, password, phone_number, city, province)
+  return db.query(`INSERT INTO users (name, email, password, phone_number, city, province)
   VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING *;`, [name, email, password, phone_number, city, province])
     .then((result) => {
-      return result.rows[0];
+      return result;
     })
     .catch(err => {
       res
@@ -69,17 +46,13 @@ const addUser = function (user) {
         .json({ error: err.message });
     });
 }
-exports.addUser = addUser;
 
-
-
-const getFavourites = function (user_id) {
-  return pool
-    .query(`SELECT *
+const getFavourites = function (db, user_id) {
+  return db.query(`SELECT *
   FROM favourites
   WHERE user_id = $1`, [user_id])
     .then((result) => {
-      return result.rows[0];
+      return result;
     })
     .catch(err => {
       res
@@ -87,10 +60,22 @@ const getFavourites = function (user_id) {
         .json({ error: err.message });
     });
 }
-exports.getFavourites = getFavourites;
 
+const getMessages = function (db, user_id) {
+  return db.query(`SELECT *
+  FROM messages
+  WHERE user_id = $1`, [user_id])
+    .then((result) => {
+      return result;
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+}
 
-const getByFilter = function (options, limit = 10) {
+const getByFilter = function (db, options, limit = 10) {
   // 1
   const queryParams = [];
   // 2
@@ -148,12 +133,10 @@ const getByFilter = function (options, limit = 10) {
   console.log(queryString, queryParams);
 
   // 6
-  return pool.query(queryString, queryParams).then((res) => res.rows);
+  return db.query(queryString, queryParams).then((res) => res);
 };
-exports.getByFilter = getByFilter;
 
-
-const addListing = function (listing) {
+const addListing = function (db, listing) {
   const name = listing.name;
   const price = listing.price;
   const description = listing.description;
@@ -163,8 +146,7 @@ const addListing = function (listing) {
   const animal_id = listing_animal_id;
   const category_id = listing_category_id;
 
-  return pool
-    .query(`INSERT INTO listing (name, price, description, photo, created_at, user_id,  animal_id, category_id)
+  return db.query(`INSERT INTO listing (name, price, description, photo, created_at, user_id,  animal_id, category_id)
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
   RETURNING *;`, [name, price, description, photo, created_at, user_id, animal_id, category_id])
     .then((result) => {
@@ -176,9 +158,9 @@ const addListing = function (listing) {
         .json({ error: err.message });
     });
 }
-exports.addListing = addListing;
 
 
+module.exports = {getAllusers, getMessages, getUserWithEmail, addUser, getFavourites, getByFilter, addListing, }
 
 
 
