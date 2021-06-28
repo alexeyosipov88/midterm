@@ -15,18 +15,6 @@ users = {
 */
 
 module.exports = (db) =>  {
-  // const login =  function(email, password) {
-  //   return database.getUserWithEmail(email)
-  //   .then(user => {
-  //     if (bcrypt.compareSync(password, user.password)) {
-  //       return user;
-  //     }
-  //     return null;
-  //   });
-  // }
-  // exports.login = login;
-
-
   router.get("/register", (req, res) => {
     res.render("register");
     //res.send('Hello');
@@ -62,17 +50,32 @@ module.exports = (db) =>  {
     const email = req.body.email;
     const password = req.body.password;
     //check if credentials match or not
-    db.query(`SELECT name FROM users WHERE email = '${email} AND password = '${password}'`)
+    db.query(`SELECT id,email, password FROM users WHERE email = '${email}' AND password = '${password}'`)
     .then((user)=>{
-      //if not give a html saying wrong credentials for now
-        console.log(user);
-        if(user === null)
+      //check if it has some value
+      if(user.rows === 'undefined')
+      {
+        console.log("I am inside the first if statement");
+        return res.send("credentials do not match");
+      }
+        //console.log(user);
+        // console.log(user.rows);
+        // console.log(user.rows[0].name);
+        const userEmailFromDatabase = user.rows[0].email ;
+        const userPasswordFromDatabase = user.rows[0].password ;
+        if(userEmailFromDatabase !== email || userPasswordFromDatabase !== password)
         {
-          res.send("credentials do not match");
+          return res.send("credentials do not match");
         }
-        console.log(user.rows);
-        return user.rows;
+
+        return res.redirect("/urls");
     })
   })
+
+  router.get('/logout', (req,res) => {
+    res.redirect('/login');
+  })
+
+
   return router;
 }
