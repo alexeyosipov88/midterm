@@ -2,7 +2,7 @@
 const express = require('express');
 const dbParams = require('../lib/db');
 const router  = express.Router();
-const database = require('./database');
+const {getUserIdwithEmail, addNewUser, login} = require('./database');
 /*
 users = {
           user_id:
@@ -14,7 +14,7 @@ users = {
 }
 */
 
-module.exports = (db) =>  {
+module.exports = (db, ) =>  {
   router.get("/register", (req, res) => {
     res.render("register");
     //res.send('Hello');
@@ -27,13 +27,11 @@ module.exports = (db) =>  {
     // const vars = [name, email, password];
     // console.log(vars);
     //checking if user exists
-    db.query(`SELECT id FROM users WHERE email = '${email}'`).then((user) => {
+    getUserIdwithEmail(email, db).then((user) => {
      // console.log("User exists", user.rows);
       if (user.rows === false) {
         //add user if userid do not exists in our database
-        db.query(
-          `INSERT INTO users(name, email,password) VALUES ('${name}','${email}','${password}') RETURNING * `
-        ).then((user) => {
+        addNewUser(name, email, password, db).then((user) => {
   //        console.log("User added", user.rows);
           return user.rows;
         });
@@ -50,7 +48,7 @@ module.exports = (db) =>  {
     const email = req.body.email;
     const password = req.body.password;
     //check if credentials match or not
-    db.query(`SELECT id,email, password FROM users WHERE email = '${email}' AND password = '${password}'`)
+    login(email, password, db)
     .then((user)=>{
       //check if it has some value
       if(user.rows === 'undefined')
