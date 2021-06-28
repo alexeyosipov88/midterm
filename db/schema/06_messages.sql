@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS messages CASCADE;
 
-CREATE TABLE messages {
+CREATE TABLE messages (
   id INTEGER PRIMARY KEY NOT NULL,
-  content TEXT
+  content TEXT,
   created_at TIMESTAMP,
   receiver_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   listing_id INTEGER REFERENCES listings(id) ON DELETE CASCADE
-}
+)
