@@ -73,7 +73,7 @@ module.exports = (db) =>  {
   })
 
   router.get('/logout', (req,res) => {
-    res.redirect('/login');
+    res.redirect('/');
   })
 
 

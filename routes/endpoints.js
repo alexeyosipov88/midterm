@@ -27,11 +27,12 @@ const database = require('./database');
 // POST '/items/:userID/delete' /* POST for  deleting and item*/
 // GET '/messages' /* GET and POST for browsing and sending messages */
 // POST '/messages'
-module.exports = (db) => {
 
-  router.get('/', (req,res)=>{
-    res.render("landing");
-  })
+// module.exports = (db) => {
 
-return router;
-}
+//   router.get('/', (req,res)=>{
+//     res.render("landing");
+//   })
+
+// return router;
+// }
