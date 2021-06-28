@@ -28,11 +28,9 @@ const database = require('./database');
 // GET '/messages' /* GET and POST for browsing and sending messages */
 // POST '/messages'
 
-// module.exports = (db) => {
+module.exports = (db) => {
 
-//   router.get('/', (req,res)=>{
-//     res.render("landing");
-//   })
 
-// return router;
-// }
+
+return router;
+}

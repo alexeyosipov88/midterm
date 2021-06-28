@@ -1,26 +1,22 @@
-const exports = {} ;
-// /**CREATE ROLE labber WITH LOGIN password 'labber';
-// CREATE DATABASE midterm OWNER labber; */
-
+// const exports = {} ;
     //gets the userid from database
     const getUserIdwithEmail = function (email, db) {
-      const vars = [email] ;
+     const vars = [email] ;
      return  db.query(`SELECT id FROM users WHERE email = $1`, vars)
      .then((data)=>{
-        console.log(data.rows);
         return data.rows[0] ;
       })
     };
     exports.getUserIdwithEmail = getUserIdwithEmail;
 //add a new user
     const addNewUser = function (name, email, password, db) {
-      const vars = [name, email, password];
+      // const vars = [name, email, password];
       return db
         .query(
           `INSERT INTO users(name, email,password) VALUES ('${name}','${email}','${password}') RETURNING * `
         )
         .then((user) => {
-          //        console.log("User added", user.rows);
+          console.log("User added");
           return user.rows;
         });
     };

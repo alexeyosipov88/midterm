@@ -3,41 +3,27 @@ const express = require('express');
 const dbParams = require('../lib/db');
 const router  = express.Router();
 const {getUserIdwithEmail, addNewUser, login} = require('./database');
-/*
-users = {
-          user_id:
-                  {
-                    id: 1,              //randomlyGeneratedString ? or a query from database ?
-                    email: '',
-                    password: ''
-                  }
-}
-*/
 
 module.exports = (db) =>  {
   router.get("/register", (req, res) => {
     res.render("register");
-    //res.send('Hello');
   });
 
   router.post("/register", (req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-    // const vars = [name, email, password];
-    // console.log(vars);
-    //checking if user exists
     getUserIdwithEmail(email, db).then((user) => {
-     // console.log("User exists", user.rows);
-      if (user.rows === false) {
-        //add user if userid do not exists in our database
-        addNewUser(name, email, password, db).then((user) => {
-  //        console.log("User added", user.rows);
-          return user.rows;
-        });
+      //checking if user.rows is undefined
+      console.log("user", user);
+      if (user) {
+        return res.redirect("./login");
       }
     });
-    return res.redirect("./login");
+    //add user if userid do not exists in our database
+    addNewUser(name, email, password, db).then((user) => {
+              return res.redirect("/");
+            });
   });
 
   router.get("/login", (req,res)=>{
@@ -63,7 +49,7 @@ module.exports = (db) =>  {
           return res.send("credentials do not match");
         }
 
-        return res.redirect("/urls");
+        return res.redirect("/");
     })
   })
 

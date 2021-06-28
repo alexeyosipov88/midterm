@@ -38,6 +38,10 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+//render html file instead of ejs
+app.use(express.static(__dirname + '/public'));
+
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
@@ -49,6 +53,7 @@ const endpoints = require("./routes/endpoints");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/", authenticationRoutes(db));
+app.use("/", endpoints(db));
 // app.use("/", endpoints(db));
 // Note: mount other resources here, using the same pattern above
 
