@@ -12,15 +12,11 @@ const morgan     = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-//const dbParams = require('./lib/db.js');
+const dbParams = require('./lib/db.js');
 const db = new Pool(
-  {
-  user: "labber",
-  password: "labber",
-  host: "localhost",
-  database: "midterm",
-  }
+  dbParams
 );
+
 db.connect().then(()=>{
   console.log('connected')
 }).catch((err)=>{

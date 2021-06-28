@@ -1,6 +1,8 @@
+
 const express = require('express');
 const dbParams = require('../lib/db');
 const router  = express.Router();
+const database = require('./database');
 /*
 users = {
           user_id:
@@ -38,18 +40,23 @@ module.exports = (db) =>  {
     console.log(vars);
     //checking if user exists
     db.query(`SELECT id FROM users WHERE email = '${email}'`).then((user) => {
-      console.log(user.rows);
-      if (user) {
-        res.redirect("./login");
+      console.log("User exists",user.rows);
+      if (user.rows) {
+       return res.redirect("./login");
       }
     });
+
     //add user if userid do not exists in our database
-    db.query(
-      `INSERT INTO users (name, email, password) VALUES( '${name}', '${email}', '${password}' ) RETURNING *`
-    ).then((user) => {
-      console.log(user.rows);
+    db.query(`INSERT INTO users(name, email,password) VALUES ('${name}','${email}','${password}') RETURNING * `)
+    .then((user)=>{
+      console.log("User added",user.rows);
+      return user.rows ;
     });
   });
+
+  router.get("/login", (req,res)=>{
+    res.render("login");
+  })
 
   return router;
 }
