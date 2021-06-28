@@ -14,7 +14,7 @@ users = {
 }
 */
 
-module.exports = (db, ) =>  {
+module.exports = (db) =>  {
   router.get("/register", (req, res) => {
     res.render("register");
     //res.send('Hello');
@@ -56,9 +56,6 @@ module.exports = (db, ) =>  {
         console.log("I am inside the first if statement");
         return res.send("credentials do not match");
       }
-        //console.log(user);
-        // console.log(user.rows);
-        // console.log(user.rows[0].name);
         const userEmailFromDatabase = user.rows[0].email ;
         const userPasswordFromDatabase = user.rows[0].password ;
         if(userEmailFromDatabase !== email || userPasswordFromDatabase !== password)
@@ -73,7 +70,6 @@ module.exports = (db, ) =>  {
   router.get('/logout', (req,res) => {
     res.redirect('/');
   })
-
 
   return router;
 }
