@@ -21,6 +21,10 @@ module.exports = (db) => {
     res.sendFile('listing.html',{root: './public'});
   })
 
+  router.get('/inbox', (req, res) => {
+    res.sendFile('./inbox.html', {root:'./public'});
+  })
+
 
   return router;
 };
