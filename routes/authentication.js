@@ -8,7 +8,7 @@ const {getUserWithEmail, addUser, getUser} = require('./database');
 
 module.exports = (db) =>  {
   router.get("/register", (req, res) => {
-    console.log(path);
+    // console.log(path);
     res.sendFile( 'register.html' , {root: './public'});
   });
 
@@ -33,7 +33,7 @@ module.exports = (db) =>  {
   });
 
   router.get("/login", (req,res)=>{
-    res.render("login");
+    res.sendFile( 'login.html' , {root: './public'});
   })
 
   router.post("/login", (req,res) => {
