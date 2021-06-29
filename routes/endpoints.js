@@ -30,7 +30,38 @@ const database = require('./database');
 
 module.exports = (db) => {
 
+  // Home page
+    router.get('/listing', (req, res) => {
+    // console.log('@#$%^&*');
+    db.query(`SELECT * FROM listings`)
+      .then(data => {
+        console.log(data.rows);
+        const listings = data.rows;
+        //  console.log(listings);
+        res.json(listings);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 
+  router.post('/search', (req,res) =>{
+    console.log(req.body);
+    db.query(`SELECT * FROM listings where name LIKE '${req.body.search}%'`)
+    .then(data => {
+      const listings = data.rows;
+      res.json(listings);
+    })
+  })
+  // router.get("/products", (req, res) => {
+  //   db.query(`SELECT * FROM listings`)
+  //   .then((data)=>{
+  //     const listings = data.rows ;
+  //     res.json({listings})
+  //   })
+  // })
 
 return router;
 }
