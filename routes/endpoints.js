@@ -64,8 +64,6 @@ module.exports = (db) => {
     })
   })
 
-  router.get('/user', (req,res)=>{
-    res.sendFile( 'user.html' , {root: './public'});
-  })
+
 return router;
 }

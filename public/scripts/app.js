@@ -1,39 +1,36 @@
 $(() => {
-  console.log("a lot");
   //fetch my listings
   $.get("/en/listing", function(data, status){
     console.log("Data: " + data[0].name );
-    // $("#menu").append('<li><a href="#">New list item</a></li>');
     for(list of data){
     $(".featured").append(listing(list));
   }
   });
-
+//search button on click event handler
   $("#search-button").click(function() {
     const search = $("#search-input").val() ;
     console.log("$%^&*_---",search);
+    //sends a post request to route /search in endpoint.js
     $.post("/en/search",
   {
     search
   },
   function(data, status){
-    // alert("Data: " + data + "\nStatus: " + status);
     console.log(data);
+    //empty the DOM and append the New Title ---- this is not working. please take a look -------
     $("featured_listings_title").empty();
     $("featured_listings_title").append(`<h3>
     Search Results
   </h3>`);
-
+  //emptying the body and appending the new result
     $(".featured").empty();
     for(item of data){
       $(".featured").append(searchTemplate(item));
     }
-
   });
   })
-
+//filter button on click event handler
   $("#filter_button").click(function() {
-
     $.get("/en/listing", function(data, status){
       console.log("Data: " , data );
       $(".featured").empty();
@@ -42,23 +39,9 @@ $(() => {
     }
   })
   });
-
-  $(".active").click(function() {
-    $.get("/en/user") ;
-  })
-  // $.ajax({
-  //   method: "GET",
-  //   url: '/en/listing'
-  // }).then((listings) => {
-  //   // alert(listings);
-  //   console.log("listings are: @#$%_*& ",listings);
-  //   // for(list of listings) {
-  //   //   $("<div>").text(list).appendTo($("#listing"));
-  //   // }
-  // });
-
 });
 
+//appends the following template to the dom
 function listing(list) {
 const template = `<div class="row gx-5">
 <div class="col-6 col-sm-3">
@@ -71,10 +54,9 @@ const template = `<div class="row gx-5">
   </div>
 </div>
 `
-
 return template ;
 }
-
+//appends the search template --- how the search.html look --
 function searchTemplate(item) {
 const template = `
 <div class="row gx-5">
