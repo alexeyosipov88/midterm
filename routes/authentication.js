@@ -1,27 +1,33 @@
-
+const path = require('path');
 const express = require('express');
 const dbParams = require('../lib/db');
 const router  = express.Router();
-const {getUserIdwithEmail, addNewUser, login} = require('./database');
+const {getUserWithEmail, addUser, getUser} = require('./database');
+
+//res.sendFile('index.html', { root: __dirname });
 
 module.exports = (db) =>  {
   router.get("/register", (req, res) => {
-    res.render("register");
+    console.log(path);
+    res.sendFile( 'register.html' , {root: './public'});
   });
 
   router.post("/register", (req, res) => {
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
-    getUserIdwithEmail(email, db).then((user) => {
+     const user = {
+       name: req.body.name,
+       email: req.body.email,
+       password: req.body.password,
+     };
+     getUserWithEmail(db, req.body.email)
+     .then((user) => {
       //checking if user.rows is undefined
-      console.log("user", user);
+      // console.log("user", user);
       if (user) {
         return res.redirect("./login");
       }
     });
     //add user if userid do not exists in our database
-    addNewUser(name, email, password, db).then((user) => {
+    addUser(db, user).then((user) => {
               return res.redirect("/");
             });
   });
@@ -31,10 +37,14 @@ module.exports = (db) =>  {
   })
 
   router.post("/login", (req,res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+
+    const user = {
+       email: req.body.email,
+       password: req.body.password
+    }
+// console.log("getUser is: ", typeof getUser);
     //check if credentials match or not
-    login(email, password, db)
+    getUser(db,user)
     .then((user)=>{
       //check if it has some value
       if(user.rows === 'undefined')
@@ -44,7 +54,7 @@ module.exports = (db) =>  {
       }
         const userEmailFromDatabase = user.rows[0].email ;
         const userPasswordFromDatabase = user.rows[0].password ;
-        if(userEmailFromDatabase !== email || userPasswordFromDatabase !== password)
+        if(userEmailFromDatabase !== req.body.email || userPasswordFromDatabase !== req.body.password)
         {
           return res.send("credentials do not match");
         }

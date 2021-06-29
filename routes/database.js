@@ -1,30 +1,24 @@
-const getAllusers = function (db) {
+const getUser = function (db, user) {
+const email = user.email ;
+const password = user.password ;
+
   return db.query(`SELECT *
-  FROM users`)
+  FROM users WHERE email = $1 AND password = $2`,[email,password])
     .then((result) => {
       return result;
     })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
 }
+exports.getUser = getUser ;
 
 const getUserWithEmail = function (db, email) {
-  return db.query(`SELECT *
+  return db.query(`SELECT id
   FROM users
   WHERE email = $1`, [email])
     .then((result) => {
       return result;
     })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
 }
-
+exports.getUserWithEmail = getUserWithEmail;
 
 const addUser = function (db, user) {
   const name = user.name;
@@ -39,12 +33,8 @@ const addUser = function (db, user) {
     .then((result) => {
       return result;
     })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-}
+  }
+  exports.addUser = addUser ;
 
 const getFavourites = function (db, user_id) {
   return db.query(`SELECT *
@@ -53,12 +43,8 @@ const getFavourites = function (db, user_id) {
     .then((result) => {
       return result;
     })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
 }
+exports.getFavourites = getFavourites ;
 
 const getMessages = function (db, user_id) {
   return db.query(`SELECT *
@@ -67,12 +53,8 @@ const getMessages = function (db, user_id) {
     .then((result) => {
       return result;
     })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
 }
+exports.getMessages = getMessages ;
 
 const getByFilter = function (db, options, limit = 10) {
   // 1
@@ -134,6 +116,7 @@ const getByFilter = function (db, options, limit = 10) {
   // 6
   return db.query(queryString, queryParams).then((res) => res);
 };
+exports.getByFilter = getByFilter ;
 
 const addListing = function (db, listing) {
   const name = listing.name;
@@ -151,13 +134,9 @@ const addListing = function (db, listing) {
     .then((result) => {
       return result.rows[0];
     })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+
 }
+exports.addListing = addListing ;
+// module.exports = { getUser, getMessages, getUserWithEmail, addUser, getFavourites, getByFilter, addListing }
 
-module.exports = {getAllusers, getMessages, getUserWithEmail, addUser, getFavourites, getByFilter, addListing, }
-
-module.exports = exports
+// module.exports = exports
