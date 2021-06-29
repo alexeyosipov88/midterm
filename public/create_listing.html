@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/images.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/create_listing.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/button.css" type="text/css" />
+
 
 
 
@@ -30,37 +32,85 @@
     <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
     <!-- <script src="/scripts/composer-char-counter.js"></script> -->
 
-    <!-- Disable viewport zooming-->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
   </head>
 
+  <div class="topnav">
+  <h3>Create Listing</h3>
+  </div>
+
   <body>
+  <!-- Page-specific (main) content here -->
+  <main class="container">
+
+    <section class="listing_body">
+
+        <form action="/somewhere" method="POST" id="form">
+          <div class="row mb-3">
+            <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="titleofitem">
+            </div>
+          </div>
+
+          Price
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          </div>
+
+          Category
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Choose a category</option>
+            <option value="1">Food</option>
+            <option value="2">Toys</option>
+            <option value="3">Supplies</option>
+          </select>
+
+          Pet
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Choose a category</option>
+            <option value="1">Cat</option>
+            <option value="2">Dog</option>
+            <option value="3">Fish</option>
+            <option value="4">Reptile</option>
+            <option value="5">Small pet</option>
+          </select>
+
+              <!-- photo upload field -->
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Photo</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+      <div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" class="btn btn-primary">Submit</button>
+
+        <button type="button" class="btn btn-outline-danger">Cancel</button>
+
+      </div>
+    </form>
+    </section>
 
 
-<!-- Page-specific (main) content here -->
-<main class="container">
+    </main>
 
-  <div>Create Listing</div>
+    <section class="bottom_nav">
 
+      <div class="navbar">
+        <a href="#user" class="active"><i class="far fa-user"></i></a>
+        <a href="#mystore"><i class="fas fa-th-large"></i></a>
+        <a href="#post"><i class="far fa-edit"></i></a>
+        <a href="#favourites"><i class="fas fa-heart"></i></a>
+        <a href="#messages"><i class="far fa-comments"></i></a>
+      </div>
+    </section>
 
-  <section class="listing_body">
-
-    <div>
-      Title
-      Price
-      Animal / Category
-    </div>
-
-    <div>
-      <h3>Description</h3>
-      <div>box for description</div>
-    </div>
-
-    <div> post, cancel buttons</div>
-  </section>
-
-
-  </main>
 </body>
 </html>

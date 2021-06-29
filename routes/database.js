@@ -7,8 +7,15 @@ const password = user.password ;
     .then((result) => {
       return result;
     })
+<<<<<<< HEAD
+=======
+    .catch(err => {
+      console.log(err)
+    });
+>>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 }
 exports.getUser = getUser ;
+
 
 const getUserWithEmail = function (db, email) {
   return db.query(`SELECT id
@@ -17,6 +24,12 @@ const getUserWithEmail = function (db, email) {
     .then((result) => {
       return result;
     })
+<<<<<<< HEAD
+=======
+    .catch(err => {
+      console.log(err)
+    });
+>>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 }
 exports.getUserWithEmail = getUserWithEmail;
 
@@ -33,8 +46,32 @@ const addUser = function (db, user) {
     .then((result) => {
       return result;
     })
+<<<<<<< HEAD
   }
   exports.addUser = addUser ;
+=======
+    .catch(err => {
+      console.log(err)
+    });
+}
+
+const addMessage = function (db, message) {
+  const created_at = now();
+  const content = message.content;
+  const receiver_id = message.receiver_id;
+  const sender_id = message.sender_id;
+  const listing_id = listing_id;
+  return db.query(`INSERT INTO users (created_at, content, receiver_id, sender_id, listing_id)
+  VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *;`, [created_at, content, receiver_id, sender_id, listing_id])
+    .then((result) => {
+      return result;
+    })
+    .catch(err => {
+      console.log(err)
+    });
+}
+>>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 
 const getFavourites = function (db, user_id) {
   return db.query(`SELECT *
@@ -43,16 +80,28 @@ const getFavourites = function (db, user_id) {
     .then((result) => {
       return result;
     })
+<<<<<<< HEAD
+=======
+    .catch(err => {
+      console.log(err)
+    });
+>>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 }
 exports.getFavourites = getFavourites ;
 
 const getMessages = function (db, user_id) {
   return db.query(`SELECT *
   FROM messages
-  WHERE user_id = $1`, [user_id])
+  WHERE sender_id = $1 OR receiver_id = $2`, [user_id, user_id])
     .then((result) => {
       return result;
     })
+<<<<<<< HEAD
+=======
+    .catch(err => {
+      console.log(err)
+    });
+>>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 }
 exports.getMessages = getMessages ;
 
@@ -66,18 +115,18 @@ const getByFilter = function (db, options, limit = 10) {
   WHERE 1 = 1
   `;
   if (options.user_id) {
-    queryParams.push(`${options.owner_id}`);
-    queryString += `AND owner_id = $${queryParams.length} `;
+    queryParams.push(`${options.user_id}`);
+    queryString += `AND user_id = $${queryParams.length} `;
   }
   // 3
-  if (options.city) {
-    queryParams.push(`%${options.city}%`);
-    queryString += `AND city LIKE $${queryParams.length} `;
+  if (options.animal_id) {
+    queryParams.push(`${options.animal_id}`);
+    queryString += `AND animal_id = $${queryParams.length} `;
   }
 
-  if (options.province) {
-    queryParams.push(`%${options.province}%`);
-    queryString += `AND province LIKE $${queryParams.length} `;
+  if (options.category_id) {
+    queryParams.push(`${options.category_id}`);
+    queryString += `AND category_id = $${queryParams.length} `;
   }
 
   if (options.minimum_price) {
@@ -91,28 +140,13 @@ const getByFilter = function (db, options, limit = 10) {
     queryString += `AND price <= $${queryParams.length} `;
   }
 
-  // 4
-  if (options.minimum_rating) {
-    const minRating = options.minimum_rating;
-    console.log(minRating);
-    queryParams.push(`${minRating}`);
-    queryString += `GROUP BY properties.id
-    HAVING  avg(rating) >= $${queryParams.length} `;
-  } else {
-    queryString += `GROUP BY properties.id
-     `
-  }
-
   queryParams.push(limit);
-
   queryString += `
-  ORDER BY cost_per_night
+  ORDER BY price
   LIMIT $${queryParams.length};
   `;
-
   // 5
   console.log(queryString, queryParams);
-
   // 6
   return db.query(queryString, queryParams).then((res) => res);
 };
@@ -134,6 +168,18 @@ const addListing = function (db, listing) {
     .then((result) => {
       return result.rows[0];
     })
+<<<<<<< HEAD
+=======
+    .catch(err => {
+      console.log(err)
+    });
+}
+
+
+module.exports = {getAllusers, getMessages, getUserWithEmail, addUser, getFavourites, getByFilter, addListing, addMessage}
+
+
+>>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 
 }
 exports.addListing = addListing ;
