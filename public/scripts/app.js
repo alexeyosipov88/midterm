@@ -32,6 +32,20 @@ $(() => {
   });
   })
 
+  $("#filter_button").click(function() {
+
+    $.get("/en/listing", function(data, status){
+      console.log("Data: " , data );
+      $(".featured").empty();
+      for(list of data){
+      $(".featured").append(listing(list));
+    }
+  })
+  });
+
+  $(".active").click(function() {
+    $.get("/en/user") ;
+  })
   // $.ajax({
   //   method: "GET",
   //   url: '/en/listing'
@@ -66,11 +80,11 @@ const template = `
 <div class="row gx-5">
 <div class="col-6 col-sm-3">
   <div class="circular--landscape">
-    <img class="listing-image" src="${list.photo}" />
+    <img class="listing-image" src="${item.photo}" />
   </div>
   <div class="item_description">
-    ${list.name}<BR>
-    $${list.price}
+    ${item.name}<BR>
+    $${item.price}
   </div>
 </div>
 `

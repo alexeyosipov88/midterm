@@ -55,13 +55,17 @@ module.exports = (db) => {
       res.json(listings);
     })
   })
-  // router.get("/products", (req, res) => {
-  //   db.query(`SELECT * FROM listings`)
-  //   .then((data)=>{
-  //     const listings = data.rows ;
-  //     res.json({listings})
-  //   })
-  // })
 
+  router.get('/filter', (req,res)=>{
+    db.query(`SELECT * FROM listings ORDER BY price DESC`)
+    .then(data => {
+      const listings = data.rows ;
+      res.json(listings);
+    })
+  })
+
+  router.get('/user', (req,res)=>{
+    res.sendFile( 'user.html' , {root: './public'});
+  })
 return router;
 }
