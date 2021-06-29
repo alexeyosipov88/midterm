@@ -10,44 +10,96 @@ nav {
   top: 0;
   left: 0;
   z-index: 1;
-  background: #F2CC8F;
 }
 
 .topnav {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 70px;
+  width: 100%;
   z-index: -1;
   color: #3D405B;
-  font-family: 'Source Sans Pro', sans-serif;  padding-left: 1.5em;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-left: 1.5em;
   padding-right: 1.5em;
-
 }
+
+
+// landing page
 
 span {
   font-family: 'Pacifico', sans-serif;
   font-size: 2em;
+  font-weight: bold;
+}
+
+.featured_listings_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+h3 { // used for titles
+  font-family: 'Lato', sans-serif;
+  margin-bottom:1em;
 }
 
 .featured {
+  width: 100%;
   display: flex;
-  justify-content: center;
-}
-.col-6 col-sm-3 {
-  display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .item_description {
-  display: flex;
-  justify-content: center;
-  font-size: 0.7em;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom:1.5em;
 }
 
-.featured {
+// sort by price button
+.filter_by_price {
   display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom:1.5em;
 }
 
+// mobile: bottom nav
 
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+i {
+color: #3D506B;
+font-size:2em;
+margin-bottom: 0.3em;
+}
+
+// .fa-user:active {
+//   color: #e07a5f !important;
+// }
+
+// .fa-th-large:hover {
+//   color: #e07a5f !important;
+// }
+
+// .fa-heart:hover {
+//   color: #e07a5f !important;
+// }
+
+// .fa-edit:hover {
+//   color: #e07a5f !important;
+// }
+
+// .fa-comments:hover {
+//   color: #000000 !important;
+// }
 
 

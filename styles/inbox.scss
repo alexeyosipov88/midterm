@@ -1,0 +1,41 @@
+h3 {
+  font-size: 1.7em;
+  margin-bottom: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 95%;
+  margin-top: 2.5em;
+}
+
+.form-control{
+  margin-bottom: .8em;
+}
+
+.message_box {
+  display: flex;
+  flex-direction: row;
+}
+
+.message_body {
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+padding-left: 2em;
+}
+
+.circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 6em;
+  height: 6em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}

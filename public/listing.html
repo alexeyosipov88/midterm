@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/images.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/listing.css" type="text/css" />
+
 
 
 
@@ -30,36 +31,56 @@
     <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
     <!-- <script src="/scripts/composer-char-counter.js"></script> -->
 
-    <!-- Disable viewport zooming-->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
   </head>
 
+  <div class="topnav">
+  <h3 class="title">Listing name</h3>
+  </div>
+
   <body>
+  <!-- Page-specific (main) content here -->
+  <main class="container">
 
+    <section class="listing_body">
+      <div class="listing_details">
+        <img src="images/cat1.jpeg" class="img-fluid" alt="Responsive image">
 
-<!-- Page-specific (main) content here -->
-<main class="container">
+        <div class="div1">
+          <h4>
+            Price
+          </h4>
 
-  <div>Listing Name</div>
+          <i class="far fa-heart"></i>
 
+        </div>
+        <h4>
+          Animal / Category
+        </h4>
+      </div>
 
-  <section class="listing_body">
+    <h5>Details</h4>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla enim cum quisquam eos perspiciatis qui modi temporibus repellat! Sint fuga eligendi illum tenetur ex sunt eaque deserunt unde necessitatibus consequatur?
 
-    <div>
-      Animal / Category
-      Price
-    </div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla enim cum quisquam eos perspiciatis qui modi temporibus repellat! Sint fuga eligendi illum tenetur ex sunt eaque deserunt unde necessitatibus consequatur?
 
-    <div>
-      <h3>Description</h3>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed ipsum justo.
-    </div>
+    </section>
 
+    <button type="button" class="btn btn-primary">Edit post</button>
+    <button type="button" class="btn btn-outline-danger">Delete</button>
 
-  </section>
+    </main>
 
+    <section class="bottom_nav">
 
-  </main>
+      <div class="navbar">
+        <a href="#user" class="active"><i class="far fa-user"></i></a>
+        <a href="#mystore"><i class="fas fa-th-large"></i></a>
+        <a href="#post"><i class="far fa-edit"></i></a>
+        <a href="#favourites"><i class="fas fa-heart"></i></a>
+        <a href="#messages"><i class="far fa-comments"></i></a>
+      </div>
+    </section>
+
 </body>
 </html>
