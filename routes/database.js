@@ -7,12 +7,7 @@ const password = user.password ;
     .then((result) => {
       return result;
     })
-<<<<<<< HEAD
-=======
-    .catch(err => {
-      console.log(err)
-    });
->>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
+
 }
 exports.getUser = getUser ;
 
@@ -24,12 +19,6 @@ const getUserWithEmail = function (db, email) {
     .then((result) => {
       return result;
     })
-<<<<<<< HEAD
-=======
-    .catch(err => {
-      console.log(err)
-    });
->>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 }
 exports.getUserWithEmail = getUserWithEmail;
 
@@ -46,14 +35,9 @@ const addUser = function (db, user) {
     .then((result) => {
       return result;
     })
-<<<<<<< HEAD
   }
   exports.addUser = addUser ;
-=======
-    .catch(err => {
-      console.log(err)
-    });
-}
+
 
 const addMessage = function (db, message) {
   const created_at = now();
@@ -67,11 +51,7 @@ const addMessage = function (db, message) {
     .then((result) => {
       return result;
     })
-    .catch(err => {
-      console.log(err)
-    });
 }
->>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 
 const getFavourites = function (db, user_id) {
   return db.query(`SELECT *
@@ -80,12 +60,6 @@ const getFavourites = function (db, user_id) {
     .then((result) => {
       return result;
     })
-<<<<<<< HEAD
-=======
-    .catch(err => {
-      console.log(err)
-    });
->>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 }
 exports.getFavourites = getFavourites ;
 
@@ -96,12 +70,6 @@ const getMessages = function (db, user_id) {
     .then((result) => {
       return result;
     })
-<<<<<<< HEAD
-=======
-    .catch(err => {
-      console.log(err)
-    });
->>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
 }
 exports.getMessages = getMessages ;
 
@@ -168,20 +136,9 @@ const addListing = function (db, listing) {
     .then((result) => {
       return result.rows[0];
     })
-<<<<<<< HEAD
-=======
-    .catch(err => {
-      console.log(err)
-    });
 }
 
 
-module.exports = {getAllusers, getMessages, getUserWithEmail, addUser, getFavourites, getByFilter, addListing, addMessage}
-
-
->>>>>>> 94c74511d965d834d6c63a25bd504402d5236b25
-
-}
 exports.addListing = addListing ;
 // module.exports = { getUser, getMessages, getUserWithEmail, addUser, getFavourites, getByFilter, addListing }
 
