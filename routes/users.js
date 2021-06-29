@@ -3,23 +3,24 @@
  * Since this file is loaded in server.js into api/users,
  *   these routes are mounted onto /users
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
-//  */
+ */
 
-// const express = require('express');
-// const router  = express.Router();
+const express = require('express');
+const router  = express.Router();
 
-// module.exports = (db) => {
-//   router.get("/", (req, res) => {
-//     db.query(`SELECT * FROM users;`)
-//       .then(data => {
-//         const users = data.rows;
-//         res.json({ users });
-//       })
-//       .catch(err => {
-//         res
-//           .status(500)
-//           .json({ error: err.message });
-//       });
-//   });
-//   return router;
-// };
+module.exports = (db) => {
+  router.get('/profile', (req,res)=>{
+    res.sendFile( 'user.html' , {root: './public'});
+  })
+
+  router.get('/post', (req,res)=>{
+    res.sendFile( 'create_listing.html', {root: './public'});
+  })
+
+  router.get('/listings', (req, res) => {
+    res.sendFile('listing.html',{root: './public'});
+  })
+
+
+  return router;
+};
