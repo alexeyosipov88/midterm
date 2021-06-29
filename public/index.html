@@ -37,7 +37,8 @@
   <!-- Top nav bar (fixed) -->
   <nav>
     <div class="topnav">
-        <span>petslist</span>
+      <div><i class="fas fa-paw"></i></div>
+      <span>petslist</span>
     </div>
   </nav>
 
@@ -47,8 +48,7 @@
     <div class="header-container">
       <div class="input-group">
         <div class="form-outline">
-          <input id="search-input" type="search" id="form1" class="form-control" placeholder="Search listings" />
-          <!-- <label class="form-label" for="form1">Search</label> -->
+          <input id="search-input" type="search" id="search_form" class="form-control" placeholder="Search listings" />
         </div>
         <button id="search-button" type="button" class="btn btn-outline-secondary">
           <i class="fas fa-search"></i>
@@ -68,7 +68,7 @@
 
   <div class="filter_by_price">
     <div class="btn-group">
-      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-secondary btn-sm dropdown-toggle" id="filter_by_price" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Filter by price
       </button>
       <ul class="dropdown-menu">
@@ -124,15 +124,24 @@
 
   </main>
 
-  <section class="navbar">
+  <section class="bottom_nav">
 
-    <div class="navbar">
+    <div class="mobile_navbar">
+      <button class="navbar_button" name="profile"><i class="far fa-user"></i></button>
+      <button class="navbar_button" name="listings"><i class="fas fa-th-large"></i></button>
+      <button class="navbar_button" name="create_listing"><i class="far fa-edit"></i></button>
+      <button class="navbar_button" name="favourites"><i class="fas fa-heart"></i></button>
+      <button class="navbar_button" name="inbox"><i class="far fa-comments"></i></button>
+    </div>
+
+    <!-- <div class="navbar">
       <a href="#user" class="active"><i class="far fa-user"></i></a>
       <a href="#mystore"><i class="fas fa-th-large"></i></a>
       <a href="#post"><i class="far fa-edit"></i></a>
       <a href="#favourites"><i class="fas fa-heart"></i></a>
       <a href="#messages"><i class="far fa-comments"></i></a>
-    </div>
+    </div> -->
+
   </section>
 
 </body>
