@@ -21,6 +21,7 @@ module.exports = (db) => {
   });
 
   router.get('/post', (req,res)=>{
+    console.log(req.session["user_id"], 'this is cookie id');
     res.sendFile( 'create_listing.html', {root: './public'});
   })
 

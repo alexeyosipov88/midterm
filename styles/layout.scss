@@ -76,7 +76,21 @@ a:active {
   font-weight:bolder;
 }
 
+
 .header-container {
+
+.form-control { // search button
+  margin-bottom: 0em;
+}
+
+.mainpg_title {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.featured {
+  width: 100%;
   display: flex;
   flex-direction: column;
   color: #FFFFFF;
@@ -88,8 +102,6 @@ a:active {
   margin-bottom: 0em;
 }
 
-
-
 /*mobile styles */
 
 @media only screen and (max-width: 570px) {
@@ -99,6 +111,26 @@ a:active {
     font-size: 2em;
     margin-right: 0.3em;
   }
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 7em;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.item_description {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom:1.5em;
+  word-wrap: normal;
+  font-weight: bold;
+}
 
   .mainpg_title {
     font-family: 'Pacifico', sans-serif;

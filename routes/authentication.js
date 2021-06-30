@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const dbParams = require('../lib/db');
+
 const router  = express.Router();
 const {getUserWithEmail, addUser, getUser} = require('./database');
 
@@ -13,27 +14,40 @@ module.exports = (db) =>  {
   });
 
   router.post("/register", (req, res) => {
+    console.log(req.body);
      const user = {
        name: req.body.name,
        email: req.body.email,
        password: req.body.password,
+       phone_number: req.body.phone_number,
+       city: req.body.city,
+       province: req.body.province
      };
+
+
      getUserWithEmail(db, req.body.email)
      .then((user) => {
       //checking if user.rows is undefined
-      // console.log("user", user);
-      if (user) {
-        return res.redirect("./login");
+      console.log(req.body.name);
+       console.log("user", user.rows[0].email); //user.rows has the id of user with the same email.
+      if (user.rows[0].email === req.body.email) {
+        console.log("user already exists");
+     return res.redirect("./login");
       }
     });
+    const rightUser = user;
     //add user if userid do not exists in our database
     addUser(db, user).then((user) => {
+      console.log(rightUser,'wq23142342312412341A');
+      req.session["user_id"] = user.rows[0].id;
               return res.redirect("/");
             });
   });
 
   router.get("/login", (req,res)=>{
+    console.log(req.session["user_id"], 'this is cookie id');
     res.sendFile( 'login.html' , {root: './public'});
+    console.log(req.session["user_id"], 'this is cookie id');
   })
 
   router.post("/login", (req,res) => {
@@ -46,6 +60,7 @@ module.exports = (db) =>  {
     //check if credentials match or not
     getUser(db,user)
     .then((user)=>{
+      console.log(user, 'THIS IS USER ');
       //check if it has some value
       if(user.rows === 'undefined')
       {
@@ -58,7 +73,9 @@ module.exports = (db) =>  {
         {
           return res.send("credentials do not match");
         }
-
+        console.log(user.rows[0].id, 'this is user');
+        req.session["user_id"] = user.rows[0].id;
+        console.log(req.session["user_id"], 'this is cookie id');
         return res.redirect("/");
     })
   })

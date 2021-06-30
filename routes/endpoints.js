@@ -33,11 +33,15 @@ module.exports = (db) => {
   // Home page
     router.get('/listing', (req, res) => {
     // console.log('@#$%^&*');
-    db.query(`SELECT * FROM listings`)
+    db.query(`SELECT * FROM listings JOIN users ON users.id = listings.user_id`)
       .then(data => {
         const listings = data.rows;
-        //  console.log(listings);
+        console.log(listings);
         res.json(listings);
+
+          console.log(req.session["user_id"]);
+          console.log(req.session["user_id"], 'this is cookie id');
+
       })
       .catch(err => {
         res
