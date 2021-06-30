@@ -1,14 +1,11 @@
 // landing page
 
-.fa-paw {
-  font-size: 2em;
-  margin-right: 0.3em;
-}
-
-.mainpg_title {
-  font-family: 'Pacifico', sans-serif;
-  font-size: 2em;
-  font-weight: bold;
+.mobile_navbar {
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
 }
 
 .featured {
@@ -128,18 +125,4 @@ justify-content: space-evenly;
 padding-left: 2em;
 }
 
-.photo { // turns photo into circular avatar
-  display: inline-block;
-  position: relative;
-  width: 6em;
-  height: 6em;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.photo img {
-  width: auto;
-  height: 100%;
-  // margin-left: -50px;
-}
 
