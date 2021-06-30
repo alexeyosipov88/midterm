@@ -26,8 +26,8 @@ $(() => {
   function(data, status){
     console.log(data);
     //empty the DOM and append the New Title ---- this is not working. please take a look -------
-    $("featured_listings_title").empty();
-    $("featured_listings_title").append(`<h3>
+    $(".featured_listings_title").empty();
+    $(".featured_listings_title").append(`<h3>
     Search Results
   </h3>`);
   //emptying the body and appending the new result
