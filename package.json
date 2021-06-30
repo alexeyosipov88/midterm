@@ -16,10 +16,7 @@
     "bootstrap": "^5.0.2",
     "bootstrap-icons": "^1.5.0",
     "chalk": "^2.4.2",
-<<<<<<< HEAD
-=======
     "cookie-parser": "^1.4.5",
->>>>>>> 38ccf2baf0d60dd1548a1132868689f850925168
     "cookie-session": "^1.4.0",
     "dotenv": "^2.0.0",
     "ejs": "^2.6.2",
