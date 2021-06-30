@@ -35,10 +35,11 @@ module.exports = (db) =>  {
      return res.redirect("./login");
       }
     });
+    const rightUser = user;
     //add user if userid do not exists in our database
     addUser(db, user).then((user) => {
-      console.log(user);
-      req.session["user_id"] = user.id;
+      console.log(rightUser,'wq23142342312412341A');
+      req.session["user_id"] = user.rows[0].id;
               return res.redirect("/");
             });
   });
