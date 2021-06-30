@@ -25,9 +25,16 @@ body {
   flex-direction: column;
 }
 
-h3 { // used for titles
+h3 {
+  font-size: 1.7em;
   font-family: 'Lato', sans-serif;
   margin-bottom:0em;
+}
+
+.container {
+  width: 95%;
+  margin-top: 6em;
+  margin-bottom: 4em;
 }
 
 nav {
@@ -61,79 +68,24 @@ a {
   text-decoration: none;
 
 }
-// landing page
 
-.fa-paw {
-  font-size: 2em;
-  margin-right: 0.3em;
-}
-
-.mainpg_title {
-  font-family: 'Pacifico', sans-serif;
-  font-size: 2em;
-  font-weight: bold;
-}
-
-.form-control{
-  margin-bottom: 0em;
-}
-
-.featured {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-.featured_listings_title {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-.all_featured_products {
-  display: flex;
-  align-items: flex-start;
-}
-
-.main_feed_title {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1em;
-}
-
-.all_products {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.product {
+.header-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 7em;
-  margin-left: 2em;
-  margin-right: 2em;
+  color: #FFFFFF;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-.item_description {
+.header {
   display: flex;
   justify-content: center;
-  text-align: center;
-  font-size: 1em;
-  margin-bottom:1.5em;
-  word-wrap: normal;
-}
-
-.filter_by_price {
-  display: flex;
-  justify-content: flex-end;
+  margin-top: 120px;
   width: 100%;
-  margin-bottom:1.5em;
+}
+
+// do not touch -- for main page search button
+.form-control{
+  margin-bottom: 0em;
 }
 
 // mobile: bottom nav
@@ -159,19 +111,7 @@ a {
   color: #3D506B;
 }
 
- .header-container {
-  display: flex;
-  flex-direction: column;
-  color: #FFFFFF;
-  font-family: 'Source Sans Pro', sans-serif;
-}
 
-.header {
-  display: flex;
-  justify-content: center;
-  margin-top: 120px;
-  width: 100%;
-}
 
 /*mobile styles */
 
