@@ -44,7 +44,7 @@ $(() => {
     <div class="buttons">
       <div class="listing_buttons">
         <button type="button" class="btn btn-primary">Message seller</button>&nbsp; &nbsp;
-        <button type="button" class="btn btn-danger" value='${listing.id}'>Unfavourite listing 💔</button>
+        <button type="button" class="btn btn-danger" value='${listing.id}'>Remove favourite 💔</button>
       </div>
     </div>
  </div>

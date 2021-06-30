@@ -68,6 +68,10 @@ a {
   margin-right: 0.3em;
 }
 
+.form-control { // search button
+  margin-bottom: 0em;
+}
+
 .mainpg_title {
   font-family: 'Pacifico', sans-serif;
   font-size: 2em;
@@ -112,16 +116,18 @@ a {
   justify-content: center;
   align-items: center;
   width: 7em;
-  // height: 15em;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .item_description {
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 1em;
+  font-size: 1.2em;
   margin-bottom:1.5em;
   word-wrap: normal;
+  font-weight: bold;
 }
 
 .filter_by_price {
