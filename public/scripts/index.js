@@ -4,7 +4,15 @@ $(() => {
   //fetch list of featured items - random
   $.get("/en/listing", function(data, status){
 
-    console.log("Data: " + data ); //data is an array of objects
+    console.log("Data is from endpoints.js: " + data ); //data is an array of objects
+
+    console.log(data[0]);
+
+    // for(let item of data){
+    //   console.log(item);
+
+    // }
+
     //randomizing the data array - random function
     const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
     for(let i=0; i<3; i++){
