@@ -37,17 +37,19 @@ module.exports = (db) => {
       .then(data => {
         const listings = data.rows;
         console.log(listings);
-        res.json(listings);
+        // res.json(listings);
 
           console.log(req.session["user_id"]);
           console.log(req.session["user_id"], 'this is cookie id');
 
+          db.query(`SELECT * FROM users WHERE id = ${req.session["userid"]}`)
+      .then(data => {
+        const users = data.rows ;
+        console.log("______+=++++++++++" , users);
+        res.json(users, listings);
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+      })
+
   });
 
   router.post('/search', (req,res) =>{
