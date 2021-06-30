@@ -53,7 +53,7 @@ function listing(list) {
   </div>
   <div class="item_description">
   ${list.name}<BR>
-  $${list.price}
+  ${(list.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
   </div>
   </div>
 `;

@@ -33,7 +33,7 @@ module.exports = (db) => {
   })
 
   router.get('/profile/myFavourites', (req, res) => {
-    db.query(`SELECT * FROM favourites WHERE user_id = 1`).then((result) => {
+    db.query(`SELECT * FROM listings JOIN favourites ON listings.id = favourites.listing_id WHERE favourites.user_id = 1`).then((result) => {
       const favourites = result.rows;
       res.json(favourites);
     });
