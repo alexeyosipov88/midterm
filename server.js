@@ -10,6 +10,7 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
+cookieParser = require('cookie-parser');
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']

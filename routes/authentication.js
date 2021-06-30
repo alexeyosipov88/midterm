@@ -44,7 +44,9 @@ module.exports = (db) =>  {
   });
 
   router.get("/login", (req,res)=>{
+    console.log(req.session["user_id"], 'this is cookie id');
     res.sendFile( 'login.html' , {root: './public'});
+    console.log(req.session["user_id"], 'this is cookie id');
   })
 
   router.post("/login", (req,res) => {
@@ -57,6 +59,7 @@ module.exports = (db) =>  {
     //check if credentials match or not
     getUser(db,user)
     .then((user)=>{
+      console.log(user, 'THIS IS USER ');
       //check if it has some value
       if(user.rows === 'undefined')
       {
@@ -69,7 +72,9 @@ module.exports = (db) =>  {
         {
           return res.send("credentials do not match");
         }
-        req.session["user_id"] = user.id;
+        console.log(user.rows[0].id, 'this is user');
+        req.session["user_id"] = user.rows[0].id;
+        console.log(req.session["user_id"], 'this is cookie id');
         return res.redirect("/");
     })
   })

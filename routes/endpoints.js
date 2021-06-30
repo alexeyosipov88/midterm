@@ -38,6 +38,10 @@ module.exports = (db) => {
         const listings = data.rows;
         //  console.log(listings);
         res.json(listings);
+
+          console.log(req.session["user_id"]);
+          console.log(req.session["user_id"], 'this is cookie id');
+
       })
       .catch(err => {
         res
