@@ -5,7 +5,6 @@ $(() => {
     // console.log("Data: " + data ); //data is an array of objects
     //randomizing the data array - random function
     const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
-console.log(random());
     for(let i=0; i<3; i++){
       $(".featured").append(listing(data[random()]));
     }
