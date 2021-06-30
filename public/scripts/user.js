@@ -23,11 +23,11 @@ const createListing = (listing) => {
   <section class="message">
   <div class="message_box">
     <div class="photo">
-      <img src="images/cat1.jpeg" />
+      <img src="${listing.photo}" />
     </div>
 
     <div class="message_body">
-        ${listing.name} / ${listing.price}
+        ${listing.name} / ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
       <div class="message_preview">
       </div>
       <div class="buttons">
@@ -38,10 +38,12 @@ const createListing = (listing) => {
 
    </div>
   </div>
-</section>`
+</section>
+<hr/>`
   );
 
 }
+
 
 
 
