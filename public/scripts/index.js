@@ -1,11 +1,18 @@
 /* eslint-disable func-style */
 $(() => {
-  //fetch my listings
+  //fetch list of featured items - random
   $.get("/en/listing", function(data, status){
-    console.log("Data: " + data[0].name );
+    // console.log("Data: " + data ); //data is an array of objects
+    //randomizing the data array - random function
+    const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
+console.log(random());
+    for(let i=0; i<3; i++){
+      $(".featured").append(listing(data[random()]));
+    }
+    // fetch all products for main feed
     for(list of data){
-    $(".featured").append(listing(list));
-  }
+      $(".all_products").append(listing(list));
+    }
 
   });
 //search button on click event handler
@@ -52,13 +59,14 @@ function listing(list) {
   <img class="listing-image" src="${list.photo}" />
   </div>
   <div class="item_description">
-  ${list.name}<BR>
+  <b>${list.name}<b><BR>
   $${list.price}
   </div>
   </div>
 `;
   return template;
 }
+
 //appends the search template --- how the search.html look --
 function searchTemplate(item) {
   const template = `

@@ -47,6 +47,8 @@
   <main class="container">
   <section class="header">
     <div class="header-container">
+
+      <!-- search field -->
       <div class="input-group">
         <div class="form-outline">
           <input id="search-input" type="search" id="search_form" class="form-control" placeholder="Search listings" />
@@ -61,28 +63,34 @@
 
   <hr/>
 
-  <div class="featured_listings_title">
-    Featured products nearby 📍
-  </div>
-
-  <div class="filter_by_price">
-    <div class="btn-group">
-      <button class="btn btn-secondary btn-sm dropdown-toggle" id="filter_by_price" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter by price
-      </button>
-      <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">$0-$35</a></li>
-      <li><a class="dropdown-item" href="#">$35-60</a></li>
-      <li><a class="dropdown-item" href="#">$60-$100</a></li>
-      <li><a class="dropdown-item" href="#">$100+</a></li>
-    </ul>
-   </div>
-  </div>
-
   <section class="featured">
 
+    <div class="featured_listings_title">
+      <h4>Featured products nearby 📍</h4>
+    </div>
+
+    <div class="all_featured_products">
+      <!-- featured products here -->
+    </div>
   </section>
 
+  <hr/>
+
+  <section class="main_feed">
+    <div class="main_feed_title"><h4>Showing all products 🐶</h4></div>
+
+    <div class="filter_by_price">
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-sm" id="filter_by_price" type="button" >
+          Sort by lowest to highest
+        </button>
+      </div>
+    </div>
+
+    <div class="all_products">
+      <!-- all products here -->
+    </div>
+  </section>
   </main>
 
 
