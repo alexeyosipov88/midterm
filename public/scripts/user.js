@@ -21,6 +21,19 @@ $(() => {
 
   });
 
+  $('body').on('click', '.btn-success', function(e) {
+    const listing_id = e.target.value;
+
+    $.post(`/users/profile/sold/${listing_id}`)
+    .then((listings) => {
+      $(location).attr('href', 'http://localhost:8080/users/profile');
+
+    }
+    )
+
+  });
+
+
 
 })
 
@@ -46,7 +59,7 @@ const createListing = (listing) => {
       </div>
       <div class="buttons">
         <button type="button" class="btn btn-primary btn-sm">Reply</button>
-        <button type="button" class="btn btn-success btn-sm">Mark as sold</button>
+        <button type="button" class="btn btn-success btn-sm" value='${listing.id}'>Mark as sold</button>
         <button type="button" class="btn btn-outline-danger btn-sm" value='${listing.id}'>Delete</button>
       </div>
 

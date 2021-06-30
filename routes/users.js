@@ -46,7 +46,21 @@ module.exports = (db) => {
     });
   })
 
+  router.post('/profile/unfavourite/:id', (req, res) => {
+    const listing_id = req.params.id;
+    db.query(`DELETE FROM favourites WHERE id = '${listing_id}'`).then((result) => {
+    res.json(result);
+    });
+  })
 
+  router.post('/profile/sold/:id', (req, res) => {
+    const listing_id = req.params.id;
+    db.query(`UPDATE listings
+    SET is_active = FALSE
+    WHERE id = '${listing_id}'`).then((result) => {
+    res.json(result);
+    });
+  })
 
 
   router.post('/post', (req, res) => {

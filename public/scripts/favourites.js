@@ -8,6 +8,19 @@ $(() => {
    }
    )
 
+   $('body').on('click', '.btn-danger', function(e) {
+    const listing_id = e.target.value;
+    $.post(`/users/profile/unfavourite/${listing_id}`)
+    .then((listings) => {
+      $(location).attr('href', 'http://localhost:8080/users/favourites');
+    }
+    )
+
+  });
+
+
+
+
  })
 
  const renderFavourites = (listings) => {
@@ -31,7 +44,7 @@ $(() => {
     <div class="buttons">
       <div class="listing_buttons">
         <button type="button" class="btn btn-primary">Message seller</button>&nbsp; &nbsp;
-        <button type="button" class="btn btn-danger">Unfavourite listing 💔</button>
+        <button type="button" class="btn btn-danger" value='${listing.id}'>Unfavourite listing 💔</button>
       </div>
     </div>
  </div>
