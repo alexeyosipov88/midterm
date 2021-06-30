@@ -40,7 +40,7 @@
 
     <section class="listing_body">
 
-        <form action="/somewhere" method="POST" id="form">
+        <form action="/post" method="POST" id="form">
           <div class="row mb-3">
             <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
             <div class="col-sm-10">
@@ -51,11 +51,11 @@
           Price
           <div class="input-group mb-3">
             <span class="input-group-text">$</span>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <input name ='price' type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
           </div>
 
           Category
-          <select class="form-select" aria-label="Default select example">
+          <select name ='category' class="form-select" aria-label="Default select example">
             <option selected>Choose a category</option>
             <option value="1">Food</option>
             <option value="2">Toys</option>
@@ -63,13 +63,13 @@
           </select>
 
           Pet
-          <select class="form-select" aria-label="Default select example">
+          <select name='pet' class="form-select" aria-label="Default select example">
             <option selected>Choose a category</option>
-            <option value="1">Cat</option>
-            <option value="2">Dog</option>
-            <option value="3">Fish</option>
-            <option value="4">Reptile</option>
-            <option value="5">Small pet</option>
+            <option value="cats">Cat</option>
+            <option value="dogs">Dog</option>
+            <option value="fish">Fish</option>
+            <option value="reptile">Reptile</option>
+            <option value="small_pet">Small pet</option>
           </select>
 
           <!-- photo upload field -->
@@ -81,6 +81,7 @@
           </div>
 
 
+
       <div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
@@ -89,9 +90,9 @@
       </div>
 
       <div>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
 
-        <button type="button" class="btn btn-outline-danger">Cancel</button>
+        <button type="submit" class="btn btn-outline-danger">Cancel</button>
 
       </div>
     </form>
