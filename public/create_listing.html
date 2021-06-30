@@ -40,22 +40,21 @@
 
     <section class="listing_body">
 
-        <form action="/somewhere" method="POST" id="form">
+        <form action="/users/post" method="POST" id="form">
           <div class="row mb-3">
             <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="titleofitem">
+              <input name='name' type="text" class="form-control" id="titleofitem">
             </div>
           </div>
-
-          Price
-          <div class="input-group mb-3">
-            <span class="input-group-text">$</span>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <div class="row mb-3">
+            <label for="titleofitem" class="col-sm-2 col-form-label">Price</label>
+            <div class="col-sm-10">
+              <input name='price' type="text" class="form-control" id="titleofitem">
+            </div>
           </div>
-
           Category
-          <select class="form-select" aria-label="Default select example">
+          <select name ='category_id' class="form-select" aria-label="Default select example">
             <option selected>Choose a category</option>
             <option value="1">Food</option>
             <option value="2">Toys</option>
@@ -63,7 +62,7 @@
           </select>
 
           Pet
-          <select class="form-select" aria-label="Default select example">
+          <select name='animal_id' class="form-select" aria-label="Default select example">
             <option selected>Choose a category</option>
             <option value="1">Cat</option>
             <option value="2">Dog</option>
@@ -75,23 +74,22 @@
           <!-- photo upload field -->
           <div class="row mb-3">
             <label for="photo" class="col-sm-2 col-form-label">Photo</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="photo">
-            </div>
+            <input name='photo' type="text" class="form-control" id="photo">
           </div>
+
 
 
       <div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea name='description' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
       </div>
 
       <div>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
 
-        <button type="button" class="btn btn-outline-danger">Cancel</button>
+        <button type="submit" class="btn btn-outline-danger">Cancel</button>
 
       </div>
     </form>

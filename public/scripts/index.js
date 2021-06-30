@@ -59,8 +59,9 @@ function listing(list) {
   <img class="listing-image" src="${list.photo}" />
   </div>
   <div class="item_description">
-  <b>${list.name}<b><BR>
-  $${list.price}
+
+  ${list.name}<BR>
+  ${(list.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
   </div>
   </div>
 `;
