@@ -29,6 +29,9 @@ h3 {
   font-size: 1.7em;
   font-family: 'Lato', sans-serif;
   margin-bottom:0em;
+  padding-right: 0.8em;
+
+  border-bottom: #E07A5F 2px solid;
 }
 
 .container {
@@ -63,10 +66,14 @@ nav {
 }
 
 a {
-  color: #464854;
+  color: #81B29A;
   font-weight: bold;
   text-decoration: none;
+}
 
+a:active {
+  color: #494a55;
+  font-weight:bolder;
 }
 
 .header-container {
@@ -83,7 +90,7 @@ a {
   width: 100%;
 }
 
-// do not touch -- for main page search button
+// do not touch -- properly sizes the main page search button
 .form-control{
   margin-bottom: 0em;
 }
@@ -96,10 +103,6 @@ a {
   align-items:center;
   background-color: #FFFFFF;
   border-top:#3D405B 1px solid;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 .navbar_button {
@@ -108,9 +111,8 @@ a {
   font-size:2em;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
-  color: #3D506B;
+  color: #81B29A;
 }
-
 
 
 /*mobile styles */
