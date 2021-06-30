@@ -1,23 +1,75 @@
-// all pages
+// landing page
 
-.title h3 {
-  font-size: 1.7em;
-  margin-bottom: 0px;
-  font-family: 'Lato', sans-serif;
+.mobile_navbar {
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
 }
 
-.container {
-  width: 95%;
-  margin-top: 6em;
-  margin-bottom: 4em;
+.featured {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
+.featured_listings_title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.all_featured_products {
+  display: flex;
+  align-items: flex-start;
+}
+
+.main_feed_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.all_products {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 7em;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.item_description {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom:1.5em;
+  word-wrap: normal;
+}
+
+.filter_by_price {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom:1.5em;
+}
 
 // login and register page
 .form-control{
   margin-bottom: 0.8em;
 }
-
 
 // listing page
 
@@ -51,6 +103,7 @@ h4 {
 
 form textarea{
   resize: none;
+  height: 100%;
 }
 
 .input-group-text {
@@ -72,18 +125,4 @@ justify-content: space-evenly;
 padding-left: 2em;
 }
 
-.photo { // turns photo into circular avatar
-  display: inline-block;
-  position: relative;
-  width: 6em;
-  height: 6em;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.photo img {
-  width: auto;
-  height: 100%;
-  // margin-left: -50px;
-}
 

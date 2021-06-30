@@ -25,9 +25,19 @@ body {
   flex-direction: column;
 }
 
-h3 { // used for titles
+h3 {
+  font-size: 1.7em;
   font-family: 'Lato', sans-serif;
   margin-bottom:0em;
+  padding-right: 0.8em;
+
+  border-bottom: #E07A5F 2px solid;
+}
+
+.container {
+  width: 95%;
+  margin-top: 6em;
+  margin-bottom: 4em;
 }
 
 nav {
@@ -56,17 +66,18 @@ nav {
 }
 
 a {
-  color: #464854;
+  color: #81B29A;
   font-weight: bold;
   text-decoration: none;
-
 }
-// landing page
 
-.fa-paw {
-  font-size: 2em;
-  margin-right: 0.3em;
+a:active {
+  color: #494a55;
+  font-weight:bolder;
 }
+
+
+.header-container {
 
 .form-control { // search button
   margin-bottom: 0em;
@@ -81,34 +92,25 @@ a {
 .featured {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-direction: column;
+  color: #FFFFFF;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-.featured_listings_title {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 1em;
+// do not touch -- properly sizes the main page search button
+.form-control{
+  margin-bottom: 0em;
 }
 
-.all_featured_products {
-  display: flex;
-  align-items: flex-start;
-}
+/*mobile styles */
 
-.main_feed_title {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1em;
-}
+@media only screen and (max-width: 570px) {
 
-.all_products {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
+  // 'petslist' logo and title
+  .fa-paw {
+    font-size: 2em;
+    margin-right: 0.3em;
+  }
 
 .product {
   display: flex;
@@ -130,68 +132,126 @@ a {
   font-weight: bold;
 }
 
-.filter_by_price {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-bottom:1.5em;
-}
+  .mainpg_title {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+  }
 
-// mobile: bottom nav
-
-.mobile_navbar {
-  display: flex;
-  justify-content: space-around;
-  align-items:center;
-  background-color: #FFFFFF;
-  border-top:#3D405B 1px solid;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.navbar_button {
-  background-color: #FFFFFF;
-  border-top: solid 1px;
-  font-size:2em;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  color: #3D506B;
-}
-
- .header-container {
-  display: flex;
-  flex-direction: column;
-  color: #FFFFFF;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  margin-top: 120px;
-  width: 100%;
-}
-
-/*mobile styles */
-
-@media only screen and (min-width: 328px) and (max-width: 570px) {
-  .mobile_navbar {
+  // search bar
+  .header {
     display: flex;
-    justify-content: space-around;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
+    justify-content: center;
+    margin-top: 120px;
     width: 100%;
   }
+
+  .mobile_navbar {
+    // display: flex;
+    // justify-content: space-around;
+    // overflow: hidden;
+    // position: fixed;
+    // bottom: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-top :#3D405B 1px solid;
+  }
+
+  .navbar_button {
+    background-color: #FFFFFF;
+    border-top: solid 1px;
+    font-size:2em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    color: #81B29A;
+  }
+
+  .product {
+    width: 7em;
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+
+  .photo { // turns photo into circular avatar
+    display: inline-block;
+    position: relative;
+    width: 6em;
+    height: 6em;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .photo img {
+    width: auto;
+    height: 100%;
+    // margin-left: -50px;
+  }
+
 }
 
 /* Desktop styles */
 @media only screen and (min-width: 571px) {
-  .mobile_navbar .navbar_button {
-    display: none;
+
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1em;
+    background-color: #81b29a;
+    height: 6em;
   }
+
+  // 'petslist' logo and title
+  .fa-paw {
+    font-size: 2.9em;
+    margin-right: 0.5em;
+  }
+
+  .mainpg_title {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 2.9em;
+    font-weight: bold;
+  }
+
+  // search bar
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 140px;
+    width: 100%;
+  }
+
+ .mobile_navbar .navbar_button {
+    display: none;
+    overflow: hidden;
+  }
+
+  // footer {
+  //   display:none;
+  // }
+
+
+  .product {
+    // width: 7em;
+    margin-left: 4em;
+    margin-right: 4em;
+  }
+
+  .photo { // turns photo into circular avatar
+    display: inline-block;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    overflow: hidden;
+    border-radius: 10%;
+  }
+
+  .photo img {
+    width: auto;
+    height: 100%;
+    // margin-left: -50px;
+  }
+
 }
 
 //   .topnav {
