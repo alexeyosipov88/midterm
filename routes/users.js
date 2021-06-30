@@ -20,14 +20,6 @@ module.exports = (db) => {
     });
   });
 
-  router.get("/profile/myfav", (req,res) => {
-db.query(`SELECT * FROM favourites JOIN listings ON listings.id = favourites.listing_id WHERE favourites.user_id = 1`)
-.then((result) => {
-  const fav = result.rows ;
-  res.json(fav);
-})
-  })
-
   router.get('/post', (req,res)=>{
     res.sendFile( 'create_listing.html', {root: './public'});
   })
