@@ -13,7 +13,7 @@ exports.getUser = getUser ;
 
 
 const getUserWithEmail = function (db, email) {
-  return db.query(`SELECT id
+  return db.query(`SELECT *
   FROM users
   WHERE email = $1`, [email])
     .then((result) => {

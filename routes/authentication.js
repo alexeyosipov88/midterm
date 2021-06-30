@@ -13,16 +13,22 @@ module.exports = (db) =>  {
   });
 
   router.post("/register", (req, res) => {
+    console.log(req.body);
      const user = {
        name: req.body.name,
        email: req.body.email,
        password: req.body.password,
+       phone_number: req.body.phone_number,
+       city: req.body.city,
+       province: req.body.province
      };
      getUserWithEmail(db, req.body.email)
      .then((user) => {
       //checking if user.rows is undefined
-      // console.log("user", user);
-      if (user) {
+      console.log(req.body.name);
+       console.log("user", user.rows[0].email); //user.rows has the id of user with the same email.
+      if (user.rows[0].email === req.body.email) {
+        console.log("user already exists");
         return res.redirect("./login");
       }
     });

@@ -1,6 +1,6 @@
 $(() => {
 
-
+//renders listings specific to user-id
  $.get("/users/profile/mylistings")
   .then((listings) => {
     console.log(listings)
