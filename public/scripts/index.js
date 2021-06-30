@@ -1,8 +1,10 @@
 /* eslint-disable func-style */
 $(() => {
+  //home page route
   //fetch list of featured items - random
   $.get("/en/listing", function(data, status){
-    // console.log("Data: " + data ); //data is an array of objects
+
+    console.log("Data: " + data ); //data is an array of objects
     //randomizing the data array - random function
     const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
     for(let i=0; i<3; i++){
