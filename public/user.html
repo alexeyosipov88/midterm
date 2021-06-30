@@ -1,161 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>petslist</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <!-- Meta Information -->
+  <title>petslist</title>
 
-    <!-- External CSS -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- External CSS -->
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/user.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/button.css" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Sans+Pro:wght@300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-
-
-
-    <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- App JS -->
-    <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
-    <!-- <script src="/scripts/composer-char-counter.js"></script> -->
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/user.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/button.css" type="text/css" />
 
 
-  </head>
 
-  <div class="header">
 
-    <div class="user">
-      <div class="circular--landscape">
-        <img src="images/cat1.jpeg" />
-      </div>
-      <div>
-        <h3 class="title">Vivian Cheung</h3>
-      </div>
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- JQUERY library from cdnjs.com-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/user.js"></script>
+
+
+</head>
+
+<div class="header">
+
+  <div class="user">
+    <div class="circular--landscape">
+      <img src="images/cat1.jpeg" />
     </div>
-
+    <div>
+      <h3 class="title"></h3>
+    </div>
   </div>
 
-  <!--add to jquery-->
+</div>
 
-  <!-- $('a.link').click(function() {
+<!--add to jquery-->
+
+<!-- $('a.link').click(function() {
     $('a.link').removeClass('active');
     $(this).addClass('active');
 }); -->
 
-  <div class="toggle">
-    <div class="favourites">
-      <a href="#" class="link">
-        FAVOURITES</div>
-      </a>
-    <div class="listings">
-      <a href="#" class="link">
-        <div class="col-sm-5 col4">MY LISTINGS</div>
-      </a>
-    </div>
+<div class="toggle">
+  <div class="favourites">
+    <a href="#" class="link" id="myfav">
+      FAVOURITES
   </div>
+  </a>
+  <div class="listings">
+    <a href="#" class="link">
+      <div class="col-sm-5 col4" id="mylistings">MY LISTINGS</div>
+    </a>
+  </div>
+</div>
 
 
-  <body>
+<body>
   <!-- Page-specific (main) content here -->
   <main class="container">
 
 
     <section class="message">
-      <div class="message_box">
-        <div class="circular--landscape">
-          <img src="images/cat1.jpeg" />
-        </div>
 
-        <div class="message_body">
-
-          <div class="message_preview">
-            Item name / Price
-          </div>
-          <div class="buttons">
-            <button type="button" class="btn btn-primary btn-sm">Reply</button>
-            <button type="button" class="btn btn-success btn-sm">Mark as sold</button>
-            <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
-          </div>
-
-       </div>
-      </div>
-
-      <hr/>
-
-      <section class="message">
-        <div class="message_box">
-          <div class="circular--landscape">
-            <img src="images/cat2.jpeg" />
-          </div>
-
-          <div class="message_body">
-
-            <div class="message_preview">
-              Item name / Price
-            </div>
-            <div class="buttons">
-              <button type="button" class="btn btn-primary btn-sm">Reply</button>
-              <button type="button" class="btn btn-success btn-sm">Mark as sold</button>
-              <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
-            </div>
-
-         </div>
-        </div>
-
-        <hr/>
-
-      <!-- EXAMPLE FOR "FAVOURITES" -->
-      <section class="message">
-        <div class="message_box">
-          <div class="circular--landscape">
-            <img src="images/cat3.jpeg" />
-          </div>
-
-          <div class="message_body">
-
-            <div class="message_preview">
-              Item name / Price
-            </div>
-            <div class="buttons">
-              <button type="button" class="btn btn-primary btn-sm">Message seller</button>
-              <button type="button" class="btn btn-outline-danger btn-sm">Remove from favourites</button>
-            </div>
-
-         </div>
-        </div>
-
-        <!-- END "FAVOURITES" EXAMPLE -->
-        <!-- https://stackoverflow.com/questions/39271295/bootstrap-change-background-color-on-click -->
-
-        </section>
-
-
-    </main>
-
-    <section class="bottom_nav">
-
-      <div class="navbar">
-        <a href="/user/profile" class="active"><i class="far fa-user"></i></a>
-      <a href="/user/listings"><i class="fas fa-th-large"></i></a>
-      <a href="/user/post"><i class="far fa-edit"></i></a>
-      <a href="#favourites"><i class="fas fa-heart"></i></a>
-      <a href="/user/inbox"><i class="far fa-comments"></i></a>
-      </div>
     </section>
 
+
+    <!-- EXAMPLE FOR "FAVOURITES" -->
+
+  </main>
+
+  <section class="bottom_nav">
+
+    <div class="navbar">
+      <a href="/users/profile" class="active"><i class="far fa-user"></i></a>
+      <a href="/users/listings"><i class="fas fa-th-large"></i></a>
+      <a href="/users/post"><i class="far fa-edit"></i></a>
+      <a href="#favourites"><i class="fas fa-heart"></i></a>
+      <a href="/users/inbox"><i class="far fa-comments"></i></a>
+    </div>
+  </section>
+
 </body>
+
 </html>

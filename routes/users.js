@@ -13,6 +13,21 @@ module.exports = (db) => {
     res.sendFile( 'user.html' , {root: './public'});
   })
 
+  router.get("/profile/mylistings", (req, res) => {
+    db.query(`SELECT * FROM listings WHERE user_id = 1`).then((result) => {
+      const user = result.rows;
+      res.json(user);
+    });
+  });
+
+  router.get("/profile/myfav", (req,res) => {
+db.query(`SELECT * FROM favourites JOIN listings ON listings.id = favourites.listing_id WHERE favourites.user_id = 1`)
+.then((result) => {
+  const fav = result.rows ;
+  res.json(fav);
+})
+  })
+
   router.get('/post', (req,res)=>{
     res.sendFile( 'create_listing.html', {root: './public'});
   })
@@ -24,7 +39,6 @@ module.exports = (db) => {
   router.get('/inbox', (req, res) => {
     res.sendFile('./inbox.html', {root:'./public'});
   })
-
 
   return router;
 };
