@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const dbParams = require('../lib/db');
+
 const router  = express.Router();
 const {getUserWithEmail, addUser, getUser} = require('./database');
 
@@ -22,6 +23,8 @@ module.exports = (db) =>  {
        city: req.body.city,
        province: req.body.province
      };
+
+
      getUserWithEmail(db, req.body.email)
      .then((user) => {
       //checking if user.rows is undefined
@@ -29,11 +32,13 @@ module.exports = (db) =>  {
        console.log("user", user.rows[0].email); //user.rows has the id of user with the same email.
       if (user.rows[0].email === req.body.email) {
         console.log("user already exists");
-        return res.redirect("./login");
+     return res.redirect("./login");
       }
     });
     //add user if userid do not exists in our database
     addUser(db, user).then((user) => {
+      console.log(user);
+      req.session["user_id"] = user.id;
               return res.redirect("/");
             });
   });
@@ -64,7 +69,7 @@ module.exports = (db) =>  {
         {
           return res.send("credentials do not match");
         }
-
+        req.session["user_id"] = user.id;
         return res.redirect("/");
     })
   })

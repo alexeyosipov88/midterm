@@ -29,6 +29,7 @@ const addUser = function (db, user) {
   const phone_number = user.phone_number;
   const city = user.city;
   const province = user.province;
+  console.log(user);
   return db.query(`INSERT INTO users (name, email, password, phone_number, city, province)
   VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING *;`, [name, email, password, phone_number, city, province])
