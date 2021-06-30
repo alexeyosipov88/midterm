@@ -1,11 +1,11 @@
 $(() => {
 
 
- $.get("/en/listing")
+ $.get("/users/profile/mylistings")
   .then((listings) => {
+    console.log(listings)
     renderListings(listings);
   }
-
   )
 
 })

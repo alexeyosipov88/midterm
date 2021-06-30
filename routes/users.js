@@ -28,6 +28,17 @@ module.exports = (db) => {
     res.sendFile('listing.html',{root: './public'});
   })
 
+  router.get('/favourites', (req, res) => {
+    res.sendFile('favourites.html',{root: './public'});
+  })
+
+  router.get('/profile/myFavourites', (req, res) => {
+    db.query(`SELECT * FROM favourites WHERE user_id = 1`).then((result) => {
+      const favourites = result.rows;
+      res.json(favourites);
+    });
+  })
+
   router.get('/inbox', (req, res) => {
     res.sendFile('./inbox.html', {root:'./public'});
   })
