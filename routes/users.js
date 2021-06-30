@@ -38,6 +38,17 @@ module.exports = (db) => {
       res.json(favourites);
     });
   })
+
+  router.post('/profile/delete/:id', (req, res) => {
+    const listing_id = req.params.id;
+    db.query(`DELETE FROM listings WHERE id = '${listing_id}'`).then((result) => {
+    res.json(result);
+    });
+  })
+
+
+
+
   router.post('/post', (req, res) => {
     const listing =  req.body;
     db.query(`INSERT INTO listings (name, price, description, photo, animal_id, category_id, user_id, created_at)
