@@ -35,7 +35,6 @@ module.exports = (db) => {
     // console.log('@#$%^&*');
     db.query(`SELECT * FROM listings`)
       .then(data => {
-        console.log(data.rows);
         const listings = data.rows;
         //  console.log(listings);
         res.json(listings);
@@ -48,7 +47,6 @@ module.exports = (db) => {
   });
 
   router.post('/search', (req,res) =>{
-    console.log(req.body);
     db.query(`SELECT * FROM listings where name LIKE '%${req.body.search}%'`)
     .then(data => {
       const listings = data.rows;
