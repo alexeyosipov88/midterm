@@ -49,7 +49,7 @@ module.exports = (db) => {
 
   router.post('/search', (req,res) =>{
     console.log(req.body);
-    db.query(`SELECT * FROM listings where name LIKE '${req.body.search}%'`)
+    db.query(`SELECT * FROM listings where name LIKE '%${req.body.search}%'`)
     .then(data => {
       const listings = data.rows;
       res.json(listings);
@@ -57,7 +57,7 @@ module.exports = (db) => {
   })
 
   router.get('/filter', (req,res)=>{
-    db.query(`SELECT * FROM listings ORDER BY price DESC`)
+    db.query(`SELECT * FROM listings ORDER BY price`)
     .then(data => {
       const listings = data.rows ;
       res.json(listings);

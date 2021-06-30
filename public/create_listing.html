@@ -16,13 +16,8 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/create_listing.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/pages.css" type="text/css" />
     <link rel="stylesheet" href="/styles/button.css" type="text/css" />
-
-
-
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -36,7 +31,7 @@
   </head>
 
   <div class="topnav">
-  <h3>Create Listing</h3>
+    <h3 class="title">Create a listing</h3>
   </div>
 
   <body>
@@ -77,11 +72,15 @@
             <option value="5">Small pet</option>
           </select>
 
-              <!-- photo upload field -->
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Photo</label>
-                <input class="form-control" type="file" id="formFile">
-              </div>
+          <!-- photo upload field -->
+          <div class="row mb-3">
+            <label for="photo" class="col-sm-2 col-form-label">Photo</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="photo">
+            </div>
+          </div>
+
+
       <div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
@@ -101,6 +100,7 @@
 
     </main>
 
+<<<<<<< HEAD
     <section class="bottom_nav">
 
       <div class="navbar">
@@ -112,5 +112,18 @@
       </div>
     </section>
 
+=======
+    <footer>
+      <section class="bottom_nav">
+        <div class="mobile_navbar">
+          <button class="navbar_button" name="profile"><i class="far fa-user"></i></button>
+          <button class="navbar_button" name="listings"><i class="fas fa-th-large"></i></button>
+          <button class="navbar_button" name="create_listing"><i class="far fa-edit"></i></button>
+          <button class="navbar_button" name="favourites"><i class="fas fa-heart"></i></button>
+          <button class="navbar_button" name="inbox"><i class="far fa-comments"></i></button>
+        </div>
+      </section>
+    </footer>
+>>>>>>> c51d15e6a81e3811564b4fda1dc066f919a09df6
 </body>
 </html>

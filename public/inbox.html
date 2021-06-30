@@ -16,13 +16,8 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/inbox.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/pages.css" type="text/css" />
     <link rel="stylesheet" href="/styles/button.css" type="text/css" />
-
-
-
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -31,7 +26,6 @@
     <!-- App JS -->
     <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
     <!-- <script src="/scripts/composer-char-counter.js"></script> -->
-
 
   </head>
 
@@ -45,13 +39,14 @@
 
     <section class="message">
       <div class="message_box">
-        <div class="circular--landscape">
+        <div class="photo">
           <img src="images/cat1.jpeg" />
         </div>
 
         <div class="message_body">
 
-          <div class="message_preview">
+          <div class="message_details">
+            <h5>Username</h5>
             Item name / Price
           </div>
           <div class="buttons">
@@ -66,14 +61,15 @@
 
       <section class="message">
         <div class="message_box">
-          <div class="circular--landscape">
+          <div class="photo">
             <img src="images/cat2.jpeg" />
           </div>
 
           <div class="message_body">
 
-            <div class="message_preview">
-              Item name / Price / location
+            <div class="message_details">
+              <h5>Username</h5>
+              Item name / Price
             </div>
             <div class="buttons">
               <button type="button" class="btn btn-primary">Reply</button>
@@ -87,14 +83,15 @@
 
       <section class="message">
         <div class="message_box">
-          <div class="circular--landscape">
+          <div class="photo">
             <img src="images/cat3.jpeg" />
           </div>
 
           <div class="message_body">
 
-            <div class="message_preview">
-              Item name / Price / location
+            <div class="message_details">
+              <h5>Username</h5>
+              Item name / Price
             </div>
             <div class="buttons">
               <button type="button" class="btn btn-primary">Reply</button>
@@ -108,14 +105,15 @@
 
       <section class="message">
         <div class="message_box">
-          <div class="circular--landscape">
+          <div class="photo">
             <img src="images/cat4.jpeg" />
           </div>
 
           <div class="message_body">
 
-            <div class="message_preview">
-              Item name / Price / location
+            <div class="message_details">
+              <h5>Username</h5>
+              Item name / Price
             </div>
             <div class="buttons">
               <button type="button" class="btn btn-primary">Reply</button>
@@ -131,6 +129,7 @@
 
     </main>
 
+<<<<<<< HEAD
     <section class="bottom_nav">
 
       <div class="navbar">
@@ -141,6 +140,19 @@
       <a href="/user/inbox"><i class="far fa-comments"></i></a>
       </div>
     </section>
+=======
+    <footer>
+      <section class="bottom_nav">
+        <div class="mobile_navbar">
+          <button class="navbar_button" name="profile"><i class="far fa-user"></i></button>
+          <button class="navbar_button" name="listings"><i class="fas fa-th-large"></i></button>
+          <button class="navbar_button" name="create_listing"><i class="far fa-edit"></i></button>
+          <button class="navbar_button" name="favourites"><i class="fas fa-heart"></i></button>
+          <button class="navbar_button" name="inbox"><i class="far fa-comments"></i></button>
+        </div>
+      </section>
+    </footer>
+>>>>>>> c51d15e6a81e3811564b4fda1dc066f919a09df6
 
 </body>
 </html>
