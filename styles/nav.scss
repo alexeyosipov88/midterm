@@ -16,15 +16,22 @@ nav {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  background-color:#FFFFFF;
   height: 70px;
   width: 100%;
-  z-index: -1;
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
   color: #3D405B;
   font-family: 'Source Sans Pro', sans-serif;
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
 
+.fa-paw {
+  font-size: 2em;
+  margin-right: 0.3em;
+}
 
 // landing page
 
@@ -42,13 +49,17 @@ span {
 
 h3 { // used for titles
   font-family: 'Lato', sans-serif;
-  margin-bottom:1em;
+  margin-bottom:0em;
 }
 
 .featured {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.featured_item {
+
 }
 
 .item_description {
@@ -67,44 +78,28 @@ h3 { // used for titles
 
 // mobile: bottom nav
 
-.navbar {
+.mobile_navbar {
   display: flex;
   justify-content: space-around;
+  align-items:center;
+  background-color: #FFFFFF;
+  border-top:#3D405B 1px solid;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 
-.fa-user {
-color: #3D506B;
-font-size:2em;
-margin-bottom: 0.3em;
+.navbar_button {
+  background-color: #FFFFFF;
+  border-style: none;
+  font-size:2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  color: #3D506B;
 }
 
-.fa-th-large {
-  color: #3D506B;
-  font-size:2em;
-  margin-bottom: 0.3em;
-}
 
-.fa-heart {
-  color: #3D506B;
-  font-size:2em;
-  margin-bottom: 0.3em;
-}
-
-.fa-edit {
-  color: #3D506B;
-  font-size:2em;
-  margin-bottom: 0.3em;
-}
-
-.fa-comments {
-  color: #3D506B;
-  font-size:2em;
-  margin-bottom: 0.3em;
-}
 
 // .fa-user:active {
 //   color: #e07a5f !important;
