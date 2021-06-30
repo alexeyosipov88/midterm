@@ -85,11 +85,15 @@ h3 { // used for titles
 .featured {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
 }
 
-.featured_item {
-
+.product{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .item_description {
@@ -97,7 +101,6 @@ h3 { // used for titles
   font-size: 1em;
   margin-bottom:1.5em;
 }
-
 
 .filter_by_price {
   display: flex;
