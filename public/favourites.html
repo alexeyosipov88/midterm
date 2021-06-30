@@ -27,75 +27,62 @@
     <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
     <!-- <script src="/scripts/composer-char-counter.js"></script> -->
 
-
   </head>
 
   <div class="topnav">
-    <h3 class="title">Create a listing</h3>
+  <h3 class="title">Favourites</h3>
   </div>
 
   <body>
   <!-- Page-specific (main) content here -->
   <main class="container">
 
-    <section class="listing_body">
-
-        <form action="/somewhere" method="POST" id="form">
-          <div class="row mb-3">
-            <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="titleofitem">
-            </div>
-          </div>
-
-          Price
-          <div class="input-group mb-3">
-            <span class="input-group-text">$</span>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-          </div>
-
-          Category
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Choose a category</option>
-            <option value="1">Food</option>
-            <option value="2">Toys</option>
-            <option value="3">Supplies</option>
-          </select>
-
-          Pet
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Choose a category</option>
-            <option value="1">Cat</option>
-            <option value="2">Dog</option>
-            <option value="3">Fish</option>
-            <option value="4">Reptile</option>
-            <option value="5">Small pet</option>
-          </select>
-
-          <!-- photo upload field -->
-          <div class="row mb-3">
-            <label for="photo" class="col-sm-2 col-form-label">Photo</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="photo">
-            </div>
-          </div>
-
-
-      <div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <section class="message">
+      <div class="message_box">
+        <div class="photo">
+          <img src="images/cat1.jpeg" />
         </div>
+
+        <div class="message_body">
+
+          <div class="message_details">
+            <h5>Item name</h5>
+            Price
+          </div>
+          <div class="buttons">
+            <div class="listing_buttons">
+              <button type="button" class="btn btn-primary">Message seller</button>&nbsp; &nbsp;
+              <button type="button" class="btn btn-danger">Unfavourite listing 💔</button>
+            </div>
+          </div>
+
+       </div>
       </div>
 
-      <div>
-        <button type="button" class="btn btn-primary">Submit</button>
+      <hr/>
 
-        <button type="button" class="btn btn-outline-danger">Cancel</button>
+      <section class="message">
+        <div class="message_box">
+          <div class="photo">
+            <img src="images/cat2.jpeg" />
+          </div>
 
-      </div>
-    </form>
-    </section>
+          <div class="message_body">
+
+            <div class="message_details">
+              <h5>Item name</h5>
+              Price
+            </div>
+            <div class="buttons">
+              <div class="listing_buttons">
+                <button type="button" class="btn btn-primary">Message seller</button>&nbsp; &nbsp;
+                <button type="button" class="btn btn-danger">Unfavourite listing 💔</button>
+              </div>
+            </div>
+
+         </div>
+        </div>
+
 
 
     </main>
