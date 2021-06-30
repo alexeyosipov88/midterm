@@ -10,22 +10,15 @@
   margin-top: 2em;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
 .user {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-h3 {
-  font-size: 1.7em;
-  margin-top: 0.5em;
-  margin-bottom: 0px;
-  font-family: 'Lato', sans-serif;
-}
-
-.container {
-  width: 95%;
-  margin-top: 2.5em;
 }
 
 .form-control{
@@ -44,7 +37,7 @@ justify-content: space-evenly;
 padding-left: 2em;
 }
 
-.circular--landscape {
+.photo {
   display: inline-block;
   position: relative;
   width: 6em;
@@ -53,7 +46,7 @@ padding-left: 2em;
   border-radius: 50%;
 }
 
-.circular--landscape img {
+.photo img {
   width: auto;
   height: 100%;
   margin-left: -50px;

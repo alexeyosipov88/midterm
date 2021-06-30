@@ -1,0 +1,89 @@
+// all pages
+
+.title h3 {
+  font-size: 1.7em;
+  margin-bottom: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 95%;
+  margin-top: 6em;
+  margin-bottom: 4em;
+}
+
+
+// login and register page
+.form-control{
+  margin-bottom: .8em;
+}
+
+
+// listing page
+
+.img-fluid {
+  margin-bottom: 1.5em;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+}
+
+
+.listing_buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.listing_body {
+  margin-bottom: 1.5em;
+}
+
+.listing_details {
+  margin-bottom: 1.5em;
+}
+
+// create listing page
+
+.form-select {
+  margin-bottom:1.2em;
+}
+
+form textarea{
+  resize: none;
+}
+
+.input-group-text {
+  font-size: small;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+// inbox page
+
+.message_box {
+  display: flex;
+  flex-direction: row;
+}
+
+.message_body {
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+padding-left: 2em;
+}
+
+.photo { // turns photo into circular avatar
+  display: inline-block;
+  position: relative;
+  width: 6em;
+  height: 6em;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.photo img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+}
+
