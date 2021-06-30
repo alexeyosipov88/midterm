@@ -22,15 +22,147 @@ body {
   font-size: 1em;
   font-family: 'Source Sans Pro', sans-serif;}
 
+// universal
+body {
+  display:flex;
+  flex-direction: column;
+}
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.topnav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background-color:#FFFFFF;
+  height: 70px;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
+  color: #3D405B;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+a {
+  color: #464854;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+// landing page
+
+.fa-paw {
+  font-size: 2em;
+  margin-right: 0.3em;
+}
+
+.mainpg_title {
+  font-family: 'Pacifico', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.featured_listings_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+h3 { // used for titles
+  font-family: 'Lato', sans-serif;
+  margin-bottom:0em;
+}
+
+.featured {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.featured_item {
+
+}
+
+.item_description {
+  text-align: center;
+  font-size: 1em;
+  margin-bottom:1.5em;
+}
 
 
-/*Tablet styles */
+.filter_by_price {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom:1.5em;
+}
 
-// @media only screen and (min-width: 328px) and (max-width: 1023px) {
+// mobile: bottom nav
+
+.mobile_navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  background-color: #FFFFFF;
+  border-top:#3D405B 1px solid;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar_button {
+  background-color: #FFFFFF;
+  border-style: none;
+  font-size:2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  color: #3D506B;
+}
+
+ .header-container {
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  width: 100%;
+}
+
+/*mobile styles */
+
+@media only screen and (min-width: 328px) and (max-width: 570px) {
+  .mobile_navbar {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 571px) {
+  .mobile_navbar .navbar_button {
+    display: none;
+  }
+}
+
 //   .topnav {
 //     background-color: #F2CC8F;
 //   }
