@@ -34,26 +34,35 @@ const creatMessage = (message) => {
   return $(`
 <section class="memo">
       <div class="memo_box">
+
         <div class="photo">
           <img src="${message.photo}" />
         </div>
+
         <div class="memo_body">
           <div class="memo_details">
             <h5>${message.user_name}</h5>
-            ${message.name} / ${message.price}
+            <p>${message.name} / ${message.price}</p>
           </div>
-          <h5>Message:</h5>
+
+
           <div="message_from_buyer>
-          ${message.content}
+          <span class="contact_details"> Message: </span>
+           <p> ${message.content} </p>
+
+            <span class="contact_details">Phone</span>&nbsp;&nbsp; ${message.phone_number} <br>
+            <span class="contact_details">Email</span>&nbsp;&nbsp; ${message.email}
+
           </div>
-          <div class="contact_details">
-            Phone: ${message.phone_number}| email: ${message.email}
-          </div>
-        </div>
+
           <div class="inbox_buttons">
             <button type="button" class="btn btn-outline-danger" value="${message.id}" >Delete</button>
           </div>
-       </div>
+
+        </div>
+
+      </div>
+
     </section>
     <hr/>
   `);
