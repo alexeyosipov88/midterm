@@ -46,7 +46,7 @@ const creatMessage = (message) => {
           </div>
 
 
-          <div="message_from_buyer>
+          <div="message_from_buyer">
           <span class="contact_details"> Message: </span>
            <p> ${message.content} </p>
 
