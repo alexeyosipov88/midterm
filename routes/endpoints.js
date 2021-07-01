@@ -35,12 +35,23 @@ module.exports = (db) => {
     // console.log('@#$%^&*');
     db.query(`SELECT listings.*, users.id as user_id FROM listings JOIN users ON users.id = listings.user_id`)
       .then(data => {
+        const userQuery = db.query()
         const listings = data.rows;
           res.json(listings);
       })
 
   });
 
+  //grab the users to show the username
+  router.get('/listings/username', (req,res) => {
+    console.log('cookie value is: ', req.cookies["user_id"])
+    db.query(`SELECT * FROM users WHERE id = ${req.cookies["user_id"]}`)
+    .then(data => {
+      const user = data.rows[0] ;
+      console.log('user object has',user);
+      res.json(user);
+    })
+  })
 
   // get request after user click on the image link of individual item
   router.get('/listing/:id', (req, res) => {
@@ -66,16 +77,6 @@ module.exports = (db) => {
 
   });
 
-  //grab the users to show the username
-  router.get('/listings/username', (req,res) => {
-    console.log('cookie value is: ', req.cookies["user_id"])
-    db.query(`SELECT * FROM users WHERE id = ${req.cookies["user_id"]}`)
-    .then(data => {
-      const user = data.rows[0] ;
-      console.log('user object has',user);
-      res.json(user);
-    })
-  })
 
   router.post('/search', (req,res) =>{
     db.query(`SELECT * FROM listings where name LIKE '%${req.body.search}%'`)

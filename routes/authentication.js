@@ -58,11 +58,9 @@ console.log(req.body) ;
     //check if credentials match or not
     getUser(db,user)
     .then((user)=>{
-      console.log('THIS IS USER ', user);
       //check if it has some value
       if(user.rows === 'undefined')
       {
-        console.log("I am inside the first if statement");
         return res.send("credentials do not match");
       }
         const userEmailFromDatabase = user.rows[0].email ;
@@ -81,8 +79,8 @@ console.log(req.body) ;
 
   router.get('/logout', (req,res) => {
     //res. clearCookie('connect. sid', { path: '/' });
-    res.clearCookie(req.session["user_id"]);
-    console.log(req.session["user_id"]);
+    //req.session["userid"] = null;
+   req.cookies["user_id"] = null ;
     res.redirect('/');
   })
 
