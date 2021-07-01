@@ -155,14 +155,30 @@ padding-left: 2em;
 }
 
 // inbox page
-.memo_box {
+.memo, .memo_box {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .memo_body {
 display: flex;
 flex-direction: column;
-justify-content: space-evenly;
 padding-left: 2em;
+width: 70%;
+}
+
+.contact_details {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: smaller;
+}
+
+.inbox_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  justify-content: flex-end;
 }

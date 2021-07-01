@@ -159,6 +159,35 @@ nav {
     margin-right: 1.5em;
   }
 
+  // inbox page
+  .memo, .memo_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .memo_body {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.7em;
+    width: 70%;
+    font-size: smaller;
+  }
+
+  .contact_details {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: smaller;
+  }
+
+  .inbox_buttons {
+
+  }
+
   .photo { // turns photo into circular avatar
     display: inline-block;
     position: relative;
@@ -251,6 +280,35 @@ nav {
   .product {
     margin-left: 4em;
     margin-right: 4em;
+  }
+
+  // inbox page
+  .memo, .memo_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .memo_body {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2em;
+  width: 70%;
+  }
+
+  .contact_details {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: smaller;
+  }
+
+  .inbox_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    justify-content: flex-end;
   }
 
   // turns photos into rounded boxes
