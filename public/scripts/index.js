@@ -20,7 +20,7 @@ $(() => {
   });
 //another route just to grab the username to show to the page
   $.get('en/listings/username', function(data) {
-    console.log("data here should be the user logged in", data);
+    // console.log("data here should be the user logged in", data);
     const username = `Welcome ${data.name}`;
     const logoutBtn = `<a>logout</a>`
     const loginbtn = `<a>login</a>`
@@ -32,13 +32,20 @@ $(() => {
     {
       $('.user').append(username);
       $('.login').append(logoutBtn);
+      //on clicking the logout button
+      $('.login').click(function () {
+        $.get('/logout', function(data) {
 
+        })
+      })
     } else {
       $('.user').append(`Welcome Guest`);
       $('.login').append(loginbtn);
     }
-
   })
+
+  //on clicking the login/logout button
+
 //search button on click event handler
   $("#search-button").click(function() {
     const search = $("#search-input").val();

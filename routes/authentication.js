@@ -79,6 +79,8 @@ console.log(req.body) ;
   })
 
   router.get('/logout', (req,res) => {
+    //res. clearCookie('connect. sid', { path: '/' });
+    res.clearCookie(req.session["user_id"]);
     res.redirect('/');
   })
 
