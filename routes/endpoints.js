@@ -43,7 +43,6 @@ module.exports = (db) => {
 
 
   // get request after user click on the image link of individual item
-
   router.get('/listing/:id', (req, res) => {
     res.sendFile('./listing.html', {root:'./public'});;
 
@@ -63,14 +62,13 @@ module.exports = (db) => {
 
   });
 
-
-
-
   //grab the users to show the username
-  router.get('/listing/user', (req,res) => {
+  router.get('/listings/username', (req,res) => {
+    console.log('cookie value is: ', req.session["user_id"])
     db.query(`SELECT * FROM users WHERE id = ${req.session["user_id"]}`)
     .then(data => {
-      const user = data.rows ;
+      const user = data.rows[0] ;
+      console.log('user object has',user);
       res.json(user);
     })
   })
