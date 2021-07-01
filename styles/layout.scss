@@ -48,34 +48,6 @@ nav {
   z-index: 1;
 }
 
-.topnav {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  background-color:#FFFFFF;
-  height: 70px;
-  width: 100%;
-  z-index: 1;
-  overflow: hidden;
-  position: fixed;
-  color: #3D405B;
-  font-family: 'Source Sans Pro', sans-serif;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  padding-bottom: 0.3em;
-}
-
-a {
-  color: #81B29A;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:active {
-  color: #494a55;
-  font-weight:bolder;
-}
-
 .header-container {
   display: flex;
   flex-direction: column;
@@ -83,18 +55,41 @@ a:active {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1em;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
+  background-color: #FFFFFF;
+  color: #3D405B;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-bottom: 0.3em;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
 // do not touch -- properly sizes the main page search button
 .form-control{
   margin-bottom: 0em;
 }
 
-
-
 /*mobile styles */
 
 @media only screen and (max-width: 570px) {
 
-  // 'petslist' logo and title
+  .topnav {
+    height: 70px;
+  }
+
   .fa-paw {
     font-size: 2em;
     margin-right: 0.3em;
@@ -106,6 +101,21 @@ a:active {
     font-weight: bold;
   }
 
+  .usernav, .page_links {
+    display: none;
+  }
+
+  // mobile "animation" for links
+  a {
+  color: #81B29A;
+  text-decoration: none;
+  }
+
+  a:active {
+    color: #494a55;
+    font-weight:bolder;
+  }
+
   // search bar
   .header {
     display: flex;
@@ -115,11 +125,11 @@ a:active {
   }
 
   .mobile_navbar {
-    // display: flex;
-    // justify-content: space-around;
-    // overflow: hidden;
-    // position: fixed;
-    // bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
     width: 100%;
     background-color: #FFFFFF;
     border-top :#3D405B 1px solid;
@@ -136,8 +146,8 @@ a:active {
 
   .product {
     width: 7em;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
   }
 
   .photo { // turns photo into circular avatar
@@ -160,16 +170,11 @@ a:active {
 /* Desktop styles */
 @media only screen and (min-width: 571px) {
 
+  // 'petslist' logo and title
   .topnav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 1em;
-    background-color: #81b29a;
-    height: 6em;
+    height: 100px;
   }
 
-  // 'petslist' logo and title
   .fa-paw {
     font-size: 2.9em;
     margin-right: 0.5em;
@@ -181,6 +186,28 @@ a:active {
     font-weight: bold;
   }
 
+  // top navigation bar, page links & user actions
+  .page_links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    width: 75%;
+  }
+
+  .login {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  //hide username and logout
+  .user, .logout{
+    display:none;
+  }
+
   // search bar
   .header {
     display: flex;
@@ -189,23 +216,23 @@ a:active {
     width: 100%;
   }
 
+  // remove mobile nav bar
  .mobile_navbar .navbar_button {
     display: none;
     overflow: hidden;
   }
 
-  // footer {
-  //   display:none;
-  // }
-
+  footer {
+    display: none;
+  }
 
   .product {
-    // width: 7em;
     margin-left: 4em;
     margin-right: 4em;
   }
 
-  .photo { // turns photo into circular avatar
+  // turns photos into rounded boxes
+  .photo {
     display: inline-block;
     position: relative;
     width: 10em;
@@ -220,77 +247,39 @@ a:active {
     // margin-left: -50px;
   }
 
+  // hover animation for clickable links
+  a {
+    width: auto;
+    padding-right: 0px;
+    position: relative;
+    color: #3D405B;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: #81B29A;
+  }
+
+  a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5%;
+    left: 0;
+    background-color: #F2CC8F;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
 }
-
-//   .topnav {
-//     background-color: #F2CC8F;
-//   }
-
-//   .container {
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: column;
-//     margin: auto;
-//     width: 100%;
-//   }
-
-//   .header {
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 120px;
-//     height: 380px;
-//     width: 100%;
-//   }
-
-//   .header-container {
-//     width: 100%;
-//   }
-
-//   .new-tweet h2 {
-//     margin-bottom: 0px;
-//   }
-// }
-
-// /* Desktop styles */
-// @media only screen and (min-width: 1024px) {
-//   .body {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     width: 100%;
-//   }
-
-//   .topnav {
-//     background-color: #4056A1;
-//   }
-
-//   .container {
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: row;
-//     width: 100%;
-//     margin-top: 200px;
-//     /* margin-right: 5em;
-//     margin-left: 5em; */
-//   }
-
-//   .header {
-//     width: 50%;
-//     display: flex;
-//     justify-content: center;
-//   }
-
-//   .header-container {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     height: 380px;
-//     width: 80%;
-//   }
-
-//   .bottom_nav_bar {
-//     color: black;
-//   }
-// }
-
