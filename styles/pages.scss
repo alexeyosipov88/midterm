@@ -73,14 +73,40 @@
 
 // listing page
 
-.img-fluid {
-  margin-bottom: 1.5em;
+.listing_body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.listing_image {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  border: 1px solid #303030;
+  padding: 1em;
+}
+
+.listing_details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 3em;
+}
+
+// .listing_category_description{
+
+// }
+
+.listing_buttons {
+display: flex;
+align-items: flex-end;
+margin-top: 2em;
 }
 
 h4 {
   font-family: 'Lato', sans-serif;
 }
-
 
 .listing_buttons {
   display: flex;
