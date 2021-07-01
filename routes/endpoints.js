@@ -47,9 +47,10 @@ module.exports = (db) => {
     res.sendFile('./listing.html', {root:'./public'});;
 
   });
- // get request to fetch json from db
 
+ // get request to fetch json from db to give it to lisiting/:id
   router.get('/item/:id', (req, res) => {
+    console.log(req.params.id);
     db.query(`SELECT listings.*, animals.name as animal_name, categories.name as category_name
     FROM listings
     JOIN animals ON listings.animal_id = animals.id
