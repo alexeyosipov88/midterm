@@ -65,8 +65,8 @@ module.exports = (db) => {
 
   //grab the users to show the username
   router.get('/listings/username', (req,res) => {
-    console.log('cookie value is: ', req.session["user_id"])
-    db.query(`SELECT * FROM users WHERE id = ${req.session["user_id"]}`)
+    console.log('cookie value is: ', req.cookies["user_id"])
+    db.query(`SELECT * FROM users WHERE id = ${req.cookies["user_id"]}`)
     .then(data => {
       const user = data.rows[0] ;
       console.log('user object has',user);
@@ -89,7 +89,6 @@ module.exports = (db) => {
       res.json(listings);
     })
   })
-
 
 return router;
 }

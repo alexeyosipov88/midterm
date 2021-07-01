@@ -22,8 +22,8 @@ $(() => {
   $.get('en/listings/username', function(data) {
     // console.log("data here should be the user logged in", data);
     const username = `Welcome ${data.name}`;
-    const logoutBtn = `<a>logout</a>`
-    const loginbtn = `<a>login</a>`
+    const logoutBtn = `<a href="/">logout</a>`
+    const loginbtn = `<a href="/login">login</a>`
 
     $('.user').empty();
     $('.login').empty();
@@ -32,12 +32,7 @@ $(() => {
     {
       $('.user').append(username);
       $('.login').append(logoutBtn);
-      //on clicking the logout button
-      $('.login').click(function () {
-        $.get('/logout', function(data) {
 
-        })
-      })
     } else {
       $('.user').append(`Welcome Guest`);
       $('.login').append(loginbtn);
