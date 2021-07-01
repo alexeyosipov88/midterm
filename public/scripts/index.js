@@ -78,7 +78,7 @@ function listing(list) {
 
   <div class="product">
   <div class="photo">
-  <a href="/en/listing/${list.id}">
+  <a href="/en/listings/${list.id}">
   <img class="listing-image" src="${list.photo}" /></a>
   </div>
   <div class="item_description">

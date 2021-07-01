@@ -58,7 +58,7 @@ module.exports = (db) => {
   })
 
   // get request after user click on the image link of individual item
-  router.get('/listing/:id', (req, res) => {
+  router.get('/listings/:id', (req, res) => {
     res.sendFile('./listing.html', {root:'./public'});;
 
   });
@@ -72,11 +72,16 @@ module.exports = (db) => {
     JOIN categories ON listings.category_id = categories.id
     WHERE listings.id = ${req.params.id}`)
       .then(data => {
+
         const item = data.rows[0];
-        if (item.user_id !== req.session["user_id"]) {
-          item.seller = true;
-        } item.seller = false;
+        console.log(item);
+        item.seller = true;
+        console.log(req.session);
+        if (!req.session || item.user_id !== req.session["user_id"]) {
+          item.seller = false;
+        }
           res.json(item);
+          console.log(item);
       })
 
   });
