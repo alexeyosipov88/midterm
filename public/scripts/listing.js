@@ -11,16 +11,25 @@ $(() => {
   )
 
 
-  $('body').on('click', '.btn-danger', function(e) {
-    const listing_id = e.target.value;
-    console.log(listing_id)
-    $.post(`/users/profile/delete/${listing_id}`)
-    .then((listings) => {
-      $(location).attr('href', 'http://localhost:8080/');
-    }
-    )
+  // $('body').on('click', '#seller-delete', function(e) {
+  //   const listing_id = e.target.value;
+  //   console.log(listing_id)
+  //   $.post(`/users/profile/delete/${listing_id}`)
+  //   .then((listings) => {
+  //     $(location).attr('href', 'http://localhost:8080/');
+  //   }
+  //   )
 
-  });
+  // $('body').on('click', '#user-favourite', function(e) {
+  //   const listing_id = e.target.value;
+  //   console.log(listing_id)
+  //   $.post(`/users/profile/favourite/${listing_id}`)
+  //   .then((listings) => {
+  //     $(location).attr('href', 'http://localhost:8080/');
+  //   }
+  //   )
+
+  // });
 
 
 
@@ -59,16 +68,16 @@ $(() => {
       <div class="listing_buttons">
 
         <!-- seller buttons -->
-        <div class="listing_buttons">
-          <button type="button" class="btn btn-danger" value='${listing.id}'>Delete</button> &nbsp; &nbsp;
-          <button type="button" class="btn btn-primary" value='${listing.id}'>Edit post</button>
+        <div id ='seller-buttons' class="listing_buttons">
+          <button id='seller-delete' type="button" class="btn btn-danger" value='${listing.id}'>Delete</button> &nbsp; &nbsp;
+          <button id='seller-edit' type="button" class="btn btn-primary" value='${listing.id}'>Edit post</button>
         </div>
 
 
         <!-- user buttons -->
-        <div class="listing_buttons">
-          <button type="button" class="btn btn-danger" value='${listing.id}'>Favourite listing ❤️</button> &nbsp; &nbsp;
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="message_popup" value='${listing.id}'>Message seller</button>
+        <div id='user-buttons' class="listing_buttons">
+          <button 'user-favourite' type="button" class="btn btn-danger" value='${listing.id}'>Favourite listing ❤️</button> &nbsp; &nbsp;
+          <button 'user-message' type="button" class="btn btn-primary" data-toggle="modal" data-target="message_popup" value='${listing.id}'>Message seller</button>
         </div>
 
       </div>
