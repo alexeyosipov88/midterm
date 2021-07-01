@@ -36,21 +36,21 @@ module.exports = (db) => {
     db.query(`SELECT * FROM listings JOIN users ON users.id = listings.user_id`)
       .then(data => {
         const listings = data.rows;
-        console.log(listings);
-        // res.json(listings);
+        console.log('value of listings -- endpoints.js --- line 39',listings);
+        console.log('this is the cookie id from endpoints',req.session["user_id"]);
 
-          console.log(req.session["user_id"]);
-          console.log(req.session["user_id"], 'this is cookie id');
-
-          db.query(`SELECT * FROM users WHERE id = ${req.session["userid"]}`)
-      .then(data => {
-        const users = data.rows ;
-        console.log("______+=++++++++++" , users);
-        res.json(users, listings);
-      })
+          res.json(listings);
       })
 
   });
+  //grab the users to show the username
+  router.get('/listing/user', (req,res) => {
+    db.query(`SELECT * FROM users WHERE id = ${req.session["user_id"]}`)
+    .then(data => {
+      const user = data.rows ;
+      res.json(user);
+    })
+  })
 
   router.post('/search', (req,res) =>{
     db.query(`SELECT * FROM listings where name LIKE '%${req.body.search}%'`)

@@ -28,7 +28,7 @@ module.exports = (db) =>  {
      getUserWithEmail(db, req.body.email)
      .then((user) => {
       //checking if user.rows is undefined
-      console.log(req.body.name);
+      // console.log(req.body.name);
        console.log("user", user.rows[0].email); //user.rows has the id of user with the same email.
       if (user.rows[0].email === req.body.email) {
         console.log("user already exists");
@@ -45,13 +45,12 @@ module.exports = (db) =>  {
   });
 
   router.get("/login", (req,res)=>{
-    console.log(req.session["user_id"], 'this is cookie id');
+    console.log(req.session["user_id"], 'this is cookie ID');
     res.sendFile( 'login.html' , {root: './public'});
-    console.log(req.session["user_id"], 'this is cookie id');
   })
 
   router.post("/login", (req,res) => {
-
+console.log(req.body) ;
     const user = {
        email: req.body.email,
        password: req.body.password
@@ -60,7 +59,7 @@ module.exports = (db) =>  {
     //check if credentials match or not
     getUser(db,user)
     .then((user)=>{
-      console.log(user, 'THIS IS USER ');
+      console.log('THIS IS USER ', user);
       //check if it has some value
       if(user.rows === 'undefined')
       {
@@ -73,7 +72,7 @@ module.exports = (db) =>  {
         {
           return res.send("credentials do not match");
         }
-        console.log(user.rows[0].id, 'this is user');
+        console.log(user.rows[0], 'this is user');
         req.session["user_id"] = user.rows[0].id;
         console.log(req.session["user_id"], 'this is cookie id');
         return res.redirect("/");

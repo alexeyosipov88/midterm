@@ -1,17 +1,15 @@
 /* eslint-disable func-style */
-$(() => {
+$((db) => {
+
+  console.log('db in index.js is: ',db);
   //home page route
   //fetch list of featured items - random
   $.get("/en/listing", function(data, status){
 
     console.log("Data is from endpoints.js: " + data ); //data is an array of objects
-
-    console.log(data[0]);
-
-    // for(let item of data){
-    //   console.log(item);
-
-    // }
+    console.log('data is: ',data[0]);
+    //appending the header to the dom
+    // console.log(req.session["user_id"]);
 
     //randomizing the data array - random function
     const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
@@ -24,6 +22,26 @@ $(() => {
     }
 
   });
+
+  $.get('en/listing/user', function(data) {
+    console.log("data here should be the user logged in", data);
+    const username = `<h3>Welcome ${data.name}</h3>`;
+    const logoutBtn = `<a>logout</a>`
+    const loginbtn = `<a>login</a>`
+
+    $('.user').empty();
+    $('.logout').empty();
+    if(data.id)
+    {
+      $('.user').append(username);
+      $('.logout').append(logoutBtn);
+
+    } else {
+      $('.user').append(`<h3> Welcome Guest </h3>`);
+      $('.logout').append(loginbtn);
+    }
+
+  })
 //search button on click event handler
   $("#search-button").click(function() {
     const search = $("#search-input").val();
