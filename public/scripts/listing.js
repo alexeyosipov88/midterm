@@ -11,27 +11,28 @@ $(() => {
   )
 
 
-  // $('body').on('click', '#seller-delete', function(e) {
-  //   const listing_id = e.target.value;
-  //   console.log(listing_id)
-  //   $.post(`/users/profile/delete/${listing_id}`)
-  //   .then((listings) => {
-  //     $(location).attr('href', 'http://localhost:8080/');
-  //   }
-  //   )
+  $('body').on('click', '#seller-delete', function(e) {
+    const listing_id = e.target.value;
+    console.log(listing_id)
+    $.post(`/users/profile/delete/${listing_id}`)
+    .then((listings) => {
+      $(location).attr('href', 'http://localhost:8080/');
+    }
+    )
 
-  // $('body').on('click', '#user-favourite', function(e) {
-  //   const listing_id = e.target.value;
-  //   console.log(listing_id)
-  //   $.post(`/users/profile/favourite/${listing_id}`)
-  //   .then((listings) => {
-  //     $(location).attr('href', 'http://localhost:8080/');
-  //   }
-  //   )
-
-  // });
+  });
 
 
+  $('body').on('click', '#user-favourite', function(e) {
+    const listing_id = e.target.value;
+    console.log(listing_id)
+    $.post(`/users/profile/favourite/${listing_id}`)
+    .then((listings) => {
+      $(location).attr('href', 'http://localhost:8080/users/favourites');
+    }
+    )
+
+  });
 
 
 
@@ -76,8 +77,8 @@ $(() => {
 
         <!-- user buttons -->
         <div id='user-buttons' class="listing_buttons">
-          <button 'user-favourite' type="button" class="btn btn-danger" value='${listing.id}'>Favourite listing ❤️</button> &nbsp; &nbsp;
-          <button 'user-message' type="button" class="btn btn-primary" data-toggle="modal" data-target="message_popup" value='${listing.id}'>Message seller</button>
+          <button id='user-favourite' type="button" class="btn btn-danger" value='${listing.id}'>Favourite listing ❤️</button> &nbsp; &nbsp;
+          <button id='user-message' type="button" class="btn btn-primary" data-toggle="modal" data-target="message_popup" value='${listing.id}'>Message seller</button>
         </div>
 
       </div>
