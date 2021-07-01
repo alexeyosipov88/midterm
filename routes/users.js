@@ -78,7 +78,33 @@ module.exports = (db) => {
 
   router.get('/inbox', (req, res) => {
     res.sendFile('./inbox.html', {root:'./public'});
+
   })
+
+
+  //WILL BE CHANGED FOR COOKIE ID LATER
+
+  router.get('/inbox/messages', (req, res) => {
+    db.query(`SELECT messages.id, receiver_id, messages.content, messages.sender_id, users.phone_number, users.name as user_name ,users.email,
+    listings.name, listings.price, listings.photo
+    FROM messages
+    JOIN users ON messages.sender_id = users.id
+    JOIN listings ON messages.listing_id = listings.id
+    WHERE receiver_id = 1` ).then((result) => {
+      const messages = result.rows;
+      res.json(messages);
+    });
+
+  })
+
+  router.post('/inbox/messages/delete/:id', (req, res) => {
+    const message_id = req.params.id;
+    db.query(`DELETE FROM messages WHERE id = '${message_id}'`).then((result) => {
+    res.json(result);
+    });
+  })
+
+
 
   return router;
 };

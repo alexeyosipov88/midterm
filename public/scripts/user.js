@@ -1,5 +1,5 @@
 $(() => {
-
+  console.log(window.location.href);
 //renders listings specific to user-id
  $.get("/users/profile/mylistings")
   .then((listings) => {
@@ -24,7 +24,7 @@ $(() => {
 
   $('body').on('click', '.btn-success', function(e) {
     const listing_id = e.target.value;
-
+    console.log(window.location.pathname);
     $.post(`/users/profile/sold/${listing_id}`)
     .then((listings) => {
       $(location).attr('href', 'http://localhost:8080/users/profile');
