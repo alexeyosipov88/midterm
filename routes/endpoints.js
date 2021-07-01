@@ -58,6 +58,9 @@ module.exports = (db) => {
     WHERE listings.id = ${req.params.id}`)
       .then(data => {
         const item = data.rows[0];
+        if (item.user_id !== req.session["user_id"]) {
+          item.seller = true;
+        } item.seller = false;
           res.json(item);
       })
 

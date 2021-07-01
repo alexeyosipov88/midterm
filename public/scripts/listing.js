@@ -6,9 +6,20 @@ $(() => {
 
   $.get(`/en/item/${listing_id}`)
   .then((listing) => {
+    const seller = false;
+    if (listing.seller === true) {
+      const seller = true;
+    }
     $('.container').prepend(creatListing(listing));
+    console.log(seller);
+    if (seller) {
+      $('#user-buttons').hide();
+    } else {
+      $('#seller-buttons').hide();
+    }
   }
   )
+
 
 
   $('body').on('click', '#seller-delete', function(e) {
