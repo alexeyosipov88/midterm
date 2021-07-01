@@ -19,7 +19,7 @@ $(() => {
 
   });
 //another route just to grab the username to show to the page
-  $.get('en/listing/user', function(data) {
+  $.get('en/listings/username', function(data) {
     console.log("data here should be the user logged in", data);
     const username = `Welcome ${data.name}`;
     const logoutBtn = `<a>logout</a>`
