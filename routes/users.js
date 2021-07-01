@@ -14,17 +14,17 @@ module.exports = (db) => {
   })
 
   router.get("/profile/mylistings", (req, res) => {
-    const user_id = req.session["user_id"];
+    if (!req.session['user_id']) {
+      res.send(false);
+    }
     db.query(`SELECT * FROM listings WHERE user_id = ${req.session["user_id"]};`).then((result) => {
       const user = result.rows;
-      console.log('this is user', user);
-      console.log(user_id);
       res.json(user);
     });
   });
 
   router.get('/post', (req,res)=>{
-    console.log(req.session["user_id"], 'this is cookie id');
+    console.log(req.session);
     res.sendFile( 'create_listing.html', {root: './public'});
   })
 
@@ -37,11 +37,13 @@ module.exports = (db) => {
   })
 
   router.get('/profile/myFavourites', (req, res) => {
+    if (!req.session['user_id']) {
+      res.send(false);
+    }
     db.query(`SELECT *
     FROM listings
     JOIN favourites ON listings.id = favourites.listing_id WHERE favourites.user_id = ${req.session["user_id"]}`).then((result) => {
       const favourites = result.rows;
-      console.log('&*#@*&(&', req.session["user_id"]);
       res.json(favourites);
     });
   })

@@ -11,11 +11,11 @@ const app        = express();
 const morgan     = require('morgan');
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: ['key1', 'key2']
-// }));
-
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
+app.use(cookieParser());
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -48,7 +48,7 @@ app.use(express.static("public"));
 //render html file instead of ejs
 app.use(express.static(__dirname + '/public'));
 //using cookie parser for now
-app.use(cookieParser());
+
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own

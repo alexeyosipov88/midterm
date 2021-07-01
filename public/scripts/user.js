@@ -1,10 +1,12 @@
 $(() => {
-  console.log(window.location.href);
+
+
 //renders listings specific to user-id
  $.get("/users/profile/mylistings")
   .then((listings) => {
-    console.log(listings)
-
+    if (listings === false) {
+      $(location).attr('href', 'http://localhost:8080/login');
+     }
     renderListings(listings);
   }
   )
