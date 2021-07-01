@@ -16,6 +16,7 @@ module.exports = (db) => {
   router.get("/profile/mylistings", (req, res) => {
     db.query(`SELECT * FROM listings WHERE user_id = 1`).then((result) => {
       const user = result.rows;
+      console.log('&*#@*&(&', req.session["user_id"]);
       res.json(user);
     });
   });
@@ -36,6 +37,7 @@ module.exports = (db) => {
   router.get('/profile/myFavourites', (req, res) => {
     db.query(`SELECT * FROM listings JOIN favourites ON listings.id = favourites.listing_id WHERE favourites.user_id = 1`).then((result) => {
       const favourites = result.rows;
+      console.log('&*#@*&(&', req.session["user_id"]);
       res.json(favourites);
     });
   })
