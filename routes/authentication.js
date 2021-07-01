@@ -28,8 +28,7 @@ module.exports = (db) =>  {
      getUserWithEmail(db, req.body.email)
      .then((user) => {
       //checking if user.rows is undefined
-      // console.log(req.body.name);
-       console.log("user", user.rows[0].email); //user.rows has the id of user with the same email.
+       console.log("user", user.rows[0].email);
       if (user.rows[0].email === req.body.email) {
         console.log("user already exists");
      return res.redirect("./login");
