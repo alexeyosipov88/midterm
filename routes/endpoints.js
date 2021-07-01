@@ -33,13 +33,39 @@ module.exports = (db) => {
   // Home page
     router.get('/listing', (req, res) => {
     // console.log('@#$%^&*');
-    db.query(`SELECT * FROM listings JOIN users ON users.id = listings.user_id`)
+    db.query(`SELECT listings.*, users.id as user_id FROM listings JOIN users ON users.id = listings.user_id`)
       .then(data => {
         const listings = data.rows;
           res.json(listings);
       })
 
   });
+
+
+  // get request after user click on the image link of individual item
+
+  router.get('/listing/:id', (req, res) => {
+    res.sendFile('./listing.html', {root:'./public'});;
+
+  });
+ // get request to fetch json from db
+
+  router.get('/item/:id', (req, res) => {
+    db.query(`SELECT listings.*, animals.name as animal_name, categories.name as category_name
+    FROM listings
+    JOIN animals ON listings.animal_id = animals.id
+    JOIN categories ON listings.category_id = categories.id
+    WHERE listings.id = ${req.params.id}`)
+      .then(data => {
+        const item = data.rows[0];
+          res.json(item);
+      })
+
+  });
+
+
+
+
   //grab the users to show the username
   router.get('/listing/user', (req,res) => {
     db.query(`SELECT * FROM users WHERE id = ${req.session["user_id"]}`)

@@ -45,17 +45,17 @@
 
         <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
-          <input name='name' type="text" class="form-control" id="titleofitem">
+          <input required name='name' type="text" class="form-control" id="titleofitem">
         </div>
 
 
         <label for="titleofitem" class="col-sm-2 col-form-label">Price</label>
         <div class="col-sm-10">
-          <input name='price' type="text" class="form-control" id="titleofitem">
+          <input required name='price' type="text" class="form-control" id="titleofitem">
         </div>
 
         Category
-        <select name ='category_id' class="form-select" aria-label="Default select example">
+        <select required name ='category_id' class="form-select" aria-label="Default select example">
           <option selected>Choose a category</option>
           <option value="1">Food</option>
           <option value="2">Toys</option>
@@ -63,7 +63,7 @@
         </select>
 
         Pet
-        <select name='animal_id' class="form-select" aria-label="Default select example">
+        <select required name='animal_id' class="form-select" aria-label="Default select example">
           <option selected>Choose a category</option>
           <option value="1">Cat</option>
           <option value="2">Dog</option>
@@ -82,7 +82,7 @@
         </div>
 
         Category
-        <select name ='category_id' class="form-select">
+        <select name ='category_id' class="form-select" >
           <option selected>Choose a category</option>
           <option value="1">Food</option>
           <option value="2">Toys</option>
@@ -90,7 +90,7 @@
         </select>
 
         Pet
-        <select name='animal_id' class="form-select">
+        <select  name='animal_id' class="form-select" required>
           <option selected>Choose a category</option>
           <option value="1">Cat</option>
           <option value="2">Dog</option>
@@ -101,7 +101,7 @@
 
 
         <label for="photo" class="col-sm-2 col-form-label">Photo</label>
-        <input name='photo' type="text" class="form-control" id="photo">
+        <input required name='photo' type="text" class="form-control" id="photo">
 
         <div>
 
