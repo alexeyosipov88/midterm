@@ -11,16 +11,17 @@ $(() => {
   )
 
 
- /*  $('body').on('click', '.btn-danger', function(e) {
+  $('body').on('click', '.btn-danger', function(e) {
     const listing_id = e.target.value;
-    $.post(`/users/profile/unfavourite/${listing_id}`)
+    console.log(listing_id)
+    $.post(`/users/profile/delete/${listing_id}`)
     .then((listings) => {
-      $(location).attr('href', 'http://localhost:8080/users/favourites');
+      $(location).attr('href', 'http://localhost:8080/');
     }
     )
 
   });
- */
+
 
 
 
@@ -54,8 +55,8 @@ $(() => {
 
 <!-- seller buttons -->
 <div id='seller-buttons' class="listing_buttons">
-  <button type="button" class="btn btn-danger">Delete</button> &nbsp; &nbsp;
-  <button type="button" class="btn btn-primary">Edit post</button>
+  <button type="button" class="btn btn-danger" value='${listing.id}''>Delete</button> &nbsp; &nbsp;
+  <button type="button" class="btn btn-primary" value ='${listing.id}'>Edit post</button>
 </div>
 
 
