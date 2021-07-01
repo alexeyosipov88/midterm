@@ -41,6 +41,19 @@ nav {
   z-index: 1;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250x;
+  width: 100%;
+  color: #3D405B;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-top: 2em;
+}
+
 .header-container {
   display: flex;
   flex-direction: column;
@@ -111,10 +124,13 @@ nav {
 
   // search bar
   .header {
-    display: flex;
-    justify-content: center;
     margin-top: 120px;
     width: 100%;
+  }
+
+  #search_bar {
+    display: flex;
+    flex-direction: row;
   }
 
   .mobile_navbar {
@@ -196,17 +212,29 @@ nav {
     text-transform: uppercase;
   }
 
-  // //hide username and logout
-  // .user, .logout{
-  //   display:none;
-  // }
+  .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   // search bar
   .header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin-top: 140px;
     width: 100%;
+  }
+
+  #search_bar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .form-control{
+    width: 350px;
+    margin-bottom: 0em;
   }
 
   // remove mobile nav bar
@@ -219,6 +247,7 @@ nav {
     display: none;
   }
 
+  // pad listings on main page
   .product {
     margin-left: 4em;
     margin-right: 4em;
