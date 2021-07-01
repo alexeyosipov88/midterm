@@ -11,7 +11,7 @@ $(() => {
   )
 
 
-  $('body').on('click', '.btn-danger', function(e) {
+ /*  $('body').on('click', '.btn-danger', function(e) {
     const listing_id = e.target.value;
     $.post(`/users/profile/unfavourite/${listing_id}`)
     .then((listings) => {
@@ -20,13 +20,15 @@ $(() => {
     )
 
   });
-
+ */
 
 
 
 
 
  })
+
+ // template for listing page
 
  const creatListing = (listing) => {
   return $(`
@@ -39,7 +41,7 @@ $(() => {
 
 
     <h4>
-      ${listing.price}
+    ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
     </h4>
     <h4>
     ${listing.animal_name} / ${listing.category_name}
