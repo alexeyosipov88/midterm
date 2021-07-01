@@ -97,6 +97,14 @@ module.exports = (db) => {
 
   })
 
+  router.post('/inbox/messages/delete/:id', (req, res) => {
+    const message_id = req.params.id;
+    db.query(`DELETE FROM messages WHERE id = '${message_id}'`).then((result) => {
+    res.json(result);
+    });
+  })
+
+
 
   return router;
 };

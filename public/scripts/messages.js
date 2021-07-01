@@ -1,22 +1,26 @@
 $(() => {
 
   //renders listings specific to user-id
-   $.get("/users/inbox/messages")
+  $.get("/users/inbox/messages")
     .then((messages) => {
       console.log(renderMessages(messages));
       renderMessages(messages);
     }
     )
-   /*  $('body').on('click', '.btn-outline-danger', function(e) {
+
+    $('body').on('click', '.btn-outline-danger', function(e) {
       const message_id = e.target.value;
-      $.post(`/users/profile/unfavourite/${message_id}`)
-      .then((listings) => {
-        $(location).attr('href', 'http://localhost:8080/users/favourites');
+      $.post(`/users/inbox/messages/delete/${message_id}`)
+      .then((result) => {
+        $(location).attr('href', 'http://localhost:8080/users/inbox');
       }
-      ) */
+      )
+
+    });
 
 
-  })
+
+})
 
 const renderMessages = (messages) => {
   const $container = $('.container');
@@ -47,7 +51,7 @@ const creatMessage = (message) => {
           </div>
         </div>
           <div class="inbox_buttons">
-            <button type="button" class="btn btn-outline-danger">Delete</button>
+            <button type="button" class="btn btn-outline-danger" value="${message.id}" >Delete</button>
           </div>
        </div>
     </section>
