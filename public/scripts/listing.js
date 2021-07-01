@@ -52,6 +52,19 @@ $(() => {
   ${listing.description}
 </section>
 
+<!-- seller buttons -->
+<div id='seller-buttons' class="listing_buttons">
+  <button type="button" class="btn btn-danger">Delete</button> &nbsp; &nbsp;
+  <button type="button" class="btn btn-primary">Edit post</button>
+</div>
+
+
+<!-- user buttons -->
+<div id='user-buttons' class="listing_buttons">
+  <button type="button" class="btn btn-danger" value='${listing.id}'>Favourite listing ❤️</button> &nbsp; &nbsp;
+  <button type="button" class="btn btn-primary" value='${listing.id}'>Message seller</button>
+</div>
+
   `);
 
 }
