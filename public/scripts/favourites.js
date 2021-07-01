@@ -3,6 +3,9 @@ $(() => {
 
   $.get("/users/profile/myFavourites")
    .then((listings) => {
+     if (listings === false) {
+      $(location).attr('href', 'http://localhost:8080/login');
+     }
      console.log(listings);
      renderFavourites(listings);
    }

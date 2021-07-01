@@ -2,13 +2,13 @@ $(() => {
   // get current url
   const currentUrl = window.location.href;
   // get id from the last characters of the url
-  const listing_id = currentUrl.substring('http://localhost:8080/en/listing'.length +1);
+  const listing_id = currentUrl.substring('http://localhost:8080/en/listings'.length +1);
 
   $.get(`/en/item/${listing_id}`)
   .then((listing) => {
-    const seller = false;
+    let seller = false;
     if (listing.seller === true) {
-      const seller = true;
+      seller = true;
     }
     $('.container').prepend(creatListing(listing));
     console.log(seller);

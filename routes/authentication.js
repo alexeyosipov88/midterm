@@ -1,8 +1,10 @@
 const path = require('path');
 const express = require('express');
 const dbParams = require('../lib/db');
-
 const router  = express.Router();
+/* const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session'); */
+
 const {getUserWithEmail, addUser, getUser} = require('./database');
 
 //res.sendFile('index.html', { root: __dirname });
@@ -38,9 +40,9 @@ module.exports = (db) =>  {
     //add user if userid do not exists in our database
     addUser(db, user).then((user) => {
       console.log('wq23142342312412341A', rightUser);
-      console.log("cookies value should be undefined at this line", req.cookies["user_id"]);
-      req.cookies["user_id"] = user.rows[0].id;
-              return res.redirect("/");
+      console.log("cookies value should be undefined at this line", req.session["user_id"]);
+      req.session["user_id"] = user.rows[0].id;
+              return res.redirect("./");
             });
   });
 
@@ -72,9 +74,9 @@ console.log(req.body) ;
           return res.send("credentials do not match");
         }
         console.log( 'this is user',user.rows[0]);
-        console.log('this is req.cookies', req.cookies);
-        req.cookies["user_id"] = user.rows[0].id;
-        console.log("this is cookie id", req.cookies["user_id"]);
+        /* console.log('this is req.cookies', req.session); */
+        req.session["user_id"] = user.rows[0].id;
+        console.log("this is cookie id", req.session["user_id"]);
         return res.redirect("/");
     })
   })
