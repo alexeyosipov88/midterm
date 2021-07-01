@@ -14,9 +14,11 @@ module.exports = (db) => {
   })
 
   router.get("/profile/mylistings", (req, res) => {
-    db.query(`SELECT * FROM listings WHERE user_id = 1`).then((result) => {
+    const user_id = req.session["user_id"];
+    db.query(`SELECT * FROM listings;`).then((result) => {
       const user = result.rows;
-      console.log('&*#@*&(&', req.session["user_id"]);
+      console.log('this is user', user);
+      console.log(user_id);
       res.json(user);
     });
   });
@@ -35,7 +37,9 @@ module.exports = (db) => {
   })
 
   router.get('/profile/myFavourites', (req, res) => {
-    db.query(`SELECT * FROM listings JOIN favourites ON listings.id = favourites.listing_id WHERE favourites.user_id = 1`).then((result) => {
+    db.query(`SELECT *
+    FROM listings
+    JOIN favourites ON listings.id = favourites.listing_id WHERE favourites.user_id = ${req.session["user_id"]}`).then((result) => {
       const favourites = result.rows;
       console.log('&*#@*&(&', req.session["user_id"]);
       res.json(favourites);
@@ -59,8 +63,8 @@ module.exports = (db) => {
   router.post('/profile/favourite/:id', (req, res) => {
     const listing_id = req.params.id;
     db.query(`INSERT INTO favourites (user_id, listing_id)
-    VALUES (1, $1)
-    RETURNING *;`, [listing_id])
+    VALUES ($1, $2)
+    RETURNING *;`, [req.session["user_id"], listing_id])
     .then((result) => {
     res.json(result);
     });
