@@ -94,7 +94,7 @@ nav {
     font-weight: bold;
   }
 
-  .usernav {
+  .usernav, .page_links {
     display: none;
   }
 
@@ -139,8 +139,8 @@ nav {
 
   .product {
     width: 7em;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
   }
 
   .photo { // turns photo into circular avatar
