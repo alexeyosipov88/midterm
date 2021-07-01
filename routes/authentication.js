@@ -28,7 +28,7 @@ module.exports = (db) =>  {
      getUserWithEmail(db, req.body.email)
      .then((user) => {
       //checking if user.rows is undefined
-       console.log("user", user.rows[0].email);
+      //  console.log("user", user.rows[0].email);
       if (user.rows[0].email === req.body.email) {
         console.log("user already exists");
      return res.redirect("./login");
@@ -37,14 +37,14 @@ module.exports = (db) =>  {
     const rightUser = user;
     //add user if userid do not exists in our database
     addUser(db, user).then((user) => {
-      console.log(rightUser,'wq23142342312412341A');
-      req.session["user_id"] = user.rows[0].id;
+      console.log('wq23142342312412341A', rightUser);
+      console.log("cookies value should be undefined at this line", req.cookies["user_id"]);
+      req.cookies["user_id"] = user.rows[0].id;
               return res.redirect("/");
             });
   });
 
   router.get("/login", (req,res)=>{
-    console.log(req.session["user_id"], 'this is cookie ID');
     res.sendFile( 'login.html' , {root: './public'});
   })
 
@@ -71,14 +71,18 @@ console.log(req.body) ;
         {
           return res.send("credentials do not match");
         }
-        console.log(user.rows[0], 'this is user');
-        req.session["user_id"] = user.rows[0].id;
-        console.log(req.session["user_id"], 'this is cookie id');
+        console.log( 'this is user',user.rows[0]);
+        console.log('this is req.cookies', req.cookies);
+        req.cookies["user_id"] = user.rows[0].id;
+        console.log("this is cookie id", req.cookies["user_id"]);
         return res.redirect("/");
     })
   })
 
   router.get('/logout', (req,res) => {
+    //res. clearCookie('connect. sid', { path: '/' });
+    res.clearCookie(req.session["user_id"]);
+    console.log(req.session["user_id"]);
     res.redirect('/');
   })
 

@@ -54,6 +54,16 @@ module.exports = (db) => {
     });
   })
 
+  router.post('/profile/favourite/:id', (req, res) => {
+    const listing_id = req.params.id;
+    db.query(`INSERT INTO favourites (user_id, listing_id)
+    VALUES (1, $1)
+    RETURNING *;`, [listing_id])
+    .then((result) => {
+    res.json(result);
+    });
+  })
+
   router.post('/profile/sold/:id', (req, res) => {
     const listing_id = req.params.id;
     db.query(`UPDATE listings
