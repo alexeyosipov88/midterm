@@ -35,9 +35,13 @@ module.exports = (db) => {
     // console.log('@#$%^&*');
     db.query(`SELECT listings.*, users.id as user_id FROM listings JOIN users ON users.id = listings.user_id`)
       .then(data => {
-        const userQuery = db.query()
-        const listings = data.rows;
-          res.json(listings);
+        let userLoggedIn = req.cookies["user_id"];
+        if(userLoggedIn){
+          const listings = data  ;
+         return  res.json(listings);
+        }
+        const listings = data.rows ;
+        return res.json(listings);
       })
 
   });
