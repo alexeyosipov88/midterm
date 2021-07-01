@@ -1,16 +1,12 @@
 /* eslint-disable func-style */
-$((db) => {
+$(() => {
 
-  console.log('db in index.js is: ',db);
   //home page route
   //fetch list of featured items - random
   $.get("/en/listing", function(data, status){
-
-    console.log("Data is from endpoints.js: " + data ); //data is an array of objects
-    console.log('data is: ',data[0]);
-    //appending the header to the dom
-    // console.log(req.session["user_id"]);
-
+    $("featured_listings_title").empty();
+    $("featured_listings_title").append(`<h4>Featured products nearby 📍</h4>`);
+    // console.log('data is: ',data[0]);
     //randomizing the data array - random function
     const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
     for(let i=0; i<3; i++){
@@ -22,23 +18,24 @@ $((db) => {
     }
 
   });
-
+//another route just to grab the username to show to the page
   $.get('en/listing/user', function(data) {
     console.log("data here should be the user logged in", data);
-    const username = `<h3>Welcome ${data.name}</h3>`;
+    const username = `Welcome ${data.name}`;
     const logoutBtn = `<a>logout</a>`
     const loginbtn = `<a>login</a>`
 
     $('.user').empty();
-    $('.logout').empty();
+    $('.login').empty();
+    //appending the header to the dom
     if(data.id)
     {
       $('.user').append(username);
-      $('.logout').append(logoutBtn);
+      $('.login').append(logoutBtn);
 
     } else {
-      $('.user').append(`<h3> Welcome Guest </h3>`);
-      $('.logout').append(loginbtn);
+      $('.user').append(`Welcome Guest`);
+      $('.login').append(loginbtn);
     }
 
   })
@@ -52,14 +49,9 @@ $((db) => {
     search
   },
   function(data, status){
-    console.log(data);
-    //empty the DOM and append the New Title ---- this is not working. please take a look -------
-    $(".featured_listings_title").empty();
-    $(".featured_listings_title").append(`<h3>
-    Search Results
-  </h3>`);
   //emptying the body and appending the new result
-    $(".featured").empty();
+    $("featured_listings_title").empty();
+    $("featured_listings_title").append(`<h4>Search results 🎉</h4>`);
     for(item of data){
       $(".featured").append(searchTemplate(item));
     }
@@ -81,6 +73,7 @@ $((db) => {
 //appends the following template to the dom
 function listing(list) {
   const template = `
+
   <div class="product">
   <div class="photo">
   <img class="listing-image" src="${list.photo}" />

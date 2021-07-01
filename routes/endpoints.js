@@ -36,9 +36,6 @@ module.exports = (db) => {
     db.query(`SELECT * FROM listings JOIN users ON users.id = listings.user_id`)
       .then(data => {
         const listings = data.rows;
-        console.log('value of listings -- endpoints.js --- line 39',listings);
-        console.log('this is the cookie id from endpoints',req.session["user_id"]);
-
           res.json(listings);
       })
 
