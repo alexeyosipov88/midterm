@@ -14,8 +14,9 @@ body {
   background-color: #FFFFFF;
   font-size: 1em;
   font-family: 'Source Sans Pro', sans-serif;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 #hideID {
@@ -33,19 +34,12 @@ h3 {
 
 .container {
   width: 95%;
-  margin-top: 6em;
+  margin-top:6em;
   margin-bottom: 4em;
 }
 
 .form-group select.form-control {
   width: 50%
-}
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
 }
 
 .header {
@@ -68,13 +62,21 @@ nav {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.topnav {
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.mainnav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 1em;
   width: 100%;
-  z-index: 1;
+  // z-index: 1;
   overflow: hidden;
   position: fixed;
   background-color: #FFFFFF;
@@ -235,7 +237,7 @@ nav {
 
   }
 
-  .listing_image {
+  .listing_image_properties {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -281,6 +283,7 @@ nav {
   .container {
     margin-top: 8em;
   }
+
   .mobilenav {
     display: none;
   }
@@ -414,10 +417,10 @@ nav {
     margin-bottom: 1.5em;
   }
 
-  .listing_image {
+  .listing_image_properties {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    width: 100%;
     border: 1px solid #303030;
     padding: 1em;
   }
@@ -452,7 +455,7 @@ nav {
   }
 
   // hover animation for clickable links
-  a {
+  .page_links a {
     width: auto;
     padding-right: 0px;
     position: relative;
@@ -461,7 +464,7 @@ nav {
     cursor: pointer;
   }
 
-  a:hover {
+  .page_links a:hover {
     color: #81B29A;
   }
 
@@ -480,7 +483,7 @@ nav {
     transition: all 0.3s ease-in-out 0s;
   }
 
-  a:hover:before {
+  .page_links a:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
