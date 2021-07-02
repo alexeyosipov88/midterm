@@ -24,7 +24,7 @@ $(() => {
       return Math.floor(Math.random() * 6) + 1;
     };
     for (let i = 0; i < 3; i++) {
-      $(".featured").append(listing(data[random()]));
+      $(".all_featured_products").append(listing(data[random()]));
     }
     // fetch all products for main feed
     for (list of data) {
@@ -57,17 +57,24 @@ $(() => {
   //search button on click event handler
   $("#search_button").click(function() {
     const search = $("#search_input").val();
+
     //sends a post request to route /search in endpoint.js
     $.post("/en/search",
       {
         search
       },
       function(data, status) {
+        console.log("data is _____________", data);
         //emptying the body and appending the new result
         $(".featured_listings_title").empty();
+        $(".all_featured_products").empty();
+        //checking if the search data comes up empty
+        if(!(data.length)){
+          $(".all_featured_products").append(`<h1> Sorry Products Not found </h1>`);
+        }
         $(".featured_listings_title").append(`<h4>Search results 🎉</h4>`);
         for (item of data) {
-          $(".featured").append(searchTemplate(item));
+          $(".all_featured_products").append(searchTemplate(item));
         }
         $(".main_feed").empty();
       });
