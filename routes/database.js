@@ -6,9 +6,8 @@ const password = user.password ;
   FROM users WHERE email = $1 AND password = $2`,[email,password])
     .then((result) => {
       return result;
-    })
-
-}
+    });
+};
 exports.getUser = getUser ;
 
 
@@ -18,8 +17,8 @@ const getUserWithEmail = function (db, email) {
   WHERE email = $1`, [email])
     .then((result) => {
       return result;
-    })
-}
+    });
+};
 exports.getUserWithEmail = getUserWithEmail;
 
 const addUser = function (db, user) {
@@ -34,9 +33,9 @@ const addUser = function (db, user) {
   RETURNING *;`, [name, email, password, phone_number, city, province])
     .then((result) => {
       return result;
-    })
-  }
-  exports.addUser = addUser ;
+    });
+};
+exports.addUser = addUser;
 
 
 const addMessage = function (db, message) {
@@ -44,15 +43,15 @@ const addMessage = function (db, message) {
   const content = message.content;
   const receiver_id = message.receiver_id;
   const sender_id = message.sender_id;
-  const listing_id = message.listing_id;
+  const listing_id = messages.listing_id;
   return db.query(`INSERT INTO users (created_at, content, receiver_id, sender_id, listing_id)
   VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING *;`, [created_at, content, receiver_id, sender_id, listing_id])
     .then((result) => {
       return result;
-    })
-}
-exports.addMessage = addMessage ;
+    });
+};
+exports.addMessage = addMessage;
 
 const getFavourites = function (db, user_id) {
   return db.query(`SELECT *
@@ -60,9 +59,9 @@ const getFavourites = function (db, user_id) {
   WHERE user_id = $1`, [user_id])
     .then((result) => {
       return result;
-    })
-}
-exports.getFavourites = getFavourites ;
+    });
+};
+exports.getFavourites = getFavourites;
 
 const getMessages = function (db, user_id) {
   return db.query(`SELECT *
@@ -70,8 +69,8 @@ const getMessages = function (db, user_id) {
   WHERE sender_id = $1 OR receiver_id = $2`, [user_id, user_id])
     .then((result) => {
       return result;
-    })
-}
+    });
+};
 exports.getMessages = getMessages ;
 
 const getByFilter = function (db, options, limit = 10) {
@@ -115,6 +114,8 @@ const getByFilter = function (db, options, limit = 10) {
   LIMIT $${queryParams.length};
   `;
   // 5
+  // console.log(queryString, queryParams);
+  // 6
   return db.query(queryString, queryParams).then((res) => res);
 };
 exports.getByFilter = getByFilter ;
@@ -134,8 +135,9 @@ const addListing = function (db, listing) {
   RETURNING *;`, [name, price, description, photo, created_at, user_id, animal_id, category_id])
     .then((result) => {
       return result.rows[0];
-    })
-}
+    });
+};
 
 
-exports.addListing = addListing ;
+exports.addListing = addListing;
+
