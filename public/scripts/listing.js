@@ -2,14 +2,21 @@ $(() => {
   // get current url
   const currentUrl = window.location.href;
   // get id from the last characters of the url
-  const listing_id = currentUrl.substring('http://localhost:8080/en/listings'.length +1);
+  const listing_id = currentUrl.substring('http://localhost:8080/en/listings'.length + 1);
 
   $.get(`/en/item/${listing_id}`)
-  .then((listing) => {
-    let seller = false;
-    if (listing.seller === true) {
-      seller = true;
-    }
+    .then((listing) => {
+      let seller = false;
+      if (listing.seller === true) {
+        seller = true;
+      }
+      $('.container').prepend(createListing(listing));
+      if (seller) {
+        $('#user-buttons').hide();
+      } else {
+        $('#seller-buttons').hide();
+      }
+
     $('.container').prepend(creatListing(listing));
 
     if (seller) {
@@ -25,32 +32,38 @@ $(() => {
   $('body').on('click', '#seller-delete', function(e) {
     const listing_id = e.target.value;
     $.post(`/users/profile/delete/${listing_id}`)
-    .then((listings) => {
-      $(location).attr('href', 'http://localhost:8080/');
-    }
-    )
+      .then((listings) => {
+        $(location).attr('href', 'http://localhost:8080/');
+      }
+      );
 
   });
-
 
   $('body').on('click', '#user-favourite', function(e) {
     const listing_id = e.target.value;
     $.post(`/users/profile/favourite/${listing_id}`)
-    .then((listings) => {
-      $(location).attr('href', 'http://localhost:8080/users/favourites');
-    }
-    )
+      .then((listings) => {
+        $(location).attr('href', 'http://localhost:8080/users/favourites');
+      }
+      );
 
   });
+});
 
+const openModal = function() {
+  document.getElementById("backdrop").style.display = "block";
+  document.getElementById("messageModal").style.display = "block";
+  document.getElementById("messageModal").classList.add("show");
+};
+const closeModal = function () {
+  document.getElementById("backdrop").style.display = "none";
+  document.getElementById("messageModal").style.display = "none";
+  document.getElementById("messageModal").classList.remove("show");
+};
 
+// template for listing page
 
-
- })
-
- // template for listing page
-
- const creatListing = (listing) => {
+const createListing = (listing) => {
   return $(`
   <h1 class="title">${listing.name}</h1>
 
@@ -65,7 +78,7 @@ $(() => {
     <div class = "listing_details">
       <div class = "listing_category_description">
         <h4>
-          ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
+          ${(listing.price / 100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
         </h4>
         <h4>
           ${listing.animal_name} / ${listing.category_name}
@@ -87,20 +100,57 @@ $(() => {
         <!-- user buttons -->
         <div id='user-buttons' class="listing_buttons">
           <button id='user-favourite' type="button" class="btn btn-danger" value='${listing.id}'>Favourite listing ❤️</button> &nbsp; &nbsp;
-          <button id='user-message' type="button" class="btn btn-primary" data-toggle="modal" data-target="message_popup" value='${listing.id}'>Message seller</button>
+          <button id='user-message' type="button" class="btn btn-primary" onclick='openModal()' value='${listing.id}'>Message seller</button>
         </div>
 
       </div>
     </div>
 
+
+   <!-- Modal -->
+   <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-modal="true" role="dialog">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="messageModalLabel">Send a message</h5>
+           <button type="button" class="close" aria-label="Close"  onclick="closeModal()">
+             <span aria-hidden="true">×</span>
+           </button>
+         </div>
+         <div class="modal-body">
+          What would you like to say to the seller?
+           <div class="md-form">
+             <i class="fas fa-pencil prefix grey-text"></i>
+             <textarea type="text" id="messageToSeller" class="md-textarea form-control" rows="4" placeholder="Enter your message here."></textarea>
+             <!-- <label data-error="wrong" data-success="right" for="form8">Please enter a message.</label> -->
+           </div>
+
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+           <button type="button" class="btn btn-primary">Send message</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="modal-backdrop fade show" id="backdrop"  style="display: none;"></div>
+
+   <script>
+
+
+   </script>
+
+
+
   </section>
 
+
+
   `);
+};
 
-}
 
-
-//  const creatListing = (listing) => {
+//  const createListing = (listing) => {
 //   return $(`
 //   <section class="listing_body">
 

@@ -44,7 +44,7 @@ const addMessage = function (db, message) {
   const content = message.content;
   const receiver_id = message.receiver_id;
   const sender_id = message.sender_id;
-  const listing_id = listing_id;
+  const listing_id = message.listing_id;
   return db.query(`INSERT INTO users (created_at, content, receiver_id, sender_id, listing_id)
   VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING *;`, [created_at, content, receiver_id, sender_id, listing_id])
@@ -52,6 +52,7 @@ const addMessage = function (db, message) {
       return result;
     })
 }
+exports.addMessage = addMessage ;
 
 const getFavourites = function (db, user_id) {
   return db.query(`SELECT *
@@ -138,6 +139,3 @@ const addListing = function (db, listing) {
 
 
 exports.addListing = addListing ;
-// module.exports = { getUser, getMessages, getUserWithEmail, addUser, getFavourites, getByFilter, addListing }
-
-// module.exports = exports
