@@ -24,6 +24,9 @@ module.exports = (db) => {
   });
 
   router.get('/post', (req,res)=>{
+    if (!req.session['user_id']) {
+      res.redirect("/login");
+    }
     res.sendFile( 'create_listing.html', {root: './public'});
   })
 
@@ -100,11 +103,11 @@ module.exports = (db) => {
 
   router.get('/inbox/messages', (req, res) => {
     db.query(`SELECT messages.id, receiver_id, messages.content, messages.sender_id, users.phone_number, users.name as user_name ,users.email,
-    listings.name, listings.price, listings.photo
+    listings.name, listings.price, listings.photo, listings.id as listing_id
     FROM messages
     JOIN users ON messages.sender_id = users.id
     JOIN listings ON messages.listing_id = listings.id
-    WHERE receiver_id = 1` ).then((result) => {
+    WHERE receiver_id = ${req.session["user_id"]}`).then((result) => {
       const messages = result.rows;
       res.json(messages);
     });

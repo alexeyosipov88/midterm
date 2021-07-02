@@ -31,7 +31,9 @@ $(() => {
   return $(`
   <div class="message_box">
   <div class="photo">
+  <a href="/en/listings/${listing.listing_id}">
     <img src="${listing.photo}" />
+  </a>
   </div>
   <div class="message_body">
     <div class="message_details">
