@@ -70,7 +70,7 @@ $(() => {
         $(".all_featured_products").empty();
         //checking if the search data comes up empty
         if(!(data.length)){
-          $(".all_featured_products").append(`<h1> Sorry No Products found 😿</h1>`);
+          $(".all_featured_products").append(`<h1> Sorry No Results found 😿</h1>`);
         }
         $(".featured_listings_title").append(`<h4>Search results 🎉</h4>`);
         for (item of data) {
