@@ -59,7 +59,9 @@ const createListing = (listing) => {
 
 
     <div class="listing_image">
+    <a href="/en/listings/${listing.id}">
       <img src="${listing.photo}" class="listing_image_properties" alt="Responsive image">
+    </a>
     </div>
 
     <div class = "listing_details">
