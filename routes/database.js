@@ -1,6 +1,7 @@
-const getUser = function (db, user) {
-const email = user.email ;
-const password = user.password ;
+/* eslint-disable camelcase */
+const getUser = function(db, user) {
+  const email = user.email;
+  const password = user.password;
 
   return db.query(`SELECT *
   FROM users WHERE email = $1 AND password = $2`,[email,password])
@@ -8,10 +9,9 @@ const password = user.password ;
       return result;
     });
 };
-exports.getUser = getUser ;
+exports.getUser = getUser;
 
-
-const getUserWithEmail = function (db, email) {
+const getUserWithEmail = function(db, email) {
   return db.query(`SELECT *
   FROM users
   WHERE email = $1`, [email])
@@ -21,7 +21,7 @@ const getUserWithEmail = function (db, email) {
 };
 exports.getUserWithEmail = getUserWithEmail;
 
-const addUser = function (db, user) {
+const addUser = function(db, user) {
   const name = user.name;
   const email = user.email;
   const password = user.password;
@@ -37,8 +37,7 @@ const addUser = function (db, user) {
 };
 exports.addUser = addUser;
 
-
-const addMessage = function (db, message) {
+const addMessage = function(db, message) {
   const created_at = now();
   const content = message.content;
   const receiver_id = message.receiver_id;
@@ -53,7 +52,7 @@ const addMessage = function (db, message) {
 };
 exports.addMessage = addMessage;
 
-const getFavourites = function (db, user_id) {
+const getFavourites = function(db, user_id) {
   return db.query(`SELECT *
   FROM favourites
   WHERE user_id = $1`, [user_id])
@@ -63,7 +62,7 @@ const getFavourites = function (db, user_id) {
 };
 exports.getFavourites = getFavourites;
 
-const getMessages = function (db, user_id) {
+const getMessages = function(db, user_id) {
   return db.query(`SELECT *
   FROM messages
   WHERE sender_id = $1 OR receiver_id = $2`, [user_id, user_id])
@@ -71,9 +70,9 @@ const getMessages = function (db, user_id) {
       return result;
     });
 };
-exports.getMessages = getMessages ;
+exports.getMessages = getMessages;
 
-const getByFilter = function (db, options, limit = 10) {
+const getByFilter = function(db, options, limit = 10) {
   // 1
   const queryParams = [];
   // 2
@@ -118,17 +117,17 @@ const getByFilter = function (db, options, limit = 10) {
   // 6
   return db.query(queryString, queryParams).then((res) => res);
 };
-exports.getByFilter = getByFilter ;
+exports.getByFilter = getByFilter;
 
-const addListing = function (db, listing) {
+const addListing = function(db, listing) {
   const name = listing.name;
   const price = listing.price;
   const description = listing.description;
   const photo = listing.photo;
   const created_at = listing.created_at;
-  const user_id = listing_user_id;
-  const animal_id = listing_animal_id;
-  const category_id = listing_category_id;
+  const user_id = listing.user_id;
+  const animal_id = listing.animal_id;
+  const category_id = listing.category_id;
 
   return db.query(`INSERT INTO listing (name, price, description, photo, created_at, user_id,  animal_id, category_id)
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
@@ -137,7 +136,23 @@ const addListing = function (db, listing) {
       return result.rows[0];
     });
 };
-
-
 exports.addListing = addListing;
 
+const editListing = function(db, listing) {
+  const name = listing.name;
+  const price = listing.price;
+  const description = listing.description;
+  const photo = listing.photo;
+  const animal_id = listing.animal_id;
+  const category_id = listing.category_id;
+  const listing_id = listing.id;
+
+  return db.query(`UPDATE listing
+  SET name = $1, price = $2, description = $3, photo = $4,  animal_id = $5, category_id = $6
+  WHERE id = $7
+  RETURNING *;`, [name, price, description, photo, animal_id, category_id, listing_id])
+    .then((result) => {
+      return result.rows[0];
+    });
+};
+exports.editListing = editListing;

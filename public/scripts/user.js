@@ -57,7 +57,6 @@ const createListing = (listing) => {
       <div class="message_preview">
       </div>
       <div class="buttons">
-        <button type="button" class="btn btn-primary btn-sm">Reply</button>
         <button type="button" class="btn btn-success btn-sm" value='${listing.id}'>Mark as sold</button>
         <button type="button" class="btn btn-outline-danger btn-sm" value='${listing.id}'>Delete</button>
       </div>

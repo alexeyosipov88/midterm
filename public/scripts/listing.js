@@ -35,8 +35,15 @@ $(() => {
         $(location).attr('href', 'http://localhost:8080/users/favourites');
       });
   });
-});
 
+  $('body').on('click', '#seller-edit', function(e) {
+    const listing_id = e.target.value;
+    $.get(`/en/edit/${listing_id}`)
+      .then(() => {
+        $(location).attr('href', `http://localhost:8080/en/edit/${listing_id}`);
+      });
+  });
+});
 
 // modal function
 const openModal = function() {
@@ -82,7 +89,7 @@ const createListing = (listing) => {
         <!-- seller buttons -->
         <div id ='seller-buttons' class="listing_buttons">
           <button id='seller-delete' type="button" class="btn btn-danger" value='${listing.id}'>Delete</button> &nbsp; &nbsp;
-          <button id='seller-edit' type="button" class="btn btn-primary" value='${listing.id}'>Edit post</button>
+          <button id='seller-edit' type="button" class="btn btn-primary" value='${listing.id}'>Edit listing</button>
         </div>
 
 
