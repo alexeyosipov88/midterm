@@ -50,12 +50,13 @@ const createListing = (listing) => {
     </div>
 
     <div class="message_body">
-        ${listing.name} / ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
+        ${listing.name} <br>
+         ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
       <div class="message_preview">
       </div>
       <div class="buttons">
         <button type="button" class="btn btn-success btn-sm" value='${listing.id}'>Mark as sold</button>
-        <button type="button" class="btn btn-outline-danger btn-sm" value='${listing.id}'>Delete</button>
+        <button type="button" class="btn btn-danger btn-sm" value='${listing.id}'>Delete</button>
       </div>
 
    </div>

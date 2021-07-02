@@ -29,23 +29,25 @@ $(() => {
 
  const createListing = (listing) => {
   return $(`
+  <section class="message">
   <div class="message_box">
   <div class="photo">
     <img src="${listing.photo}" />
   </div>
   <div class="message_body">
-    <div class="message_details">
-      <h5>${listing.name}</h5>
+    <div class="messagemessage">
+      ${listing.name}<br>
       ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
-    </div>
-    <div class="buttons">
-      <div class="listing_buttons">
-        <button type="button" class="btn btn-primary">Message seller</button>&nbsp; &nbsp;
-        <button type="button" class="btn btn-danger" value='${listing.id}'>Remove favourite 💔</button>
+      </div>
+      <div class="buttons">
+          <button type="button" class="btn btn-primary btn-sm">Message seller</button>&nbsp; &nbsp;
+          <button type="button" class="btn btn-danger btn-sm" value='${listing.id}'> Unfavourite</button>
+
       </div>
     </div>
  </div>
 </div>
+</section>
 <hr/>
   `
   );
