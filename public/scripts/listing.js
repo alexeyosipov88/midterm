@@ -45,9 +45,9 @@ $(() => {
       });
   });
 
-
+  let user_id = 1;
   $('body').on('click', '#send_msg', function(e) {
-    let user_id = 1;
+
     /* const listing_id = e.target.value; */
     e.preventDefault();
     $.get(`http://localhost:8080/en/item/${listing_id}`)
