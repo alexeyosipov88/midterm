@@ -5,7 +5,7 @@ $(() => {
   //fetch list of featured items - random
   $.get("/en/listing", function(data, status) {
     $(".featured_listings_title").empty();
-    $(".featured_listings_title").append(`<h4>Featured products nearby 📍</h4>`);
+    $(".featured_listings_title").append(`<h4>Featured products</h4>`);
     $('.user').empty();
     // $('.login').empty();
     // const username = `Welcome ${data.name}`;
@@ -70,7 +70,7 @@ $(() => {
         $(".all_featured_products").empty();
         //checking if the search data comes up empty
         if(!(data.length)){
-          $(".all_featured_products").append(`<h1> Sorry Products Not found </h1>`);
+          $(".all_featured_products").append(`<h1> Sorry No Products found 😿</h1>`);
         }
         $(".featured_listings_title").append(`<h4>Search results 🎉</h4>`);
         for (item of data) {
