@@ -52,7 +52,7 @@ const creatMessage = (message) => {
           </div>
 
           <div class="inbox_buttons">
-            <button type="button" class="btn btn-outline-danger" value="${message.id}" >Delete</button>
+            <button type="button" class="btn btn-danger btn-sm" value="${message.id}" >Delete</button>
           </div>
 
         </div>

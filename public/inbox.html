@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
-    <title>petslist</title>
+    <title>PetsList - My Messages</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,6 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/messages.js"></script>
@@ -29,14 +28,52 @@
 
   </head>
 
-  <div class="topnav">
-  <h3 class="title">Messages</h3>
-  </div>
+  <nav>
+    <!--Desktop nav-->
+    <div class="desktopnav">
+
+      <div class = 'logo'>
+        <div><i class="fas fa-paw"></i></div>
+        <div class="mainpg_title">petslist</div>
+      </div>
+
+
+      <div class="page_links">
+        <div class = 'marketplace'>
+          <a href="/">marketplace</a>
+        </div>
+        <div class = 'post'>
+          <a href="/users/post">new listing</a>
+        </div>
+        <div class = 'mylistings'>
+        <a href="/users/profile">my listings</a>
+        </div>
+        <div class = 'myfavourites' >
+        <a href="/users/favourites">my favourites</a>
+        </div>
+        <div class = 'mymessages' >
+        <a href="/users/inbox">my messages</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div class="mobilenav">
+      <h3 class="title">My listings</h3>
+    </div>
+
+
+      <div class = 'usernav'>
+        <div class = 'login'><a href="/login">Login</a></div>
+        <div class = "user"> </div>
+      </div>
+    </div>
+  </nav>
 
   <body>
   <!-- Page-specific (main) content here -->
   <main class="container">
-  
+
   </main>
 
     <footer>

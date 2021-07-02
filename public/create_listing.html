@@ -24,15 +24,53 @@
 
   </head>
 
-  <div class="topnav">
-    <h3 class="title">Create a listing</h3>
-  </div>
+  <nav>
+    <!--Desktop nav-->
+    <div class="desktopnav">
+
+      <div class = 'logo'>
+        <div><i class="fas fa-paw"></i></div>
+        <div class="mainpg_title">petslist</div>
+      </div>
+
+
+      <div class="page_links">
+        <div class = 'marketplace'>
+          <a href="/">marketplace</a>
+        </div>
+        <div class = 'post'>
+          <a href="/users/post">new listing</a>
+        </div>
+        <div class = 'mylistings'>
+        <a href="/users/profile">my listings</a>
+        </div>
+        <div class = 'myfavourites' >
+        <a href="/users/favourites">my favourites</a>
+        </div>
+        <div class = 'mymessages' >
+        <a href="/users/inbox">my messages</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div class="mobilenav">
+      <h3 class="title">My listings</h3>
+    </div>
+
+
+      <div class = 'usernav'>
+        <div class = 'login'><a href="/login">Login</a></div>
+        <div class = "user"> </div>
+      </div>
+    </div>
+  </nav>
 
   <body>
   <!-- Page-specific (main) content here -->
   <main class="container">
 
-    <section class="listing_body">
+    <section class="form_body">
 
 
       <form action="/users/post" method="POST" id="form">
@@ -49,15 +87,18 @@
         </div>
 
         Category
-        <select required name ='category_id' class="form-select" aria-label="Default select example">
+        <div class="col-sm-5">
+        <select required name ='category_id' class="form-select form-control" aria-label="Default select example">
           <option selected>Choose a category</option>
           <option value="1">Food</option>
           <option value="2">Toys</option>
           <option value="3">Supplies</option>
         </select>
+        </div>
 
         Pet
-        <select required name='animal_id' class="form-select" aria-label="Default select example">
+        <div class="col-sm-5">
+        <select required name='animal_id' class="form-select form-control" aria-label="Default select example">
           <option selected>Choose a category</option>
           <option value="1">Cat</option>
           <option value="2">Dog</option>
@@ -65,6 +106,7 @@
           <option value="4">Reptile</option>
           <option value="5">Small pet</option>
         </select>
+        </div>
 
         <!-- photo upload field -->
 
