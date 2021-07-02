@@ -21,7 +21,7 @@ $(() => {
     // }
 
     const random = () => {
-      return Math.floor(Math.random() * 4) + 1;
+      return Math.floor(Math.random() * 6) + 1;
     };
     for (let i = 0; i < 3; i++) {
       $(".featured").append(listing(data[random()]));
