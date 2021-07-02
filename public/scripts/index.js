@@ -30,22 +30,17 @@ $(() => {
     for (list of data) {
       $(".all_products").append(listing(list));
     }
-
   });
   //another route just to grab the username to show to the page
   $.get('en/listings/username', function(data) {
-
-    if (data.id === Number) {
-      // $('.user').append(`Welcome Guest`);
-      // $('.login').append(loginbtn);
+    const username = `Welcome ${data.name}`;
+    const logoutBtn = `<a href="/logout">logout</a>`
+    if(data.id){
       $('.user').empty();
       $('.login').empty();
       $('.user').append(username);
       $('.login').append(logoutBtn);
     }
-    // const username = `Welcome ${data.name}`;
-    // const logoutBtn = `<a href="/logout">logout</a>`
-    // const loginbtn = `<a href="/login">login</a>`
 
     // $('.user').empty();
     // $('.login').empty();
