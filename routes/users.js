@@ -114,12 +114,9 @@ module.exports = (db) => {
 
   })
 
-<<<<<<< HEAD
+
   router.post('/message/:id', (req, res) => {
-=======
-  router.post('/message', (req, res) => {
     console.log(req.body);
->>>>>>> review5
 
     db.query(`INSERT INTO messages (created_at, content, sender_id, receiver_id, listing_id)
     VALUES (now(), $1, $2, $3, $5)

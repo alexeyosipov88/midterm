@@ -49,7 +49,7 @@ $(() => {
     console.log(listing_id);
     const msg =$('#messageToSeller').val();
     console.log(msg);
-    $.post("/users/message",
+    $.post(`/users/message/${listing.user_id}`,
       {
         msg
       },
@@ -130,7 +130,7 @@ const createListing = (listing) => {
              <span aria-hidden="true">×</span>
            </button>
          </div>
-         <form action="/users/message" method="POST">
+         <form action="/users/message/${listing.user_id}" method="POST">
          <div class="modal-body">
           What would you like to say to the seller?
            <div class="md-form">
