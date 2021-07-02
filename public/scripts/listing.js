@@ -44,6 +44,18 @@ $(() => {
       });
   });
 
+  $('#send_msg').click(function() {
+    const msg =$('#messageToSeller').val();
+    $.post("/user/search",
+      {
+        msg
+      },
+      function(data, status) {
+        console.log("data is _____________", data);
+
+      });
+  })
+
 });
 
 // modal function
