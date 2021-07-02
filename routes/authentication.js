@@ -23,8 +23,7 @@ module.exports = (db) =>  {
        city: req.body.city,
        province: req.body.province
      };
-
-
+    //fetches details of users if matching email is found
      getUserWithEmail(db, req.body.email)
      .then((user) => {
       //checking if user.rows is undefined
@@ -35,7 +34,6 @@ module.exports = (db) =>  {
     });
     //add user if userid do not exists in our database
     addUser(db, user).then((user) => {
-
       req.session["user_id"] = user.rows[0].id;
               return res.redirect("./");
             });
@@ -55,18 +53,15 @@ module.exports = (db) =>  {
     getUser(db,user)
     .then((user)=>{
       //check if it has some value
-      if(user.rows === 'undefined')
+      if(user.rows[0])
       {
         return res.send("credentials do not match");
       }
-        const userEmailFromDatabase = user.rows[0].email ;
-        const userPasswordFromDatabase = user.rows[0].password ;
-        if(userEmailFromDatabase !== req.body.email || userPasswordFromDatabase !== req.body.password)
-        {
-          return res.send("credentials do not match");
-        }
 
-        /* console.log('this is req.cookies', req.session); */
+      if(user.rows[0].email !== req.body.email || user.rows[0].password !== req.body.password)
+      {
+        return res.send("credentials do not match");
+      }
         req.session["user_id"] = user.rows[0].id;
         return res.redirect("/");
     })
