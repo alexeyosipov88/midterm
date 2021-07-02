@@ -114,12 +114,11 @@ module.exports = (db) => {
 
   })
 
-  router.post('/search', (req, res) => {
-    req
-    db.query(`INSERT INTO messages (created_at, content, receiver_id, sender_id, listing_id)
-    VALUES ($1, $2)
-    RETURNING *;`, [req.session["user_id"], listing_id]).then((result) => {
-      const messages = result.rows;
+  router.post('/message/:id', (req, res) => {
+    db.query(`INSERT INTO messages (created_at, content, sender_id, receiver_id, listing_id)
+    VALUES (now(), $1, $2, $3, $5)
+    RETURNING *;`, [req.body.content, req.session['user_id'], req.params.id, req.body.listing_id]).then((result) => {
+      const message = result.rows;
       res.json(messages);
     });
 
