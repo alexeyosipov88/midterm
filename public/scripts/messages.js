@@ -3,11 +3,12 @@ $(() => {
   //renders listings specific to user-id
   $.get("/users/inbox/messages")
     .then((messages) => {
+      console.log(messages);
       renderMessages(messages);
     }
     )
 
-    $('body').on('click', '.btn-outline-danger', function(e) {
+    $('body').on('click', '.btn-danger', function(e) {
       const message_id = e.target.value;
       $.post(`/users/inbox/messages/delete/${message_id}`)
       .then((result) => {
@@ -52,7 +53,7 @@ const creatMessage = (message) => {
           </div>
 
           <div class="inbox_buttons">
-            <button type="button" class="btn btn-outline-danger" value="${message.id}" >Delete</button>
+            <button type="button" class="btn btn-danger btn-sm" value="${message.id}" >Delete</button>
           </div>
 
         </div>

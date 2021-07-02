@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
+let user_id;
 $(() => {
   // get current url
   const currentUrl = window.location.href;
@@ -44,21 +45,30 @@ $(() => {
       });
   });
 
-  $('#send_msg').click(function() {
-    const listing_id = e.target.value;
-    console.log(listing_id);
-    const msg =$('#messageToSeller').val();
+  let user_id = 1;
+  $('body').on('click', '#send_msg', function(e) {
+
+    /* const listing_id = e.target.value; */
+    e.preventDefault();
+    $.get(`http://localhost:8080/en/item/${listing_id}`)
+      .then((result) => {
+        user_id = result.user_id;
+        console.log(result);
+        console.log(user_id);;
+      })
+    const msg = {};
+    msg.content =$('#messageToSeller').val();
+    msg.listing_id = listing_id;
+    msg.user_id = user_id;
     console.log(msg);
-    $.post(`/users/message/${listing.user_id}`,
-      {
-        msg
-      },
-      function(data, status) {
-        console.log("data is _____________", data);
+
+    console.log('this is it', user_id);
+    $.post(`/users/message/${user_id}`, msg)
+      .then(() => {
+        console.log(msg);
 
       });
-  })
-
+  });
 });
 
 // modal function

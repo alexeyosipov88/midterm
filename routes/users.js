@@ -107,21 +107,23 @@ module.exports = (db) => {
     FROM messages
     JOIN users ON messages.sender_id = users.id
     JOIN listings ON messages.listing_id = listings.id
-    WHERE receiver_id = ${req.session["user_id"]}`).then((result) => {
+    WHERE receiver_id = ${req.session['user_id']}`).then((result) => {
       const messages = result.rows;
+      console.log(messages);
       res.json(messages);
     });
 
   })
+  /* ${req.session["user_id"]} */
 
 
   router.post('/message/:id', (req, res) => {
-    console.log(req.body);
-
+    console.log(req.params.id)
     db.query(`INSERT INTO messages (created_at, content, sender_id, receiver_id, listing_id)
-    VALUES (now(), $1, $2, $3, $5)
+    VALUES (now(), $1, $2, $3, $4)
     RETURNING *;`, [req.body.content, req.session['user_id'], req.params.id, req.body.listing_id]).then((result) => {
       const message = result.rows;
+      console.log(message, 'thi os');
       res.json(message);
     });
 

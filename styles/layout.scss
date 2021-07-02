@@ -6,7 +6,7 @@ html {
 }
 
 /*
- * Global layout stuff
+ * global layout
  */
 
 body {
@@ -14,8 +14,13 @@ body {
   background-color: #FFFFFF;
   font-size: 1em;
   font-family: 'Source Sans Pro', sans-serif;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+#hideID {
+  display: none;
 }
 
 h3 {
@@ -29,16 +34,12 @@ h3 {
 
 .container {
   width: 95%;
-  margin-top: 6em;
+  margin-top:6em;
   margin-bottom: 4em;
 }
 
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
+.form-group select.form-control {
+  width: 50%
 }
 
 .header {
@@ -61,13 +62,21 @@ nav {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-.topnav {
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.mainnav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 1em;
   width: 100%;
-  z-index: 1;
+  // z-index: 1;
   overflow: hidden;
   position: fixed;
   background-color: #FFFFFF;
@@ -94,6 +103,27 @@ nav {
 
   .topnav {
     height: 70px;
+  }
+
+  .desktopnav {
+    display: none;
+  }
+
+  .mobilenav {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1em;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+    position: fixed;
+    background-color: #FFFFFF;
+    color: #3D405B;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 0.3em;
   }
 
   .fa-paw {
@@ -159,6 +189,18 @@ nav {
     margin-right: 1.5em;
   }
 
+  // login and register page
+  .form-control{
+    margin-bottom: .8em;
+  }
+
+  .form_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -1em;
+  }
+
   // inbox page
   .memo, .memo_box {
     display: flex;
@@ -184,11 +226,41 @@ nav {
     font-size: smaller;
   }
 
-  .inbox_buttons {
+  // listing page
+
+  .listing_body {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    margin-bottom: 1.5em;
+    width: 100%;
 
   }
 
-  .photo { // turns photo into circular avatar
+  .listing_image_properties {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #303030;
+    padding: 0.7em;
+  }
+
+  .listing_details {
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 3em;
+    margin-bottom: 1.5em;
+  }
+
+  .listing_buttons, .listing_category_description {
+    padding: 0.5em;
+  }
+
+
+  // turns photo into circular avatar
+  .photo {
     display: inline-block;
     position: relative;
     width: 6em;
@@ -207,6 +279,31 @@ nav {
 
 /* Desktop styles */
 @media only screen and (min-width: 571px) {
+
+  .container {
+    margin-top: 8em;
+  }
+
+  .mobilenav {
+    display: none;
+  }
+
+  .desktopnav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1em;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+    position: fixed;
+    background-color: #FFFFFF;
+    color: #3D405B;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 0.3em;
+  }
 
   // 'petslist' logo and title
   .topnav {
@@ -311,6 +408,38 @@ nav {
     justify-content: flex-end;
   }
 
+  // listing page
+
+  .listing_body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 1.5em;
+  }
+
+  .listing_image_properties {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // border: 1px solid #303030;
+    border-radius: 10%;
+    padding: 1em;
+  }
+
+  .listing_details {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 3em;
+    margin-bottom: 1.5em;
+  }
+
+  .listing_buttons {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 2em;
+  }
+
   // turns photos into rounded boxes
   .photo {
     display: inline-block;
@@ -324,11 +453,10 @@ nav {
   .photo img {
     width: auto;
     height: 100%;
-    // margin-left: -50px;
   }
 
   // hover animation for clickable links
-  a {
+  nav a {
     width: auto;
     padding-right: 0px;
     position: relative;
@@ -337,11 +465,11 @@ nav {
     cursor: pointer;
   }
 
-  a:hover {
+  nav a:hover {
     color: #81B29A;
   }
 
-  a:before {
+  nav a:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -356,7 +484,7 @@ nav {
     transition: all 0.3s ease-in-out 0s;
   }
 
-  a:hover:before {
+  nav a:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
