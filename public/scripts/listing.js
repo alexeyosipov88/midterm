@@ -144,10 +144,10 @@ const createListing = (listing) => {
            <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
            <button type="button" class="btn btn-primary" id="send_msg">Send message</button>
          </div>
-         </form>
        </div>
      </div>
    </div>
+   </form>
    <div class="modal-backdrop fade show" id="backdrop"  style="display: none;"></div>
 
    <script>
