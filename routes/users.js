@@ -114,17 +114,14 @@ module.exports = (db) => {
 
   })
 
-<<<<<<< HEAD
-  router.post('/message/:id', (req, res) => {
-=======
-  router.post('/message', (req, res) => {
-    console.log(req.body);
->>>>>>> review5
 
+  router.post('/message/:id', (req, res) => {
+    console.log(req.params.id)
     db.query(`INSERT INTO messages (created_at, content, sender_id, receiver_id, listing_id)
-    VALUES (now(), $1, $2, $3, $5)
+    VALUES (now(), $1, $2, $3, $4)
     RETURNING *;`, [req.body.content, req.session['user_id'], req.params.id, req.body.listing_id]).then((result) => {
       const message = result.rows;
+      console.log(message, 'thi os');
       res.json(message);
     });
 

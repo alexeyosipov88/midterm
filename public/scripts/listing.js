@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
+let user_id;
 $(() => {
   // get current url
   const currentUrl = window.location.href;
@@ -44,20 +45,30 @@ $(() => {
       });
   });
 
-  $('#send_msg').click(function() {
-    const listing_id = e.target.value;
-    console.log(listing_id);
-    const msg =$('#messageToSeller').val();
-    console.log(msg);
-    $.post("/users/message",
-      {
-        msg
-      },
-      function(data, status) {
-        console.log("data is _____________", data);
 
+  $('body').on('click', '#send_msg', function(e) {
+    let user_id = 1;
+    /* const listing_id = e.target.value; */
+    e.preventDefault();
+    $.get(`http://localhost:8080/en/item/${listing_id}`)
+      .then((result) => {
+        user_id = result.user_id;
+        console.log(result);
+        console.log(user_id);;
+      })
+    const msg = {};
+    msg.content =$('#messageToSeller').val();
+    msg.listing_id = listing_id;
+    msg.user_id = user_id;
+    console.log(msg);
+    console.log('this is it', user_id);
+    $.post(`/users/message/${user_id}`, msg)
+      .then(() => {
+        console.log(msg);
       });
-  })
+  });
+
+
 
 });
 
@@ -130,7 +141,7 @@ const createListing = (listing) => {
              <span aria-hidden="true">×</span>
            </button>
          </div>
-         <form action="/users/message" method="POST">
+         <form action="/users/message/${listing.user_id}" method="POST">
          <div class="modal-body">
           What would you like to say to the seller?
            <div class="md-form">
