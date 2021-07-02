@@ -115,7 +115,7 @@ module.exports = (db) => {
   })
 
   router.post('/message', (req, res) => {
-    console.log(req.params);
+    console.log(req.body);
 
     db.query(`INSERT INTO messages (created_at, content, receiver_id, sender_id, listing_id)
     VALUES ($1, $2)
