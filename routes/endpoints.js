@@ -78,8 +78,7 @@ module.exports = (db) => {
       })
 
   });
-
-
+//post request to search
   router.post('/search', (req,res) =>{
     db.query(`SELECT * FROM listings where name LIKE '%${req.body.search}%'`)
     .then(data => {
