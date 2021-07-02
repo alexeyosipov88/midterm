@@ -75,7 +75,13 @@
 
     <section class="listing_body">
 
-    <form action="/users/post" method="POST" id="form">
+    <form action="listing" method="POST" id="form">
+
+
+          <label for="titleofitem" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-10">
+            <input readonly required name='id' type="text" class="form-control" id="itemID">
+          </div>
 
           <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
           <div class="col-sm-10">
@@ -89,21 +95,21 @@
           </div>
 
           Category
-          <select required name ='category_id' id="itemCategory"class="form-select" aria-label="Default select example">
+          <select name ='category_id' id="itemCategory"class="form-select" aria-label="Default select example" required>
             <option selected>Choose a category</option>
-            <option value="Food">Food</option>
-            <option value="Toys">Toys</option>
-            <option value="Supplies">Supplies</option>
+            <option value="1">Food</option>
+            <option value="2">Toys</option>
+            <option value="3">Supplies</option>
           </select>
 
           Pet
           <select required name='animal_id' id="itemPet"class="form-select" aria-label="Default select example">
             <option selected>Choose a category</option>
-            <option value="Cats">Cats</option>
-            <option value="Dogs">Dogs</option>
-            <option value="Fish">Fish</option>
-            <option value="Reptile">Reptile</option>
-            <option value="SmallPet">Small pet</option>
+            <option value="1">Cats</option>
+            <option value="2">Dogs</option>
+            <option value="3">Fish</option>
+            <option value="4">Reptile</option>
+            <option value="5">Small pet</option>
           </select>
 
           <!-- photo upload field -->
@@ -121,7 +127,7 @@
           </div>
 
           <div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="editSubmit" type="submit" class="btn btn-primary">Submit</button>
 
             <button type="submit" class="btn btn-outline-danger">Cancel</button>
 
