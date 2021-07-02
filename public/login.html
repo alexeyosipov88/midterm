@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
-    <title>petslist</title>
+    <title>PetsList - Login</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +19,8 @@
     <link rel="stylesheet" href="/styles/pages.css" type="text/css" />
     <link rel="stylesheet" href="/styles/button.css" type="text/css" />
 
-
-
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- App JS -->
     <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
@@ -31,9 +28,40 @@
 
   </head>
 
-  <div class="topnav">
-    <h3 class="title">Login</h3>
-  </div>
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <div class="mainnav">
+
+      <div class = 'logo'>
+        <div><i class="fas fa-paw"></i></div>
+        <div class="mainpg_title">petslist</div>
+      </div>
+
+      <div class="page_links">
+        <div class = 'marketplace'>
+          <a href="/">marketplace</a>
+        </div>
+        <div class = 'post'>
+          <a href="/users/post">new listing</a>
+        </div>
+        <div class = 'mylistings'>
+        <a href="/users/profile">my listings</a>
+        </div>
+        <div class = 'myfavourites' >
+        <a href="/users/favourites">my favourites</a>
+        </div>
+        <div class = 'mymessages' >
+        <a href="/users/inbox">my messages</a>
+        </div>
+      </div>
+
+
+      <div class = 'usernav'>
+        <div class = 'login'><a href="/login">Login</a></div>
+        <div class = "user"> </div>
+      </div>
+    </div>
+  </nav>
 
 
   <body>
@@ -41,7 +69,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
 
-    <section class="login_body">
+    <section class="form_body">
 
       <form action="/login" method="POST">
         <div class="form-group offset-md-5">
@@ -56,7 +84,7 @@
           <input class="form-control col-4 btn btn-primary" type="submit" value="Login">
         </div>
       </form>
-        <div class="text-center">Don't have an account? Click <a href="/register">here</a> to register.</div>
+        <div class="offset-md-5">Don't have an account? Click <a href="/register">here</a> to register.</div>
 
 
     </section>
