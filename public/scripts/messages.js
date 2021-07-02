@@ -3,7 +3,6 @@ $(() => {
   //renders listings specific to user-id
   $.get("/users/inbox/messages")
     .then((messages) => {
-      console.log(renderMessages(messages));
       renderMessages(messages);
     }
     )

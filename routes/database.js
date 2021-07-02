@@ -29,7 +29,6 @@ const addUser = function (db, user) {
   const phone_number = user.phone_number;
   const city = user.city;
   const province = user.province;
-  console.log(user);
   return db.query(`INSERT INTO users (name, email, password, phone_number, city, province)
   VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING *;`, [name, email, password, phone_number, city, province])
@@ -115,8 +114,6 @@ const getByFilter = function (db, options, limit = 10) {
   LIMIT $${queryParams.length};
   `;
   // 5
-  console.log(queryString, queryParams);
-  // 6
   return db.query(queryString, queryParams).then((res) => res);
 };
 exports.getByFilter = getByFilter ;

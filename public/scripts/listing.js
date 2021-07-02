@@ -11,7 +11,7 @@ $(() => {
       seller = true;
     }
     $('.container').prepend(creatListing(listing));
-    console.log(seller);
+
     if (seller) {
       $('#user-buttons').hide();
     } else {
@@ -24,7 +24,6 @@ $(() => {
 
   $('body').on('click', '#seller-delete', function(e) {
     const listing_id = e.target.value;
-    console.log(listing_id)
     $.post(`/users/profile/delete/${listing_id}`)
     .then((listings) => {
       $(location).attr('href', 'http://localhost:8080/');
@@ -36,7 +35,6 @@ $(() => {
 
   $('body').on('click', '#user-favourite', function(e) {
     const listing_id = e.target.value;
-    console.log(listing_id)
     $.post(`/users/profile/favourite/${listing_id}`)
     .then((listings) => {
       $(location).attr('href', 'http://localhost:8080/users/favourites');

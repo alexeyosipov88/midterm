@@ -26,7 +26,6 @@ $(() => {
 
   $('body').on('click', '.btn-success', function(e) {
     const listing_id = e.target.value;
-    console.log(window.location.pathname);
     $.post(`/users/profile/sold/${listing_id}`)
     .then((listings) => {
       $(location).attr('href', 'http://localhost:8080/users/profile');
@@ -36,10 +35,7 @@ $(() => {
 
   });
 
-
-
 })
-
 
 const renderListings = (listings) => {
   const $container = $('.container');

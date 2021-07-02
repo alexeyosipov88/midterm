@@ -6,7 +6,6 @@ $(() => {
      if (listings === false) {
       $(location).attr('href', 'http://localhost:8080/login');
      }
-     console.log(listings);
      renderFavourites(listings);
    }
    )

@@ -32,12 +32,11 @@ module.exports = (db) => {
 
   // Home page
     router.get('/listing', (req, res) => {
-    // console.log('@#$%^&*');
     db.query(`SELECT listings.*, users.id as user_id FROM listings JOIN users ON users.id = listings.user_id`)
       .then(data => {
-        let userLoggedIn = req.cookies["user_id"];
+        let userLoggedIn = req.session["user_id"];
         if(userLoggedIn){
-          const listings = data  ;
+          const listings = data.rows  ;
          return  res.json(listings);
         }
         const listings = data.rows ;
@@ -48,11 +47,9 @@ module.exports = (db) => {
 
   //grab the users to show the username
   router.get('/listings/username', (req,res) => {
-    console.log('cookie value is: ', req.cookies["user_id"])
-    db.query(`SELECT * FROM users WHERE id = ${req.cookies["user_id"]}`)
+    db.query(`SELECT * FROM users WHERE id = ${req.session["user_id"]}`)
     .then(data => {
       const user = data.rows[0] ;
-      console.log('user object has',user);
       res.json(user);
     })
   })
@@ -65,7 +62,6 @@ module.exports = (db) => {
 
  // get request to fetch json from db to give it to lisiting/:id
   router.get('/item/:id', (req, res) => {
-    console.log(req.params.id);
     db.query(`SELECT listings.*, animals.name as animal_name, categories.name as category_name
     FROM listings
     JOIN animals ON listings.animal_id = animals.id
@@ -74,14 +70,11 @@ module.exports = (db) => {
       .then(data => {
 
         const item = data.rows[0];
-        console.log(item);
         item.seller = true;
-        console.log(req.session);
         if (!req.session || item.user_id !== req.session["user_id"]) {
           item.seller = false;
         }
           res.json(item);
-          console.log(item);
       })
 
   });

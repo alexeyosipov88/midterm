@@ -6,8 +6,20 @@ $(() => {
   $.get("/en/listing", function(data, status){
     $("featured_listings_title").empty();
     $("featured_listings_title").append(`<h4>Featured products nearby 📍</h4>`);
-    // console.log('data is: ',data[0]);
+    $('.user').empty();
+    // $('.login').empty();
+    const username = `Welcome ${data.name}`;
+    const logoutBtn = `<a href="/logout">logout</a>`
+    const loginbtn = `<a href="/login">login</a>`
     //randomizing the data array - random function
+    if(!data.id){
+      $('.user').append(`Welcome Guest`);
+      $('.login').append(loginbtn);
+    }else {
+      $('.user').append(username);
+      $('.login').append(logoutBtn);
+    }
+
     const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
     for(let i=0; i<3; i++){
       $(".featured").append(listing(data[random()]));
@@ -20,23 +32,19 @@ $(() => {
   });
 //another route just to grab the username to show to the page
   $.get('en/listings/username', function(data) {
-    // console.log("data here should be the user logged in", data);
-    const username = `Welcome ${data.name}`;
-    const logoutBtn = `<a href="/">logout</a>`
-    const loginbtn = `<a href="/login">login</a>`
 
-    $('.user').empty();
-    $('.login').empty();
+    // const username = `Welcome ${data.name}`;
+    // const logoutBtn = `<a href="/logout">logout</a>`
+    // const loginbtn = `<a href="/login">login</a>`
+
+    // $('.user').empty();
+    // $('.login').empty();
     //appending the header to the dom
-    if(data.id)
-    {
-      $('.user').append(username);
-      $('.login').append(logoutBtn);
-
-    } else {
-      $('.user').append(`Welcome Guest`);
-      $('.login').append(loginbtn);
-    }
+    // if(data.id)
+    // {
+    //   $('.user').append(username);
+    //   $('.login').append(logoutBtn);
+    // }
   })
 
   //on clicking the login/logout button
@@ -44,7 +52,6 @@ $(() => {
 //search button on click event handler
   $("#search-button").click(function() {
     const search = $("#search-input").val();
-    console.log("$%^&*_---",search);
     //sends a post request to route /search in endpoint.js
     $.post("/en/search",
   {
@@ -62,7 +69,6 @@ $(() => {
 //filter button on click event handler
   $("#filter_by_price").click(function() {
     $.get("/en/listing", function(data, status){
-      console.log("Data: " , data );
       $(".featured").empty();
       for (list of data) {
         $(".featured").append(listing(list));
@@ -71,6 +77,7 @@ $(() => {
   });
 
 });
+
 
 //appends the following template to the dom
 function listing(list) {
