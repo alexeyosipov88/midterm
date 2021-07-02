@@ -30,7 +30,9 @@ const creatMessage = (message) => {
       <div class="memo_box">
 
         <div class="photo">
+        <a href="/en/listings/${message.listing_id}">
           <img src="${message.photo}" />
+        </a>
         </div>
 
         <div class="memo_body">

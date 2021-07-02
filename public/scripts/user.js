@@ -45,9 +45,11 @@ const createListing = (listing) => {
   return $(`
   <section class="message">
   <div class="message_box">
+  <a href="/en/listings/${listing.id}">
     <div class="photo">
       <img src="${listing.photo}" />
-    </div>
+      </div>
+    </a>
 
     <div class="message_body">
         ${listing.name} / ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
