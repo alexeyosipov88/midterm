@@ -24,6 +24,9 @@ module.exports = (db) => {
   });
 
   router.get('/post', (req,res)=>{
+    if (!req.session['user_id']) {
+      res.redirect("/login");
+    }
     res.sendFile( 'create_listing.html', {root: './public'});
   })
 
