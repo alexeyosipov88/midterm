@@ -15,28 +15,28 @@ module.exports = (db) =>  {
   });
 
   router.post("/register", (req, res) => {
-     const user = {
-       name: req.body.name,
-       email: req.body.email,
-       password: req.body.password,
-       phone_number: req.body.phone_number,
-       city: req.body.city,
-       province: req.body.province
-     };
+    console.log(req.body);
     //fetches details of users if matching email is found
-     getUserWithEmail(db, req.body.email)
-     .then((user) => {
-      //checking if user.rows is undefined
-      //  console.log("user", user.rows[0].email);
-      if (user.rows[0].email === req.body.email) {
-     return res.redirect("./login");
+    getUserWithEmail(db, req.body.email).then((user) => {
+      if (user.rows[0]) {
+         res.redirect("/login");
+      } else {
+        const userDetails = {
+          name: req.body.name,
+          email: req.body.email,
+          password: req.body.password,
+          phone_number: req.body.phone_number,
+          city: req.body.city,
+          province: req.body.province
+        }
+        //add user if userid do not exists in our database
+        addUser(db, userDetails).then((user) => {
+          req.session["user_id"] = user.rows[0].id;
+         res.redirect("/");
+        });
       }
+
     });
-    //add user if userid do not exists in our database
-    addUser(db, user).then((user) => {
-      req.session["user_id"] = user.rows[0].id;
-              return res.redirect("./");
-            });
   });
 
   router.get("/login", (req,res)=>{
@@ -48,7 +48,6 @@ module.exports = (db) =>  {
        email: req.body.email,
        password: req.body.password
     }
-// console.log("getUser is: ", typeof getUser);
     //check if credentials match or not
     getUser(db,user)
     .then((user)=>{
