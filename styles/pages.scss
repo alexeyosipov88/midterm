@@ -79,6 +79,17 @@
   margin-bottom: .8em;
 }
 
+.login_body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.text-center {
+  text-align: center;
+}
+
 // listing page
 
 .listing_body {

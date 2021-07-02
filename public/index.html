@@ -35,111 +35,100 @@
 
     <div id="listings">
 
-  <!-- Top nav bar (fixed) -->
-  <nav>
-    <div class="topnav">
+      <!-- Top nav bar (fixed) -->
+      <nav>
+        <div class="topnav">
 
-      <div class = 'logo'>
-      <div><i class="fas fa-paw"></i></div>
-      <div class="mainpg_title">petslist</div>
-    </div>
-    <!--Desktop nav-->
-    <div class="page_links">
-      <div class = 'marketplace'>
-        <a href="/">marketplace</a>
-      </div>
-      <div class = 'post'>
-        <a href="/users/post">new listing</a>
-      </div>
-      <div class = 'mylistings'>
-       <a href="/users/profile">my listings</a>
-      </div>
-      <div class = 'myfavourites' >
-       <a href="/users/favourites">my favourites</a>
-      </div>
-      <div class = 'mymessages' >
-       <a href="/users/inbox">my messages</a>
-      </div>
-    </div>
-
-
-    <div class = 'usernav'>
-      <div class = 'login'>
-        <a href='/login'>Login</a>
-      </div>
-      <div class = "user">Welcome Guest</div>
-
-    </div>
-    </div>
-    </div>
-  </nav>
-
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="header">
-
-      <div class="header-container">
-
-        <!-- search field -->
-        <div id="search_bar">
-          <div class="form-outline">
-            <input id="search_input" type="search" id="search_form" class="form-control" placeholder="Search listings" />
+          <div class = 'logo'>
+            <div><i class="fas fa-paw"></i></div>
+            <div class="mainpg_title">petslist</div>
           </div>
-          <button id="search-button" type="button" class="btn btn-outline-secondary">
-            <i class="fas fa-search"></i>
-          </button>
+
+          <!--Desktop nav-->
+          <div class="page_links">
+            <div class = 'marketplace'>
+              <a href="/">marketplace</a>
+            </div>
+            <div class = 'post'>
+              <a href="/users/post">new listing</a>
+            </div>
+            <div class = 'mylistings'>
+            <a href="/users/profile">my listings</a>
+            </div>
+            <div class = 'myfavourites' >
+            <a href="/users/favourites">my favourites</a>
+            </div>
+            <div class = 'mymessages' >
+            <a href="/users/inbox">my messages</a>
+            </div>
+          </div>
+
+
+          <div class = 'usernav'>
+            <div class = 'login'> </div>
+            <div class = "user"> </div>
+          </div>
         </div>
-         </br>
-      </div>
-    </section>
+      </nav>
 
-    <hr/>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="header">
 
-    <section class="featured">
-      <div class="featured_listings_title">
+          <div class="header-container">
 
-      </div>
+            <!-- search field -->
+            <div id="search_bar">
+              <div class="form-outline">
+                <input id="search_input" type="search" id="search_form" class="form-control" placeholder="Search listings" />
+              </div>
+              <button id="search_button" type="button" class="btn btn-outline-secondary">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            </br>
+          </div>
+        </section>
 
+        <hr/>
 
-      <div class="all_featured_products">
-        <!-- featured products here -->
-      </div>
-    </section>
+        <section class="featured">
+          <div class="featured_listings_title"></div>
+          <div class="all_featured_products">
+            <!-- featured products here -->
+          </div>
+        </section>
 
-    <hr/>
+        <hr/>
 
-    <section class="main_feed">
-      <div class="main_feed_title"><h4>Showing all products 🐶</h4></div>
+        <section class="main_feed">
+          <div class="main_feed_title"><h4>Showing all products 🐶</h4></div>
+          <div class="filter_by_price">
+            <div class="btn-group">
+              <button class="btn btn-secondary btn-sm" id="filter_by_price" type="button" >
+                Sort by lowest to highest
+              </button>
+            </div>
+          </div>
 
-      <div class="filter_by_price">
-        <div class="btn-group">
-          <button class="btn btn-secondary btn-sm" id="filter_by_price" type="button" >
-            Sort by lowest to highest
-          </button>
-        </div>
-      </div>
+          <div class="all_products">
+            <!-- all products here -->
+          </div>
+          </section>
+      </main>
 
-      <div class="all_products">
-        <!-- all products here -->
-      </div>
-      </section>
-  </main>
+      <footer>
+        <section class="navbar">
+          <div class="mobile_navbar navbar_button">
+            <a href="/"><i class="fas fa-th-large"></i></a>
+            <a href="/users/profile" class="active"><i class="far fa-user"></i></a>
+            <a href="/users/post"><i class="far fa-edit"></i></a>
+            <a href="/users/favourites"><i class="fas fa-heart"></i></a>
+            <a href="/users/inbox"><i class="far fa-comments"></i></a>
+          </div>
+        </section>
+      </footer>
 
-
-  <footer>
-  <section class="navbar">
-
-    <div class="mobile_navbar navbar_button">
-      <a href="/"><i class="fas fa-th-large"></i></a>
-      <a href="/users/profile" class="active"><i class="far fa-user"></i></a>
-      <a href="/users/post"><i class="far fa-edit"></i></a>
-      <a href="/users/favourites"><i class="fas fa-heart"></i></a>
-      <a href="/users/inbox"><i class="far fa-comments"></i></a>
     </div>
-  </section>
-  </footer>
-
-
-</body>
-
+  </body>
 </html>
