@@ -6,21 +6,12 @@ $(() => {
   $.get("/en/listing", function(data, status){
     $("featured_listings_title").empty();
     $("featured_listings_title").append(`<h4>Featured products nearby 📍</h4>`);
-    $('.user').empty();
-    // $('.login').empty();
-    // const username = `Welcome ${data.name}`;
-    // const logoutBtn = `<a href="/logout">logout</a>`
-    // //randomizing the data array - random function
-    // if(data.id === Number){
-    //   // $('.user').append(`Welcome Guest`);
-    //   // $('.login').append(loginbtn);
-    //   $('.user').empty();
-    //   $('.login').empty();
-    //   $('.user').append(username);
-    //   $('.login').append(logoutBtn);
-    // }
-
-    const random = () => {return Math.floor(Math.random() * 4) + 1 ;}
+    //random fn declaration
+    const random = () => {
+      const num =  Math.floor(Math.random() * 4) + 1 ;
+      return num ;
+    }
+    console.log(random());
     for(let i=0; i<3; i++){
       $(".featured").append(listing(data[random()]));
     }
@@ -28,22 +19,18 @@ $(() => {
     for(list of data){
       $(".all_products").append(listing(list));
     }
-
   });
 //another route just to grab the username to show to the page
   $.get('en/listings/username', function(data) {
 
-    if(data.id === Number){
-      // $('.user').append(`Welcome Guest`);
-      // $('.login').append(loginbtn);
+    const username = `Welcome ${data.name}`;
+    const logoutBtn = `<a href="/logout">logout</a>`
+    if(data.id){
       $('.user').empty();
       $('.login').empty();
       $('.user').append(username);
       $('.login').append(logoutBtn);
     }
-    // const username = `Welcome ${data.name}`;
-    // const logoutBtn = `<a href="/logout">logout</a>`
-    // const loginbtn = `<a href="/login">login</a>`
 
     // $('.user').empty();
     // $('.login').empty();

@@ -37,7 +37,6 @@ $(() => {
   });
 });
 
-
 // modal function
 const openModal = function() {
   document.getElementById("backdrop").style.display = "block";
@@ -51,7 +50,6 @@ const closeModal = function () {
 };
 
 // template for listing page
-
 const createListing = (listing) => {
   return $(`
   <h1 class="title">${listing.name}</h1>

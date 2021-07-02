@@ -14,11 +14,7 @@ $(() => {
         $(location).attr('href', 'http://localhost:8080/users/inbox');
       }
       )
-
     });
-
-
-
 })
 
 const renderMessages = (messages) => {
@@ -26,7 +22,6 @@ const renderMessages = (messages) => {
   for (let message of messages) {
     $container.append(creatMessage(message));
   }
-
 }
 
 const creatMessage = (message) => {
