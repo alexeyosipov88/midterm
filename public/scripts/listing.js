@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
 $(() => {
   // get current url
   const currentUrl = window.location.href;
@@ -16,40 +18,27 @@ $(() => {
       } else {
         $('#seller-buttons').hide();
       }
-
-    $('.container').prepend(creatListing(listing));
-
-    if (seller) {
-      $('#user-buttons').hide();
-    } else {
-      $('#seller-buttons').hide();
-    }
-  }
-  )
-
-
+    });
 
   $('body').on('click', '#seller-delete', function(e) {
     const listing_id = e.target.value;
     $.post(`/users/profile/delete/${listing_id}`)
-      .then((listings) => {
+      .then(() => {
         $(location).attr('href', 'http://localhost:8080/');
-      }
-      );
-
+      });
   });
 
   $('body').on('click', '#user-favourite', function(e) {
     const listing_id = e.target.value;
     $.post(`/users/profile/favourite/${listing_id}`)
-      .then((listings) => {
+      .then(() => {
         $(location).attr('href', 'http://localhost:8080/users/favourites');
-      }
-      );
-
+      });
   });
 });
 
+
+// modal function
 const openModal = function() {
   document.getElementById("backdrop").style.display = "block";
   document.getElementById("messageModal").style.display = "block";
@@ -143,49 +132,5 @@ const createListing = (listing) => {
 
 
   </section>
-
-
-
   `);
 };
-
-
-//  const createListing = (listing) => {
-//   return $(`
-//   <section class="listing_body">
-
-//   <h1 class="title">${listing.name}</h1>
-
-//   <div class="listing_details">
-//     <img src="${listing.photo}" class="img-fluid" alt="Responsive image">
-
-
-//     <h4>
-//     ${(listing.price/100).toLocaleString("en-US", {style:"currency", currency:"USD"})}
-//     </h4>
-//     <h4>
-//     ${listing.animal_name} / ${listing.category_name}
-//     </h4>
-
-
-// <h5>Details</h4>
-//   ${listing.description}
-// </section>
-
-// <!-- seller buttons -->
-// <div id='seller-buttons' class="listing_buttons">
-//   <button type="button" class="btn btn-danger" value='${listing.id}''>Delete</button> &nbsp; &nbsp;
-//   <button type="button" class="btn btn-primary" value ='${listing.id}'>Edit post</button>
-// </div>
-
-
-// <!-- user buttons -->
-// <div id='user-buttons' class="listing_buttons">
-//   <button type="button" class="btn btn-danger" value='${listing.id}'>Favourite listing ❤️</button> &nbsp; &nbsp;
-//   <button type="button" class="btn btn-primary" value='${listing.id}'>Message seller</button>
-// </div>
-
-//   `);
-
-// }
-
