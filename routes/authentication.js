@@ -53,12 +53,13 @@ module.exports = (db) =>  {
     getUser(db,user)
     .then((user)=>{
       //check if it has some value
-      if(user.rows[0])
+      console.log(user.rows[0]);
+      if(!user.rows[0])
       {
-        return res.send("credentials do not match");
+        return res.send("credentials do not match, please try again");
       }
 
-      if(user.rows[0].email !== req.body.email || user.rows[0].password !== req.body.password)
+      if(req.body.email !== user.rows[0].email || req.body.password !== user.rows[0].password)
       {
         return res.send("credentials do not match");
       }
