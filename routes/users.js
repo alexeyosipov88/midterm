@@ -125,10 +125,11 @@ module.exports = (db) => {
     VALUES (now(), $1, $2, $3, $5)
     RETURNING *;`, [req.body.content, req.session['user_id'], req.params.id, req.body.listing_id]).then((result) => {
       const message = result.rows;
-      res.json(messages);
+      res.json(message);
     });
 
   })
+
 
   router.post('/inbox/messages/delete/:id', (req, res) => {
     const message_id = req.params.id;
