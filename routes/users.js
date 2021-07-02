@@ -115,6 +115,7 @@ module.exports = (db) => {
   })
 
   router.post('/message/:id', (req, res) => {
+
     db.query(`INSERT INTO messages (created_at, content, sender_id, receiver_id, listing_id)
     VALUES (now(), $1, $2, $3, $5)
     RETURNING *;`, [req.body.content, req.session['user_id'], req.params.id, req.body.listing_id]).then((result) => {
