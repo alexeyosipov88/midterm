@@ -110,5 +110,23 @@ module.exports = (db) => {
       });
   });
 
+  router.post('/edit/listing', (req,res) => {
+    console.log(req.body)
+    const name = req.body.name;
+    const price = req.body.price;
+    const description = req.body.description;
+    const photo = req.body.photo;
+    const animal_id = req.body.animal_id;
+    const category_id = req.body.category_id;
+    const listing_id = req.body.id;
+    db.query(`UPDATE listings
+    SET name = $1, price = $2, description = $3, photo = $4,  animal_id = $5, category_id = $6
+    WHERE id = $7
+    RETURNING *;`, [name, price, description, photo, animal_id, category_id, listing_id])
+      .then((result) => {
+        res.redirect('/');
+      });
+  });
+
   return router;
 };

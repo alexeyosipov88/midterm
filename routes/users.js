@@ -88,16 +88,13 @@ module.exports = (db) => {
     RETURNING *;`, [listing.name, listing.price, listing.description, listing.photo, listing.animal_id, listing.category_id, req.session["user_id"]]).then((result) => {
       res.send(result);
     });
-
     res.redirect("/");
-  })
-
+  });
 
   router.get('/inbox', (req, res) => {
     res.sendFile('./inbox.html', {root:'./public'});
 
-  })
-
+  });
 
   //WILL BE CHANGED FOR COOKIE ID LATER
 
