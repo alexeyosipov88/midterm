@@ -43,6 +43,7 @@ $(() => {
         $(location).attr('href', `http://localhost:8080/en/edit/${listing_id}`);
       });
   });
+
 });
 
 // modal function
@@ -58,7 +59,6 @@ const closeModal = function () {
 };
 
 // template for listing page
-
 const createListing = (listing) => {
   return $(`
   <h1 class="title">${listing.name}</h1>
@@ -124,7 +124,7 @@ const createListing = (listing) => {
          </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
-           <button type="button" class="btn btn-primary">Send message</button>
+           <button type="button" class="btn btn-primary" id="send_msg">Send message</button>
          </div>
        </div>
      </div>
