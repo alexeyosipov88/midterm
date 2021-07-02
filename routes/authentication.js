@@ -33,7 +33,6 @@ module.exports = (db) =>  {
      return res.redirect("./login");
       }
     });
-    const rightUser = user;
     //add user if userid do not exists in our database
     addUser(db, user).then((user) => {
 

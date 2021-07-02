@@ -24,7 +24,6 @@ module.exports = (db) => {
   });
 
   router.get('/post', (req,res)=>{
-    console.log(req.session);
     res.sendFile( 'create_listing.html', {root: './public'});
   })
 
@@ -87,7 +86,6 @@ module.exports = (db) => {
     db.query(`INSERT INTO listings (name, price, description, photo, animal_id, category_id, user_id, created_at)
     VALUES ($1, $2, $3, $4, $5, $6, $7, now())
     RETURNING *;`, [listing.name, listing.price, listing.description, listing.photo, listing.animal_id, listing.category_id, req.session["user_id"]]).then((result) => {
-      console.log(result);
       res.send(result);
     });
 

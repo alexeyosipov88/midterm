@@ -17,12 +17,7 @@ $(() => {
       $(location).attr('href', 'http://localhost:8080/users/favourites');
     }
     )
-
   });
-
-
-
-
  })
 
  const renderFavourites = (listings) => {
