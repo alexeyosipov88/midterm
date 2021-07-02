@@ -421,7 +421,8 @@ nav {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid #303030;
+    // border: 1px solid #303030;
+    border-radius: 10%;
     padding: 1em;
   }
 
@@ -455,7 +456,7 @@ nav {
   }
 
   // hover animation for clickable links
-  .page_links a {
+  nav a {
     width: auto;
     padding-right: 0px;
     position: relative;
@@ -464,11 +465,11 @@ nav {
     cursor: pointer;
   }
 
-  .page_links a:hover {
+  nav a:hover {
     color: #81B29A;
   }
 
-  a:before {
+  nav a:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -483,7 +484,7 @@ nav {
     transition: all 0.3s ease-in-out 0s;
   }
 
-  .page_links a:hover:before {
+  nav a:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
