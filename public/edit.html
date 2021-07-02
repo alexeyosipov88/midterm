@@ -24,11 +24,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- App JS -->
-    <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
-    <!-- <script src="/scripts/composer-char-counter.js"></script> -->
+    <script type="text/javascript" src="/scripts/edit.js"></script>
 
 
   </head>
+
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <div class="topnav">
+
+      <div class = 'logo'>
+        <div><i class="fas fa-paw"></i></div>
+        <div class="mainpg_title">petslist</div>
+      </div>
+
+      <!--Desktop nav-->
+      <div class="page_links">
+        <div class = 'marketplace'>
+          <a href="/">marketplace</a>
+        </div>
+        <div class = 'post'>
+          <a href="/users/post">new listing</a>
+        </div>
+        <div class = 'mylistings'>
+        <a href="/users/profile">my listings</a>
+        </div>
+        <div class = 'myfavourites' >
+        <a href="/users/favourites">my favourites</a>
+        </div>
+        <div class = 'mymessages' >
+        <a href="/users/inbox">my messages</a>
+        </div>
+      </div>
+
+
+      <div class = 'usernav'>
+        <div class = 'login'> </div>
+        <div class = "user"> </div>
+      </div>
+    </div>
+  </nav>
 
   <div class="topnav">
     <h3 class="title">Edit your listing</h3>
@@ -40,86 +75,59 @@
 
     <section class="listing_body">
 
+    <form action="/users/post" method="POST" id="form">
 
-      <form action="/users/post" method="POST" id="form">
-
-        <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
-        <div class="col-sm-10">
-          <input required name='name' type="text" class="form-control" id="titleofitem">
-        </div>
-
-
-        <label for="titleofitem" class="col-sm-2 col-form-label">Price</label>
-        <div class="col-sm-10">
-          <input required name='price' type="text" class="form-control" id="titleofitem">
-        </div>
-
-        Category
-        <select required name ='category_id' class="form-select" aria-label="Default select example">
-          <option selected>Choose a category</option>
-          <option value="1">Food</option>
-          <option value="2">Toys</option>
-          <option value="3">Supplies</option>
-        </select>
-
-        Pet
-        <select required name='animal_id' class="form-select" aria-label="Default select example">
-          <option selected>Choose a category</option>
-          <option value="1">Cat</option>
-          <option value="2">Dog</option>
-          <option value="3">Fish</option>
-          <option value="4">Reptile</option>
-          <option value="5">Small pet</option>
-        </select>
-
-        <!-- photo upload field -->
-        <label for="photo" class="col-sm-2 col-form-label">Photo</label>
-        <input name='photo' type="text" class="form-control" id="photo">
-
-        <label for="priceofitem" class="col-sm-2 col-form-label">Price</label>
-        <div class="col-sm-10">
-          <input name='price' type="text" class="form-control" id="priceofitem">
-        </div>
-
-        Category
-        <select name ='category_id' class="form-select" >
-          <option selected>Choose a category</option>
-          <option value="1">Food</option>
-          <option value="2">Toys</option>
-          <option value="3">Supplies</option>
-        </select>
-
-        Pet
-        <select  name='animal_id' class="form-select" required>
-          <option selected>Choose a category</option>
-          <option value="1">Cat</option>
-          <option value="2">Dog</option>
-          <option value="3">Fish</option>
-          <option value="4">Reptile</option>
-          <option value="5">Small pet</option>
-        </select>
-
-
-        <label for="photo" class="col-sm-2 col-form-label">Photo</label>
-        <input required name='photo' type="text" class="form-control" id="photo">
-
-        <div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-            <textarea name='description' class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+          <label for="titleofitem" class="col-sm-2 col-form-label">Title</label>
+          <div class="col-sm-10">
+            <input required name='name' type="text" class="form-control" id="itemTitle">
           </div>
 
-        </div>
 
-        <div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <label for="price" class="col-sm-2 col-form-label">Price</label>
+          <div class="col-sm-10">
+            <input required name='price' type="text" class="form-control" id="itemPrice">
+          </div>
 
-          <button type="submit" class="btn btn-outline-danger">Cancel</button>
+          Category
+          <select required name ='category_id' id="itemCategory"class="form-select" aria-label="Default select example">
+            <option selected>Choose a category</option>
+            <option value="Food">Food</option>
+            <option value="Toys">Toys</option>
+            <option value="Supplies">Supplies</option>
+          </select>
 
-        </div>
+          Pet
+          <select required name='animal_id' id="itemPet"class="form-select" aria-label="Default select example">
+            <option selected>Choose a category</option>
+            <option value="Cats">Cats</option>
+            <option value="Dogs">Dogs</option>
+            <option value="Fish">Fish</option>
+            <option value="Reptile">Reptile</option>
+            <option value="SmallPet">Small pet</option>
+          </select>
 
-    </form>
+          <!-- photo upload field -->
+
+          <label for="photo" class="col-sm-2 col-form-label">Photo</label>
+          <input required name='photo' type="text" class="form-control" id="itemPhoto">
+
+          <div>
+
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+              <textarea name='description' class="form-control" id="itemDescription" rows="5" required></textarea>
+            </div>
+
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <button type="submit" class="btn btn-outline-danger">Cancel</button>
+
+          </div>
+
+      </form>
     </section>
 
 

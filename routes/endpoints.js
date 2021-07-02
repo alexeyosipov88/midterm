@@ -56,12 +56,17 @@ module.exports = (db) => {
 
   // get request after user click on the image link of individual item
   router.get('/listings/:id', (req, res) => {
-    res.sendFile('./listing.html', {root:'./public'});;
+    res.sendFile('./listing.html', {root:'./public'});
+  });
 
+  // get request to edit page with listing id
+  router.get('/edit/:id', (req, res) => {
+    res.sendFile('./edit.html', {root:'./public'});
   });
 
  // get request to fetch json from db to give it to lisiting/:id
   router.get('/item/:id', (req, res) => {
+    console.log(req.params)
     db.query(`SELECT listings.*, animals.name as animal_name, categories.name as category_name
     FROM listings
     JOIN animals ON listings.animal_id = animals.id
@@ -75,8 +80,7 @@ module.exports = (db) => {
           item.seller = false;
         }
           res.json(item);
-      })
-
+      });
   });
 
 
