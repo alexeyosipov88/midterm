@@ -49,7 +49,7 @@ $(() => {
     console.log(listing_id);
     const msg =$('#messageToSeller').val();
     console.log(msg);
-    $.post("/user/message",
+    $.post("/users/message",
       {
         msg
       },
@@ -130,11 +130,11 @@ const createListing = (listing) => {
              <span aria-hidden="true">×</span>
            </button>
          </div>
+         <form action="/users/message" method="POST">
          <div class="modal-body">
           What would you like to say to the seller?
            <div class="md-form">
              <i class="fas fa-pencil prefix grey-text"></i>
-             <form action="/message" method="POST">
              <textarea type="text" id="messageToSeller" class="md-textarea form-control" rows="4" placeholder="Enter your message here."></textarea>
              <!-- <label data-error="wrong" data-success="right" for="form8">Please enter a message.</label> -->
            </div>
@@ -142,7 +142,7 @@ const createListing = (listing) => {
          </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
-           <button type="button" class="btn btn-primary" id="send_msg">Send message</button>
+           <button type="submit" class="btn btn-primary" id="send_msg">Send message</button>
          </div>
        </div>
      </div>
