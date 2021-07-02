@@ -114,8 +114,9 @@ module.exports = (db) => {
 
   })
 
-  router.post('/search', (req, res) => {
-    req
+  router.post('/message', (req, res) => {
+    console.log(req.params);
+
     db.query(`INSERT INTO messages (created_at, content, receiver_id, sender_id, listing_id)
     VALUES ($1, $2)
     RETURNING *;`, [req.session["user_id"], listing_id]).then((result) => {
@@ -124,10 +125,6 @@ module.exports = (db) => {
     });
 
   })
-
-
-
-
 
   router.post('/inbox/messages/delete/:id', (req, res) => {
     const message_id = req.params.id;
